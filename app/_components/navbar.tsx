@@ -1,21 +1,22 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "./theme-toggle"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "./theme-toggle";
 
 const links = [
+  { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
   { href: "/career", label: "Career" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
-]
+];
 
 export function Navbar() {
-  const pathname = usePathname()
+  const pathname = usePathname();
   return (
     <div className="container mx-auto px-4 md:px-6 h-14 flex items-center">
       <Link href="/" className="flex items-center gap-2">
@@ -31,7 +32,9 @@ export function Navbar() {
             href={l.href}
             className={cn(
               "text-sm hover:underline underline-offset-4 transition-colors",
-              pathname.startsWith(l.href) ? "text-foreground" : "text-muted-foreground",
+              pathname.startsWith(l.href)
+                ? "text-foreground"
+                : "text-muted-foreground"
             )}
           >
             {l.label}
@@ -48,5 +51,5 @@ export function Navbar() {
         </Button>
       </div>
     </div>
-  )
+  );
 }

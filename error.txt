@@ -1,0 +1,129 @@
+Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+See more info here: https://nextjs.org/docs/messages/react-hydration-error
+
+
+  ...
+    <HTTPAccessFallbackBoundary notFound={[...]} forbidden={undefined} unauthorized={undefined}>
+      <HTTPAccessFallbackErrorBoundary pathname="/" notFound={[...]} forbidden={undefined} unauthorized={undefined} ...>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/" tree={[...]} cacheNode={{lazyData:null, ...}} segmentPath={[...]}>
+              <ClientPageRoot Component={function HomePage} searchParams={{}} params={{}}>
+                <HomePage params={Promise} searchParams={Promise}>
+                  <div>
+                    <section className="relative m...">
+                      <div className="absolute i...">
+                        <img>
+                        <ImagePreload>
+                        <div>
+                        <motion.div>
+                        <div className="absolute i...">
+                          <motion.div className="absolute w..." style={{left:"49.9...", ...}} animate={{y:[...], ...}} ...>
+                            <div
+                              className="absolute w-2 h-2 bg-white/20 rounded-full"
+                              style={{
++                               left: "49.95286534696049%"
+-                               left: "17.5016%"
++                               top: "65.04067939871867%"
+-                               top: "40.4849%"
+                              }}
+                              ref={function}
+                            >
+                          <motion.div className="absolute w..." style={{left:"65.4...", ...}} animate={{y:[...], ...}} ...>
+                            <div
+                              className="absolute w-2 h-2 bg-white/20 rounded-full"
+                              style={{
++                               left: "65.42677303380906%"
+-                               left: "60.6398%"
++                               top: "97.95853523129004%"
+-                               top: "85.9514%"
+                              }}
+                              ref={function}
+                            >
+                          <motion.div className="absolute w..." style={{left:"17.6...", ...}} animate={{y:[...], ...}} ...>
+                            <div
+                              className="absolute w-2 h-2 bg-white/20 rounded-full"
+                              style={{
++                               left: "17.609612878811078%"
+-                               left: "53.1907%"
++                               top: "97.30911943811972%"
+-                               top: "95.6808%"
+                              }}
+                              ref={function}
+                            >
+                          <motion.div className="absolute w..." style={{left:"89.7...", ...}} animate={{y:[...], ...}} ...>
+                            <div
+                              className="absolute w-2 h-2 bg-white/20 rounded-full"
+                              style={{
++                               left: "89.77724439067121%"
+-                               left: "43.1845%"
++                               top: "85.49317638599533%"
+-                               top: "70.293%"
+                              }}
+                              ref={function}
+                            >
+                          <motion.div className="absolute w..." style={{left:"5.51...", ...}} animate={{y:[...], ...}} ...>
+                            <div
+                              className="absolute w-2 h-2 bg-white/20 rounded-full"
+                              style={{
++                               left: "5.514597400772681%"
+-                               left: "23.6323%"
++                               top: "25.912074219572258%"
+-                               top: "33.1227%"
+                              }}
+                              ref={function}
+                            >
+                          <motion.div className="absolute w..." style={{left:"63.7...", ...}} animate={{y:[...], ...}} ...>
+                            <div
+                              className="absolute w-2 h-2 bg-white/20 rounded-full"
+                              style={{
++                               left: "63.790200086554485%"
+-                               left: "78.8669%"
++                               top: "89.05524304229672%"
+-                               top: "7.54961%"
+                              }}
+                              ref={function}
+                            >
+                      ...
+                    ...
+              ...
+app\(site)\page.tsx (78:15) @ eval
+
+
+  76 |           <div className="absolute inset-0">
+  77 |             {[...Array(6)].map((_, i) => (
+> 78 |               <motion.div
+     |               ^
+  79 |                 key={i}
+  80 |                 className="absolute w-2 h-2 bg-white/20 rounded-full"
+  81 |                 style={{
+Call Stack
+22
+
+Show 18 ignore-listed frame(s)
+div
+<anonymous> (0:0)
+eval
+app\(site)\page.tsx (78:15)
+Array.map
+<anonymous> (0:0)
+
+app\(site)\page.tsx (78:15) @ eval
+
+
+  76 |           <div className="absolute inset-0">
+  77 |             {[...Array(6)].map((_, i) => (
+> 78 |               <motion.div
+     |               ^
+  79 |                 key={i}
+  80 |                 className="absolute w-2 h-2 bg-white/20 rounded-full"
+  81 |                 style={{

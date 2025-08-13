@@ -1,20 +1,28 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Card, CardHeader, CardTitle } from "@/components/ui/card"
-import { WorldMap } from "@/app/_components/world-map"
-import { Linkedin } from "lucide-react"
-import Link from "next/link"
-import { motion } from "framer-motion"
+import Image from "next/image";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { WorldMap } from "@/app/_components/world-map";
+import { Linkedin } from "lucide-react";
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function AboutPage() {
   return (
-    <div>
+    <div className="container mx-auto">
       <section className="container px-4 md:px-6 py-12 md:py-16">
-        <h1 className="text-3xl md:text-5xl font-extrabold">{"The Global Crew You’ve Been Searching For"}</h1>
+        <h1 className="text-3xl md:text-5xl font-extrabold">
+          {"The Global Crew You’ve Been Searching For"}
+        </h1>
         <p className="mt-3 max-w-2xl text-muted-foreground">
-          We build resilient teams across time zones—aligned to your KPIs, embedded in your culture.
+          We build resilient teams across time zones—aligned to your KPIs,
+          embedded in your culture.
         </p>
       </section>
 
@@ -23,15 +31,21 @@ export default function AboutPage() {
         <Accordion type="multiple" className="bg-card rounded-md border">
           <AccordionItem value="fearless">
             <AccordionTrigger>Fearless Commitment</AccordionTrigger>
-            <AccordionContent>We do hard things—consistently, transparently, and with grit.</AccordionContent>
+            <AccordionContent>
+              We do hard things—consistently, transparently, and with grit.
+            </AccordionContent>
           </AccordionItem>
           <AccordionItem value="innovation">
             <AccordionTrigger>Relentless Innovation</AccordionTrigger>
-            <AccordionContent>We automate, optimize, and continuously improve.</AccordionContent>
+            <AccordionContent>
+              We automate, optimize, and continuously improve.
+            </AccordionContent>
           </AccordionItem>
           <AccordionItem value="excellence">
             <AccordionTrigger>Service Excellence</AccordionTrigger>
-            <AccordionContent>We deliver measurable outcomes and memorable experiences.</AccordionContent>
+            <AccordionContent>
+              We deliver measurable outcomes and memorable experiences.
+            </AccordionContent>
           </AccordionItem>
         </Accordion>
       </section>
@@ -42,7 +56,8 @@ export default function AboutPage() {
           <div>
             <h3 className="text-2xl font-bold">Global Reach</h3>
             <p className="text-muted-foreground mt-2">
-              We operate from multiple regions to provide true follow-the-sun support.
+              We operate from multiple regions to provide true follow-the-sun
+              support.
             </p>
           </div>
         </div>
@@ -78,10 +93,22 @@ export default function AboutPage() {
         <div className="relative pl-6">
           <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo-600 to-indigo-300 rounded-full" />
           {[
-            { year: "2018", text: "Founded with a mission to scale support for modern brands." },
-            { year: "2020", text: "Expanded finance and back-office practices." },
-            { year: "2023", text: "Global delivery hubs launched across two continents." },
-            { year: "2025", text: "AI-first micro-automation suite introduced." },
+            {
+              year: "2018",
+              text: "Founded with a mission to scale support for modern brands.",
+            },
+            {
+              year: "2020",
+              text: "Expanded finance and back-office practices.",
+            },
+            {
+              year: "2023",
+              text: "Global delivery hubs launched across two continents.",
+            },
+            {
+              year: "2025",
+              text: "AI-first micro-automation suite introduced.",
+            },
           ].map((item, idx) => (
             <motion.div
               key={item.year}
@@ -103,5 +130,5 @@ export default function AboutPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

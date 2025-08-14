@@ -1,1 +1,16 @@
-hey there
+ * --primary & --primary-foreground: The main   
+      interactive color (like links) and the      
+     text color that goes on top of it.
+   * --secondary & --secondary-foreground: Used   
+      for less prominent elements that still      
+     need to stand out.
+   * --accent & --accent-foreground: For
+     elements that need to draw attention.        
+   * --muted & --muted-foreground: For subtle     
+     text and backgrounds.
+   * --background & --foreground: The main        
+     background and text colors for the entire    
+     site.
+   * --card & --card-foreground: The background   
+      and text colors for card-like containers.   
+   * --border: The color used for borders.        

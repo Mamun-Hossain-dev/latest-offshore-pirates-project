@@ -2,7 +2,10 @@ export default function Head() {
   return (
     <>
       <title>Contact · Offshore Pirates</title>
-      <meta name="description" content="Get in touch for a consultation." />
+      <meta
+        name="description"
+        content="Get in touch for a consultation with our offshore experts. Transform your business operations with our proven solutions."
+      />
     </>
-  )
+  );
 }

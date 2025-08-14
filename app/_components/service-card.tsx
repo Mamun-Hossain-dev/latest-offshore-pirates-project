@@ -114,9 +114,11 @@ export function ServiceCard({
 
           {/* Hover Overlay */}
           <div className="absolute inset-0 bg-indigo-600/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <Button variant="secondary" size="sm">
-              <ArrowRight className="size-4 mr-2" />
-              Learn More
+            <Button asChild variant="secondary" size="sm">
+              <Link href={`/services/${service.id}`}>
+                <ArrowRight className="size-4 mr-2" />
+                Learn More
+              </Link>
             </Button>
           </div>
         </div>

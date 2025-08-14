@@ -1,13 +1,21 @@
-import Link from "next/link"
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook, ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import Link from "next/link";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Twitter,
+  Facebook,
+  ArrowRight,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export function Footer() {
   return (
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-indigo-900 text-white">
       {/* Main Footer Content */}
-      <div className="container px-4 md:px-6 py-16">
+      <div className="container mx-auto px-4 md:px-6 py-16">
         <div className="grid gap-12 lg:grid-cols-4 md:grid-cols-2">
           {/* Company Info */}
           <div className="lg:col-span-1">
@@ -18,8 +26,9 @@ export function Footer() {
               <span className="font-bold text-xl">Offshore Pirates</span>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              The global crew you've been searching for. We deliver fearless voices and relentless results across
-              customer support, finance, and operations.
+              The global crew you've been searching for. We deliver fearless
+              voices and relentless results across customer support, finance,
+              and operations.
             </p>
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-gray-300">
@@ -89,9 +98,12 @@ export function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h3 className="font-semibold text-lg mb-4 text-white">Stay Updated</h3>
+            <h3 className="font-semibold text-lg mb-4 text-white">
+              Stay Updated
+            </h3>
             <p className="text-gray-300 text-sm mb-4">
-              Get the latest insights on scaling operations and industry best practices.
+              Get the latest insights on scaling operations and industry best
+              practices.
             </p>
             <div className="space-y-3">
               <div className="flex gap-2">
@@ -104,7 +116,9 @@ export function Footer() {
                   <ArrowRight className="size-4" />
                 </Button>
               </div>
-              <p className="text-xs text-gray-400">No spam. Unsubscribe anytime.</p>
+              <p className="text-xs text-gray-400">
+                No spam. Unsubscribe anytime.
+              </p>
             </div>
 
             {/* Social Links */}
@@ -136,16 +150,26 @@ export function Footer() {
         <div className="container px-4 md:px-6 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-sm text-gray-400">
-              © {new Date().getFullYear()} Offshore Pirates. All rights reserved.
+              © {new Date().getFullYear()} Offshore Pirates. All rights
+              reserved.
             </div>
             <div className="flex items-center gap-6 text-sm text-gray-400">
-              <Link href="#" className="hover:text-indigo-400 transition-colors">
+              <Link
+                href="#"
+                className="hover:text-indigo-400 transition-colors"
+              >
                 Privacy Policy
               </Link>
-              <Link href="#" className="hover:text-indigo-400 transition-colors">
+              <Link
+                href="#"
+                className="hover:text-indigo-400 transition-colors"
+              >
                 Terms of Service
               </Link>
-              <Link href="#" className="hover:text-indigo-400 transition-colors">
+              <Link
+                href="#"
+                className="hover:text-indigo-400 transition-colors"
+              >
                 Cookie Policy
               </Link>
             </div>
@@ -153,5 +177,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

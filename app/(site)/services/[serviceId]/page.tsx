@@ -1,86 +1,141 @@
-import { notFound } from "next/navigation"
-import { fetchServiceById } from "@/app/_lib/services"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { fetchServiceById, fetchServices } from "@/app/_lib/services";
+import { notFound } from "next/navigation";
+import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
+import { CheckCircle2 } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { ServiceCard } from "@/app/_components/service-card";
 
-export default async function ServiceDetailPage({ params }: { params: { serviceId: string } }) {
-  const service = await fetchServiceById(params.serviceId).catch(() => null)
-  if (!service) return notFound()
+export default async function ServicePage({
+  params,
+}: {
+  params: { serviceId: string };
+}) {
+  const service = await fetchServiceById(params.serviceId).catch(() => {
+    notFound();
+  });
+
+  const relatedServices = await fetchServices({
+    category: service.category,
+    limit: 4,
+  });
+
+  const imageUrl = `/service-${service.id}.jpg`;
 
   return (
     <div>
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-700 via-indigo-500 to-blue-400" />
-        <div className="container px-4 md:px-6 py-16 md:py-24 text-white">
-          <div className="flex items-center gap-3">
-            <span className="inline-flex size-10 items-center justify-center rounded-md bg-white/10">
-              {service.icon}
-            </span>
-            <h1 className="text-3xl md:text-5xl font-extrabold">{service.title}</h1>
-          </div>
-          <p className="mt-3 max-w-2xl text-white/90">{service.shortDesc}</p>
-          <div className="mt-6">
-            <Button asChild variant="secondary">
-              <Link href="/contact">Book Consultation</Link>
-            </Button>
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0">
+          <Image
+            src={imageUrl}
+            alt={service.title}
+            width={1920}
+            height={600}
+            className="w-full h-full object-cover opacity-30"
+            priority
+          />
+        </div>
+        <div className="container mx-auto px-4 md:px-6 py-20 md:py-28 relative z-10">
+          <div className="max-w-4xl">
+            <Badge className="bg-white/10 text-white border-white/20 mb-4">
+              {service.category}
+            </Badge>
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-4">
+              {service.title}
+            </h1>
+            <p className="text-xl md:text-2xl text-white/80">
+              {service.shortDesc}
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="container px-4 md:px-6 py-10 md:py-14 grid gap-8 lg:grid-cols-3">
-        <Card className="lg:col-span-2">
-          <CardHeader>
-            <CardTitle>Why this matters</CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-6 md:grid-cols-2">
-            <div>
-              <h3 className="font-semibold">Client Problem</h3>
-              <p className="text-muted-foreground">{service.problem}</p>
+      <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
+        <div className="grid lg:grid-cols-3 gap-12">
+          <div className="lg:col-span-2">
+            {/* Problem & Solution */}
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <Card>
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold mb-2">The Problem</h3>
+                  <p className="text-muted-foreground">{service.problem}</p>
+                </CardContent>
+              </Card>
+              <Card className="border-indigo-500/50 bg-indigo-500/10">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold mb-2">Our Solution</h3>
+                  <p className="text-foreground">{service.solution}</p>
+                </CardContent>
+              </Card>
             </div>
-            <div>
-              <h3 className="font-semibold">Our Solution</h3>
-              <p className="text-muted-foreground">{service.solution}</p>
-            </div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>Impact</CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-3">
-            <div className="flex items-center justify-between">
-              <span className="text-muted-foreground">Response Time</span>
-              <Badge className="bg-indigo-600">{service.stats.responseTime}</Badge>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-muted-foreground">CSAT Increase</span>
-              <Badge className="bg-indigo-600">{service.stats.csatIncrease}</Badge>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-muted-foreground">Cost Saving</span>
-              <Badge className="bg-indigo-600">{service.stats.costSaving}</Badge>
-            </div>
-          </CardContent>
-        </Card>
-      </section>
 
-      <section className="container px-4 md:px-6 pb-16">
-        <h2 className="text-2xl font-bold mb-4">Sub-services</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {service.features.map((f) => (
-            <Card key={f}>
-              <CardContent className="py-6">{f}</CardContent>
+            {/* Features */}
+            <div className="mb-12">
+              <h3 className="text-2xl font-bold mb-6">Key Features</h3>
+              <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
+                {service.features.map((feature, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle2 className="size-5 mt-1 text-indigo-500 flex-shrink-0" />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Stats Sidebar */}
+          <aside className="space-y-8">
+            <Card className="bg-muted/40">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-bold mb-4">Expected Outcomes</h3>
+                <div className="space-y-4">
+                  <div>
+                    <div className="text-3xl font-bold text-indigo-500">
+                      {service.stats.responseTime}
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      Faster Response Time
+                    </p>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-indigo-500">
+                      {service.stats.csatIncrease}
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      Higher CSAT
+                    </p>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-indigo-500">
+                      {service.stats.costSaving}
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      Cost Savings
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
             </Card>
-          ))}
+          </aside>
         </div>
-        <div className="mt-8">
-          <Button asChild className="bg-indigo-600 hover:bg-indigo-700">
-            <Link href="/contact">Start Your Project</Link>
-          </Button>
+
+        {/* Related Services */}
+        <div className="mt-16">
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            Related Services
+          </h2>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {relatedServices.items
+              .filter((s) => s.id !== service.id)
+              .slice(0, 3)
+              .map((s, i) => (
+                  <ServiceCard service={s} />
+              ))}
+          </div>
         </div>
-      </section>
+      </div>
     </div>
-  )
+  );
 }

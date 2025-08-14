@@ -74,7 +74,7 @@ const ALL_SERVICES: Service[] = [
       "Social Media Care",
       "Omnichannel Integration",
     ],
-    stats: { responseTime: "35–50% faster", csatIncrease: "15–25% higher", costSaving: "20–40%" },
+    stats: { responseTime: "35–50% faster", csatIncrease: "15–25% higher", costSaving: "20–70%" },
     category: "Customer Support",
     icon: iconFor("Customer Support"),
     priority: 1,

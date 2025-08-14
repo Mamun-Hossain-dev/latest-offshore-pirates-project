@@ -15,6 +15,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { Mail, Phone, MapPin, Send, Users, Target, Clock } from "lucide-react";
 
 const schema = z.object({
   name: z.string().min(2),
@@ -37,94 +38,251 @@ export default function ContactPage() {
 
   const onSubmit = (values: z.infer<typeof schema>) => {
     console.log(values);
-    toast({ title: "Thanks!", description: "We’ll reach out soon." });
+    toast({ title: "Thanks!", description: "We'll reach out soon." });
     form.reset();
   };
 
   return (
-    <div className="container mx-auto px-4 md:px-6 py-10 md:py-14">
-      <div className="grid gap-10 lg:grid-cols-2">
-        <div>
-          <h1 className="text-3xl md:text-4xl font-extrabold">Contact Us</h1>
-          <p className="text-muted-foreground mt-2">
-            Let’s align your goals to an execution plan.
-          </p>
-          <div className="mt-6 rounded-lg overflow-hidden border">
-            <img
-              src="/company-location-map.png"
-              alt="Office map"
-              className="w-full h-64 object-cover"
-            />
-          </div>
-          <div className="mt-4 text-sm text-muted-foreground">
-            Email: hello@offshorepirates.co · Phone: +1 (555) 123-4567
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+      {/* Hero Section */}
+      <div className="relative overflow-hidden bg-gradient-to-r from-primary/5 via-accent/5 to-secondary/10 border-b">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+        <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 relative">
+          <div className="text-center max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent mb-6">
+              Let's Build Something Amazing Together
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+              Ready to transform your business operations? Our offshore experts
+              are here to align your goals with flawless execution.
+            </p>
           </div>
         </div>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-4">
-          <div className="grid gap-2">
-            <Label htmlFor="name">Name</Label>
-            <Input id="name" {...form.register("name")} />
-            {form.formState.errors.name && (
-              <p className="text-sm text-destructive">
-                {form.formState.errors.name.message}
-              </p>
-            )}
+      </div>
+
+      <div className="container mx-auto px-4 md:px-6 py-16 md:py-20">
+        <div className="grid gap-16 lg:grid-cols-2 lg:gap-20">
+          {/* Left Column - Info */}
+          <div className="space-y-8">
+            {/* Contact Cards */}
+            <div className="grid gap-6">
+              <div className="group p-6 rounded-2xl border bg-card hover:shadow-lg transition-all duration-300 hover:border-primary/20">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Mail className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-1">Email Us</h3>
+                    <p className="text-muted-foreground mb-2">
+                      Drop us a line anytime
+                    </p>
+                    <a
+                      href="mailto:hello@offshorepirates.co"
+                      className="text-primary hover:underline font-medium"
+                    >
+                      hello@offshorepirates.co
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group p-6 rounded-2xl border bg-card hover:shadow-lg transition-all duration-300 hover:border-primary/20">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Phone className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-1">Call Us</h3>
+                    <p className="text-muted-foreground mb-2">
+                      Mon-Fri 9AM-6PM EST
+                    </p>
+                    <a
+                      href="tel:+15551234567"
+                      className="text-primary hover:underline font-medium"
+                    >
+                      +1 (555) 123-4567
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group p-6 rounded-2xl border bg-card hover:shadow-lg transition-all duration-300 hover:border-primary/20">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <MapPin className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-1">Visit Us</h3>
+                    <p className="text-muted-foreground">
+                      Our global headquarters
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Map */}
+            <div className="rounded-2xl overflow-hidden border shadow-sm">
+              <img
+                src="/office-location-map.png"
+                alt="Office location map"
+                className="w-full h-64 object-cover"
+              />
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-4">
+              <div className="text-center p-4 rounded-xl bg-muted/50">
+                <div className="flex justify-center mb-2">
+                  <Users className="h-6 w-6 text-accent" />
+                </div>
+                <div className="text-2xl font-bold text-foreground">500+</div>
+                <div className="text-sm text-muted-foreground">
+                  Happy Clients
+                </div>
+              </div>
+              <div className="text-center p-4 rounded-xl bg-muted/50">
+                <div className="flex justify-center mb-2">
+                  <Target className="h-6 w-6 text-accent" />
+                </div>
+                <div className="text-2xl font-bold text-foreground">99%</div>
+                <div className="text-sm text-muted-foreground">
+                  Success Rate
+                </div>
+              </div>
+              <div className="text-center p-4 rounded-xl bg-muted/50">
+                <div className="flex justify-center mb-2">
+                  <Clock className="h-6 w-6 text-accent" />
+                </div>
+                <div className="text-2xl font-bold text-foreground">24/7</div>
+                <div className="text-sm text-muted-foreground">Support</div>
+              </div>
+            </div>
           </div>
-          <div className="grid gap-2">
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" {...form.register("email")} />
-            {form.formState.errors.email && (
-              <p className="text-sm text-destructive">
-                {form.formState.errors.email.message}
-              </p>
-            )}
+
+          {/* Right Column - Form */}
+          <div className="lg:pl-8">
+            <div className="bg-card border rounded-3xl p-8 shadow-lg">
+              <div className="mb-8">
+                <h2 className="text-3xl font-bold mb-3">Start Your Journey</h2>
+                <p className="text-muted-foreground text-lg">
+                  Tell us about your project and we'll get back to you within 24
+                  hours.
+                </p>
+              </div>
+
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="name" className="text-sm font-medium">
+                      Full Name
+                    </Label>
+                    <Input
+                      id="name"
+                      {...form.register("name")}
+                      className="h-12 rounded-xl border-2 focus:border-primary transition-colors"
+                      placeholder="John Doe"
+                    />
+                    {form.formState.errors.name && (
+                      <p className="text-sm text-destructive">
+                        {form.formState.errors.name.message}
+                      </p>
+                    )}
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="text-sm font-medium">
+                      Email Address
+                    </Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      {...form.register("email")}
+                      className="h-12 rounded-xl border-2 focus:border-primary transition-colors"
+                      placeholder="john@company.com"
+                    />
+                    {form.formState.errors.email && (
+                      <p className="text-sm text-destructive">
+                        {form.formState.errors.email.message}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label className="text-sm font-medium">
+                    Service of Interest
+                  </Label>
+                  <Select
+                    defaultValue="Customer Support"
+                    onValueChange={(v) => form.setValue("service", v)}
+                  >
+                    <SelectTrigger className="h-12 rounded-xl border-2 focus:border-primary transition-colors">
+                      <SelectValue placeholder="Select a service" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {[
+                        "Customer Support",
+                        "Back Office",
+                        "Accounting",
+                        "Sales",
+                        "Content Moderation",
+                        "Data Ops",
+                        "AR/AP",
+                        "QA",
+                        "Tech Support",
+                      ].map((s) => (
+                        <SelectItem key={s} value={s}>
+                          {s}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  {form.formState.errors.service && (
+                    <p className="text-sm text-destructive">
+                      {form.formState.errors.service.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="message" className="text-sm font-medium">
+                    Project Details
+                  </Label>
+                  <Textarea
+                    id="message"
+                    rows={6}
+                    {...form.register("message")}
+                    className="rounded-xl border-2 focus:border-primary transition-colors resize-none"
+                    placeholder="Tell us about your project, timeline, and specific requirements..."
+                  />
+                  {form.formState.errors.message && (
+                    <p className="text-sm text-destructive">
+                      {form.formState.errors.message.message}
+                    </p>
+                  )}
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full h-14 rounded-xl bg-accent hover:bg-accent/90 text-accent-foreground font-semibold text-lg transition-all duration-200 hover:shadow-lg hover:scale-[1.02]"
+                >
+                  <Send className="mr-2 h-5 w-5" />
+                  Send Message
+                </Button>
+              </form>
+
+              <div className="mt-6 pt-6 border-t text-center">
+                <p className="text-sm text-muted-foreground">
+                  By submitting this form, you agree to our privacy policy and
+                  terms of service.
+                </p>
+              </div>
+            </div>
           </div>
-          <div className="grid gap-2">
-            <Label>Service of Interest</Label>
-            <Select
-              defaultValue="Customer Support"
-              onValueChange={(v) => form.setValue("service", v)}
-            >
-              <SelectTrigger>
-                <SelectValue placeholder="Select a service" />
-              </SelectTrigger>
-              <SelectContent>
-                {[
-                  "Customer Support",
-                  "Back Office",
-                  "Accounting",
-                  "Sales",
-                  "Content Moderation",
-                  "Data Ops",
-                  "AR/AP",
-                  "QA",
-                  "Tech Support",
-                ].map((s) => (
-                  <SelectItem key={s} value={s}>
-                    {s}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            {form.formState.errors.service && (
-              <p className="text-sm text-destructive">
-                {form.formState.errors.service.message}
-              </p>
-            )}
-          </div>
-          <div className="grid gap-2">
-            <Label htmlFor="message">Message</Label>
-            <Textarea id="message" rows={6} {...form.register("message")} />
-            {form.formState.errors.message && (
-              <p className="text-sm text-destructive">
-                {form.formState.errors.message.message}
-              </p>
-            )}
-          </div>
-          <Button type="submit" className="bg-indigo-600 hover:bg-indigo-700">
-            Send
-          </Button>
-        </form>
+        </div>
       </div>
     </div>
   );

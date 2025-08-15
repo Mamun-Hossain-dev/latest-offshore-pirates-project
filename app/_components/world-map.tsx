@@ -1,18 +1,17 @@
-"use client"
-
-import { motion } from "framer-motion"
-import { MapPin } from "lucide-react"
+import { motion } from "framer-motion";
+import { MapPin } from "lucide-react";
+import Image from "next/image";
 
 const pins = [
   { top: "30%", left: "24%", label: "Americas" },
   { top: "42%", left: "52%", label: "EMEA" },
   { top: "55%", left: "78%", label: "APAC" },
-]
+];
 
 export function WorldMap() {
   return (
     <div className="relative rounded-xl border overflow-hidden bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/30 dark:to-blue-950/30">
-      <img src="/abstract-world-map.png" alt="World map" className="w-full h-72 object-cover" />
+      <Image src="/abstract-world-map.png" alt="World map" width={800} height={400} className="w-full h-72 object-cover" />
       {pins.map((p, idx) => (
         <div key={idx} className="absolute" style={{ top: p.top, left: p.left }}>
           <motion.div

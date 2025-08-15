@@ -9,7 +9,7 @@ type Props = {
   className?: string
 }
 
-export function TiltCard({ children, asChild = false, className }: Props) {
+export function TiltCard({ children, className }: Props) {
   const ref = React.useRef<HTMLDivElement>(null)
   const x = useMotionValue(0)
   const y = useMotionValue(0)

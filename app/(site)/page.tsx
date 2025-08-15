@@ -18,7 +18,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { TiltCard } from "@/app/_components/tilt-card";
 import { WorldMap } from "@/app/_components/world-map";
-import { Testimonials } from "@/app/_components/testimonials";
+import { TestimonialCarousel } from "@/app/_components/testimonial-carousel";
 import { useQuery } from "@tanstack/react-query";
 import { fetchBlogs } from "@/app/_lib/blogs";
 import { fetchServices } from "@/app/_lib/services";
@@ -45,6 +45,116 @@ export default function HomePage() {
   }, []);
 
   const top3 = serviceData?.items ?? [];
+
+  const whyChooseUsItems = [
+    {
+      title: "Omnichannel Expertise",
+      desc: "We deliver a seamless and unified brand experience across every channel, from voice and chat to email and social media. Our integrated approach ensures your customers receive consistent, high-quality support at every touchpoint.",
+      icon: <Headphones className="size-6" />,
+      gradient: "from-blue-500 to-cyan-500",
+    },
+    {
+      title: "Operational Rigor",
+      desc: "Our delivery is relentlessly KPI-driven and backed by stringent SLAs to guarantee measurable outcomes. We are obsessed with performance, providing the data-backed results your business needs to thrive.",
+      icon: <Shield className="size-6" />,
+      gradient: "from-green-500 to-emerald-500",
+    },
+    {
+      title: "Process Design",
+      desc: "We engineer lean, automated workflows designed for maximum efficiency and scalability. Our meticulously documented processes ensure transparent, repeatable success that grows with your business.",
+      icon: <Layers className="size-6" />,
+      gradient: "from-purple-500 to-violet-500",
+    },
+    {
+      title: "Financial Clarity",
+      desc: "Gain unparalleled insight with real-time dashboards and transparent reporting, all while lowering your total cost of ownership. We provide the financial visibility you need to make informed, strategic decisions.",
+      icon: <Calculator className="size-6" />,
+      gradient: "from-orange-500 to-red-500",
+    },
+    {
+      title: "Global Reach",
+      desc: "With our follow-the-sun coverage and multilingual support teams, we are always on, wherever your customers are. Our global footprint ensures true 24/7 availability and localized expertise.",
+      icon: <Globe2 className="size-6" />,
+      gradient: "from-indigo-500 to-purple-500",
+    },
+    {
+      title: "Innovation First",
+      desc: "We embed AI-powered micro-automations and cutting-edge solutions into our services to drive efficiency and unlock new value. Partner with us to stay ahead of the curve and turn innovation into a competitive advantage.",
+      icon: <Sparkles className="size-6" />,
+      gradient: "from-pink-500 to-rose-500",
+    },
+  ];
+
+  const industries = [
+    {
+      name: "Healthcare",
+      desc: "We provide HIPAA-compliant support and back-office solutions, enabling healthcare providers to focus on patient care while we handle administrative burdens with precision and confidentiality.",
+      color: "from-red-500 to-pink-500",
+    },
+    {
+      name: "Finance",
+      desc: "Our secure and compliant financial services teams streamline everything from accounting to risk management, helping you reduce costs and enhance accuracy in a fast-paced market.",
+      color: "from-green-500 to-emerald-500",
+    },
+    {
+      name: "Retail",
+      desc: "From customer support to inventory management, we help retail and e-commerce brands scale operations, manage seasonal peaks, and deliver exceptional customer experiences that build loyalty.",
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      name: "SaaS",
+      desc: "We offer specialized technical support and customer success teams that integrate seamlessly with your brand, driving user adoption and retention for your software products.",
+      color: "from-purple-500 to-violet-500",
+    },
+    {
+      name: "Logistics",
+      desc: "Our 24/7 operations support and data management services ensure your supply chain runs smoothly, providing the visibility and efficiency needed to navigate complex global logistics.",
+      color: "from-orange-500 to-yellow-500",
+    },
+    {
+      name: "Travel",
+      desc: "We deliver multilingual customer service and booking support for the travel and hospitality industry, ensuring your customers receive world-class service, wherever their journey takes them.",
+      color: "from-indigo-500 to-purple-500",
+    },
+  ];
+
+  const testimonialsData = [
+    {
+      name: "Riley O'Sullivan",
+      role: "VP of Global Support",
+      company: "Innovate Inc.",
+      testimonial: "Partnering with Offshore Pirates has been a game-changer. We were struggling to provide 24/7 support to our growing user base. Their team seamlessly integrated with ours, cutting response times by over 45% and boosting our customer satisfaction scores by a staggering 20% in the first quarter alone. Their dedication to quality is unmatched.",
+      rating: 5
+    },
+    {
+      name: "Morgan Lee",
+      role: "Chief Operating Officer",
+      company: "RetailerX",
+      testimonial: "Our back-office operations were a tangled mess of spreadsheets and manual processes. Offshore Pirates came in and engineered a streamlined, automated workflow that has made our SLAs finally predictable. The lift in accuracy and efficiency has been huge, allowing our team to focus on growth instead of getting bogged down in administrative tasks.",
+      rating: 5
+    },
+    {
+      name: "Taylor Rodriguez",
+      role: "Chief Financial Officer",
+      company: "FinServ Solutions",
+      rating: 5,
+      testimonial: "As a financial services firm, accuracy and compliance are non-negotiable. The accounting team at Offshore Pirates has been phenomenal. Our accounts receivable days outstanding dropped by 18% because of their diligent follow-up and clean, timely reconciliations. They provide the financial clarity we need to make strategic decisions with confidence."
+    },
+    {
+      name: "Jordan Chen",
+      role: "Head of Engineering",
+      company: "TechGeniuses",
+      rating: 5,
+      testimonial: "We needed to scale our QA testing for a major product launch without compromising quality. The team provided a dedicated team of skilled QA engineers who quickly got up to speed with our complex systems. Their meticulous testing and detailed bug reports were instrumental in our successful launch."
+    },
+    {
+      name: "Casey Kim",
+      role: "Marketing Director",
+      company: "MarketBloom",
+      rating: 5,
+      testimonial: "Our content moderation needs were growing exponentially. Their team has been incredibly effective at protecting our brand's reputation by ensuring a safe and positive online environment for our users. They are professional, reliable, and a true extension of our team."
+    }
+  ];
 
   return (
     <div>
@@ -187,7 +297,7 @@ export default function HomePage() {
               {[
                 { number: "500+", label: "Global Clients" },
                 { number: "24/7", label: "Support Coverage" },
-                { number: "40%", label: "Cost Reduction" },
+                { number: "70%", label: "Cost Reduction" },
               ].map((stat, i) => (
                 <div key={i} className="text-center">
                   <div className="text-3xl font-bold text-white mb-1">
@@ -233,7 +343,7 @@ export default function HomePage() {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {top3.map((svc, index) => (
               <motion.div
-                key={svc.id}
+                key={svc.slug}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -244,35 +354,30 @@ export default function HomePage() {
                     {/* Service Image */}
                     <div className="relative h-48 overflow-hidden">
                       <Image
-                        src={`/service-${svc.id}.jpg`}
-                        alt={svc.title}
+                        src="/placeholder.jpg"
+                        alt={svc.name}
                         width={400}
                         height={200}
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                      <div className="absolute top-4 left-4">
-                        <span className="inline-flex size-12 items-center justify-center rounded-xl bg-white/90 backdrop-blur text-indigo-600 shadow-lg">
-                          {svc.icon}
-                        </span>
-                      </div>
                     </div>
 
                     <CardHeader className="pb-3">
                       <CardTitle className="text-xl font-bold">
-                        {svc.title}
+                        {svc.name}
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="pt-0">
-                      <p className="text-muted-foreground mb-6 leading-relaxed">
-                        {svc.shortDesc}
+                      <p className="text-muted-foreground mb-6 leading-relaxed line-clamp-3">
+                        {svc.desc}
                       </p>
                       <div className="flex items-center justify-between">
                         <Button
                           asChild
                           className="bg-indigo-600 hover:bg-indigo-700"
                         >
-                          <Link href={`/services/${svc.id}`}>
+                          <Link href={`/services/${svc.slug}`}>
                             View Details
                             <ArrowRight className="ml-2 size-4" />
                           </Link>
@@ -308,46 +413,9 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <div className="overflow-x-auto">
-            <div className="flex gap-6 min-w-max pr-4 pb-4">
-              {[
-                {
-                  title: "Omnichannel Expertise",
-                  desc: "Voice, chat, email, social—unified experience across all touchpoints.",
-                  icon: <Headphones className="size-6" />,
-                  gradient: "from-blue-500 to-cyan-500",
-                },
-                {
-                  title: "Operational Rigor",
-                  desc: "SLA-driven, KPI-obsessed delivery with measurable outcomes.",
-                  icon: <Shield className="size-6" />,
-                  gradient: "from-green-500 to-emerald-500",
-                },
-                {
-                  title: "Process Design",
-                  desc: "Lean, automated, documented workflows that scale efficiently.",
-                  icon: <Layers className="size-6" />,
-                  gradient: "from-purple-500 to-violet-500",
-                },
-                {
-                  title: "Financial Clarity",
-                  desc: "Real-time dashboards and transparent reporting with lower TCO.",
-                  icon: <Calculator className="size-6" />,
-                  gradient: "from-orange-500 to-red-500",
-                },
-                {
-                  title: "Global Reach",
-                  desc: "Follow-the-sun coverage with multilingual support teams.",
-                  icon: <Globe2 className="size-6" />,
-                  gradient: "from-indigo-500 to-purple-500",
-                },
-                {
-                  title: "Innovation First",
-                  desc: "AI-powered micro-automations and cutting-edge solutions.",
-                  icon: <Sparkles className="size-6" />,
-                  gradient: "from-pink-500 to-rose-500",
-                },
-              ].map((item, i) => (
+          <div className="group relative w-full overflow-hidden">
+            <div className="flex animate-scroll group-hover:pause">
+              {[...whyChooseUsItems, ...whyChooseUsItems].map((item, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, x: 50 }}
@@ -355,9 +423,9 @@ export default function HomePage() {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
                   whileHover={{ y: -8, scale: 1.02 }}
-                  className="w-[350px] flex-shrink-0"
+                  className="w-[350px] flex-shrink-0 px-4"
                 >
-                  <Card className="h-full border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white dark:bg-gray-900">
+                  <Card className="h-full border-0 shadow-xl hover:shadow-2xl transition-all duration-300 bg-white dark:bg-gray-900">
                     <CardHeader className="pb-4">
                       <div
                         className={`inline-flex size-14 items-center justify-center rounded-xl bg-gradient-to-r ${item.gradient} text-white mb-4 shadow-lg`}
@@ -398,36 +466,35 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
-            {[
-              { name: "Healthcare", color: "from-red-500 to-pink-500" },
-              { name: "Finance", color: "from-green-500 to-emerald-500" },
-              { name: "Retail", color: "from-blue-500 to-cyan-500" },
-              { name: "SaaS", color: "from-purple-500 to-violet-500" },
-              { name: "Logistics", color: "from-orange-500 to-yellow-500" },
-              { name: "Travel", color: "from-indigo-500 to-purple-500" },
-            ].map((industry, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {industries.map((industry, i) => (
               <motion.div
                 key={industry.name}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                whileHover={{ scale: 1.05, y: -4 }}
                 className="group cursor-pointer"
               >
-                <div className="relative overflow-hidden rounded-xl border bg-white dark:bg-gray-900 p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="relative overflow-hidden rounded-xl border bg-white dark:bg-gray-900 p-6 text-center shadow-xl transition-all duration-300 h-full">
                   <div
-                    className={`absolute inset-0 bg-gradient-to-br ${industry.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+                    className={`absolute inset-0 bg-gradient-to-br ${industry.color} opacity-10 transition-opacity duration-300`}
                   />
-                  <div
-                    className={`inline-flex size-12 items-center justify-center rounded-lg bg-gradient-to-r ${industry.color} text-white mb-3 shadow-lg`}
-                  >
-                    <span className="font-bold text-sm">
-                      {industry.name[0]}
-                    </span>
+                  <div className="relative z-10 flex flex-col items-center justify-center h-full">
+                    <div
+                      className={`inline-flex size-12 items-center justify-center rounded-lg bg-gradient-to-r ${industry.color} text-white mb-3 shadow-lg transition-all duration-300`}
+                    >
+                      <span className="font-bold text-sm">
+                        {industry.name[0]}
+                      </span>
+                    </div>
+                    <h3 className={`font-semibold text-lg mb-2 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:${industry.color} group-hover:bg-clip-text group-hover:text-transparent`}>
+                      {industry.name}
+                    </h3>
+                    <p className="text-sm text-muted-foreground px-4">
+                      {industry.desc}
+                    </p>
                   </div>
-                  <h3 className="font-semibold text-sm">{industry.name}</h3>
                 </div>
               </motion.div>
             ))}
@@ -438,10 +505,17 @@ export default function HomePage() {
       {/* Testimonials - Full Width Background */}
       <section className="bg-muted/40 border-y">
         <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-indigo-700">
-            What Clients Say
-          </h2>
-          <Testimonials />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              What Clients Say
+            </h2>
+          </motion.div>
+          <TestimonialCarousel testimonials={testimonialsData} />
         </div>
       </section>
 

@@ -1,16 +1,13 @@
- * --primary & --primary-foreground: The main   
-      interactive color (like links) and the      
-     text color that goes on top of it.
-   * --secondary & --secondary-foreground: Used   
-      for less prominent elements that still      
-     need to stand out.
-   * --accent & --accent-foreground: For
-     elements that need to draw attention.        
-   * --muted & --muted-foreground: For subtle     
-     text and backgrounds.
-   * --background & --foreground: The main        
-     background and text colors for the entire    
-     site.
-   * --card & --card-foreground: The background   
-      and text colors for card-like containers.   
-   * --border: The color used for borders.        
+You are writing structured JSON data for the "Services" page of a premium BPO, outsourcing, and offshoring company called Offshore Pirates.
+
+Requirements:
+1. Use the following order (most in-demand to least):
+   1) Customer Support Services
+   2) Back Office Support
+   3) Accounting & Finance Outsourcing
+   4) Call Center Support
+   5) Logistics & Operations
+   6) Healthcare Process Outsourcing
+   7) Digital Marketing Services
+   8) Virtual Assistant
+   9) Design & Graphics

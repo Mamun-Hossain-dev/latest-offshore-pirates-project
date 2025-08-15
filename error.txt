@@ -1,43 +1,18 @@
-Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+Error:   × Unexpected token `footer`. Expected jsx identifier
 
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
+./app/_components/footer.tsx
 
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+Error:   × Unexpected token `footer`. Expected jsx identifier
+    ╭─[C:\Users\USER\Desktop\Saraf-project\latest-offshore-pirates-project\app\_components\footer.tsx:16:1]
+ 13 │ 
+ 14 │ export function Footer() {
+ 15 │   return (
+ 16 │     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-indigo-900 text-white">
+    ·      ──────
+ 17 │       {/* Main Footer Content */}
+ 18 │       <div className="container mx-auto px-4 md:px-6 py-16">
+ 19 │         <div className="grid gap-12 lg:grid-cols-4 md:grid-cols-2">
+    ╰────
 
-See more info here: https://nextjs.org/docs/messages/react-hydration-error
-
-
-  ...
-    <HotReload assetPrefix="" globalError={[...]}>
-      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
-        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
-          <ReplaySsrOnlyErrors>
-          <DevRootHTTPAccessFallbackBoundary>
-            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-              <HTTPAccessFallbackErrorBoundary pathname="/contact" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-                <RedirectBoundary>
-                  <RedirectErrorBoundary router={{...}}>
-                    <Head>
-                    <link>
-                    <RootLayout>
-                      <html
-                        lang="en"
--                       className="light"
--                       style={{color-scheme:"light"}}
-                      >
-                    ...
-        ...
-app\layout.tsx (19:5) @ RootLayout
-
-
-  17 | }>) {
-  18 |   return (
-> 19 |     <html lang="en">
-     |     ^
-  20 |       <head>
-  21 |         <style>{`
-  22 | html {
+Caused by:
+    Syntax Error

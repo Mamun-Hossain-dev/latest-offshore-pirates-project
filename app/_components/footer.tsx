@@ -26,10 +26,11 @@ export function Footer() {
               <span className="font-bold text-xl">Offshore Pirates</span>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              The global crew you've been searching for. We deliver fearless
+              The global crew you&apos;ve been searching for. We deliver fearless
               voices and relentless results across customer support, finance,
               and operations.
             </p>
+            
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-gray-300">
                 <Mail className="size-4 text-indigo-400" />

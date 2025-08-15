@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Send, Users, Target, Clock } from "lucide-react";
+import Image from "next/image";
 
 const schema = z.object({
   name: z.string().min(2),
@@ -43,14 +44,14 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-indigo-50/5">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-primary/5 via-accent/5 to-secondary/10 border-b">
+      <div className="relative overflow-hidden bg-gradient-to-r from-indigo-50/10 via-purple-50/10 to-blue-50/10 border-b">
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
         <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 relative">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent mb-6">
-              Let's Build Something Amazing Together
+            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-6">
+              Let&apos;s Build Something Amazing Together
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
               Ready to transform your business operations? Our offshore experts
@@ -66,9 +67,9 @@ export default function ContactPage() {
           <div className="space-y-8">
             {/* Contact Cards */}
             <div className="grid gap-6">
-              <div className="group p-6 rounded-2xl border bg-card hover:shadow-lg transition-all duration-300 hover:border-primary/20">
+              <div className="group p-6 rounded-2xl border bg-card hover:shadow-lg transition-all duration-300 hover:border-indigo-500/20">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <div className="p-3 rounded-xl bg-indigo-100 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
                     <Mail className="h-6 w-6" />
                   </div>
                   <div>
@@ -78,7 +79,7 @@ export default function ContactPage() {
                     </p>
                     <a
                       href="mailto:hello@offshorepirates.co"
-                      className="text-primary hover:underline font-medium"
+                      className="text-indigo-600 hover:underline font-medium"
                     >
                       hello@offshorepirates.co
                     </a>
@@ -86,9 +87,9 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="group p-6 rounded-2xl border bg-card hover:shadow-lg transition-all duration-300 hover:border-primary/20">
+              <div className="group p-6 rounded-2xl border bg-card hover:shadow-lg transition-all duration-300 hover:border-indigo-500/20">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <div className="p-3 rounded-xl bg-indigo-100 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
                     <Phone className="h-6 w-6" />
                   </div>
                   <div>
@@ -98,7 +99,7 @@ export default function ContactPage() {
                     </p>
                     <a
                       href="tel:+15551234567"
-                      className="text-primary hover:underline font-medium"
+                      className="text-indigo-600 hover:underline font-medium"
                     >
                       +1 (555) 123-4567
                     </a>
@@ -106,9 +107,9 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="group p-6 rounded-2xl border bg-card hover:shadow-lg transition-all duration-300 hover:border-primary/20">
+              <div className="group p-6 rounded-2xl border bg-card hover:shadow-lg transition-all duration-300 hover:border-indigo-500/20">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <div className="p-3 rounded-xl bg-indigo-100 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
                     <MapPin className="h-6 w-6" />
                   </div>
                   <div>
@@ -123,9 +124,11 @@ export default function ContactPage() {
 
             {/* Map */}
             <div className="rounded-2xl overflow-hidden border shadow-sm">
-              <img
+              <Image
                 src="/office-location-map.png"
                 alt="Office location map"
+                width={800}
+                height={400}
                 className="w-full h-64 object-cover"
               />
             </div>
@@ -134,7 +137,7 @@ export default function ContactPage() {
             <div className="grid grid-cols-3 gap-4">
               <div className="text-center p-4 rounded-xl bg-muted/50">
                 <div className="flex justify-center mb-2">
-                  <Users className="h-6 w-6 text-accent" />
+                  <Users className="h-6 w-6 text-indigo-500" />
                 </div>
                 <div className="text-2xl font-bold text-foreground">500+</div>
                 <div className="text-sm text-muted-foreground">
@@ -143,7 +146,7 @@ export default function ContactPage() {
               </div>
               <div className="text-center p-4 rounded-xl bg-muted/50">
                 <div className="flex justify-center mb-2">
-                  <Target className="h-6 w-6 text-accent" />
+                  <Target className="h-6 w-6 text-indigo-500" />
                 </div>
                 <div className="text-2xl font-bold text-foreground">99%</div>
                 <div className="text-sm text-muted-foreground">
@@ -152,7 +155,7 @@ export default function ContactPage() {
               </div>
               <div className="text-center p-4 rounded-xl bg-muted/50">
                 <div className="flex justify-center mb-2">
-                  <Clock className="h-6 w-6 text-accent" />
+                  <Clock className="h-6 w-6 text-indigo-500" />
                 </div>
                 <div className="text-2xl font-bold text-foreground">24/7</div>
                 <div className="text-sm text-muted-foreground">Support</div>
@@ -164,9 +167,13 @@ export default function ContactPage() {
           <div className="lg:pl-8">
             <div className="bg-card border rounded-3xl p-8 shadow-lg">
               <div className="mb-8">
-                <h2 className="text-3xl font-bold mb-3">Start Your Journey</h2>
+                <h2 className="text-3xl font-bold mb-3">
+                  <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                    Start Your Journey
+                  </span>
+                </h2>
                 <p className="text-muted-foreground text-lg">
-                  Tell us about your project and we'll get back to you within 24
+                  Tell us about your project and we&apos;ll get back to you within 24
                   hours.
                 </p>
               </div>
@@ -183,7 +190,7 @@ export default function ContactPage() {
                     <Input
                       id="name"
                       {...form.register("name")}
-                      className="h-12 rounded-xl border-2 focus:border-primary transition-colors"
+                      className="h-12 rounded-xl border-2 focus:border-indigo-500 transition-colors"
                       placeholder="John Doe"
                     />
                     {form.formState.errors.name && (
@@ -200,7 +207,7 @@ export default function ContactPage() {
                       id="email"
                       type="email"
                       {...form.register("email")}
-                      className="h-12 rounded-xl border-2 focus:border-primary transition-colors"
+                      className="h-12 rounded-xl border-2 focus:border-indigo-500 transition-colors"
                       placeholder="john@company.com"
                     />
                     {form.formState.errors.email && (
@@ -219,7 +226,7 @@ export default function ContactPage() {
                     defaultValue="Customer Support"
                     onValueChange={(v) => form.setValue("service", v)}
                   >
-                    <SelectTrigger className="h-12 rounded-xl border-2 focus:border-primary transition-colors">
+                    <SelectTrigger className="h-12 rounded-xl border-2 focus:border-indigo-500 transition-colors">
                       <SelectValue placeholder="Select a service" />
                     </SelectTrigger>
                     <SelectContent>
@@ -255,7 +262,7 @@ export default function ContactPage() {
                     id="message"
                     rows={6}
                     {...form.register("message")}
-                    className="rounded-xl border-2 focus:border-primary transition-colors resize-none"
+                    className="rounded-xl border-2 focus:border-indigo-500 transition-colors resize-none"
                     placeholder="Tell us about your project, timeline, and specific requirements..."
                   />
                   {form.formState.errors.message && (
@@ -267,7 +274,7 @@ export default function ContactPage() {
 
                 <Button
                   type="submit"
-                  className="w-full h-14 rounded-xl bg-accent hover:bg-accent/90 text-accent-foreground font-semibold text-lg transition-all duration-200 hover:shadow-lg hover:scale-[1.02]"
+                  className="w-full h-14 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold text-lg transition-all duration-200 hover:shadow-lg hover:scale-[1.02]"
                 >
                   <Send className="mr-2 h-5 w-5" />
                   Send Message

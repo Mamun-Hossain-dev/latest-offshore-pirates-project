@@ -1,6 +1,6 @@
 export default function Loading() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-purple-50 to-violet-100 dark:from-indigo-950 dark:via-purple-950 dark:to-violet-950">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-violet-100 dark:from-indigo-950 dark:to-violet-950">
       <section className="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 py-20 md:py-28">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-4xl mx-auto text-center">
@@ -37,7 +37,7 @@ export default function Loading() {
               key={i}
               className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden"
             >
-              <div className="h-48 bg-gradient-to-r from-indigo-200 to-purple-200 dark:from-indigo-800 dark:to-purple-800 animate-pulse"></div>
+              <div className="h-48 bg-gradient-to-r from-indigo-200 to-violet-200 dark:from-indigo-800 dark:to-purple-800 animate-pulse"></div>
               <div className="p-6">
                 <div className="h-6 w-20 bg-indigo-200 dark:bg-indigo-800 rounded-full animate-pulse mb-3"></div>
                 <div className="h-8 w-full bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse mb-4"></div>
@@ -45,7 +45,7 @@ export default function Loading() {
                   <div className="h-4 w-full bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
                   <div className="h-4 w-3/4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
                 </div>
-                <div className="h-12 w-full bg-gradient-to-r from-indigo-200 to-purple-200 dark:from-indigo-800 dark:to-purple-800 rounded-xl animate-pulse"></div>
+                <div className="h-12 w-full bg-gradient-to-r from-indigo-200 to-violet-200 dark:from-indigo-800 dark:to-purple-800 rounded-xl animate-pulse"></div>
               </div>
             </div>
           ))}

@@ -4,9 +4,8 @@ import Link from "next/link"
 
 import { useState } from "react"
 import { useQuery } from "@tanstack/react-query"
-import { fetchServices, SERVICE_CATEGORIES } from "@/app/_lib/services"
+import { fetchServices } from "@/app/_lib/services"
 import { ServiceCard } from "@/app/_components/service-card"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
@@ -15,27 +14,22 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 
 export default function ServicesPage() {
-  const [category, setCategory] = useState<string>("All")
-  const [page, setPage] = useState(1)
   const [searchQuery, setSearchQuery] = useState("")
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
-  const limit = 6
+  const limit = 9 // Fetch all 9 services
 
-  const { data, isLoading, isFetching } = useQuery({
-    queryKey: ["services", { page, limit, category, q: searchQuery }],
-    queryFn: () => fetchServices({ page, limit, category }),
-    keepPreviousData: true,
+  const { data, isLoading } = useQuery({
+    queryKey: ["services", { limit, q: searchQuery }],
+    queryFn: () => fetchServices({ limit }),
   })
 
   const items = data?.items ?? []
-  const total = data?.total ?? 0
-  const canLoadMore = page * limit < total
 
   const filteredItems = items.filter(
     (item) =>
       searchQuery === "" ||
-      item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.shortDesc.toLowerCase().includes(searchQuery.toLowerCase()),
+      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.desc.toLowerCase().includes(searchQuery.toLowerCase()),
   )
 
   return (
@@ -93,23 +87,7 @@ export default function ServicesPage() {
               />
             </div>
 
-            {/* Category Tabs */}
-            <Tabs
-              value={category}
-              onValueChange={(v) => {
-                setPage(1)
-                setCategory(v)
-              }}
-              className="flex-1"
-            >
-              <TabsList className="w-full overflow-x-auto">
-                {["All", ...SERVICE_CATEGORIES.slice(0, 5)].map((c) => (
-                  <TabsTrigger key={c} value={c} className="whitespace-nowrap">
-                    {c}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </Tabs>
+            {/* Category Tabs removed as categories are no longer used */}
 
             {/* View Toggle */}
             <div className="flex items-center gap-2">
@@ -145,14 +123,14 @@ export default function ServicesPage() {
               {/* Results Header */}
               <div className="flex items-center justify-between mb-8">
                 <div>
-                  <h2 className="text-2xl font-bold">{category === "All" ? "All Services" : category}</h2>
+                  <h2 className="text-2xl font-bold">All Services</h2>
                   <p className="text-muted-foreground">
                     {filteredItems.length} service{filteredItems.length !== 1 ? "s" : ""} found
                   </p>
                 </div>
                 {searchQuery && (
                   <Badge variant="outline" className="px-3 py-1">
-                    Searching: "{searchQuery}"
+                    Searching: &quot;{searchQuery}&quot;
                   </Badge>
                 )}
               </div>
@@ -161,7 +139,7 @@ export default function ServicesPage() {
               <div className={viewMode === "grid" ? "grid gap-8 sm:grid-cols-2 lg:grid-cols-3" : "space-y-6"}>
                 {filteredItems.map((svc, index) => (
                   <motion.div
-                    key={svc.id}
+                    key={svc.slug}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
@@ -171,51 +149,7 @@ export default function ServicesPage() {
                 ))}
               </div>
 
-              {/* Load More */}
-              <div className="flex justify-center mt-12">
-                {canLoadMore ? (
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    onClick={() => setPage((p) => p + 1)}
-                    disabled={isFetching}
-                    className="px-8"
-                  >
-                    {isFetching ? (
-                      <>
-                        <Loader2 className="size-4 mr-2 animate-spin" />
-                        Loading...
-                      </>
-                    ) : (
-                      "Load More Services"
-                    )}
-                  </Button>
-                ) : filteredItems.length > 0 ? (
-                  <div className="text-center">
-                    <p className="text-muted-foreground mb-4">You've seen all services</p>
-                    <Button asChild>
-                      <Link href="/contact">Get Custom Solution</Link>
-                    </Button>
-                  </div>
-                ) : (
-                  <div className="text-center py-12">
-                    <div className="size-16 mx-auto mb-4 rounded-full bg-muted flex items-center justify-center">
-                      <Search className="size-8 text-muted-foreground" />
-                    </div>
-                    <h3 className="text-lg font-semibold mb-2">No services found</h3>
-                    <p className="text-muted-foreground mb-4">Try adjusting your search or filters</p>
-                    <Button
-                      variant="outline"
-                      onClick={() => {
-                        setSearchQuery("")
-                        setCategory("All")
-                      }}
-                    >
-                      Clear Filters
-                    </Button>
-                  </div>
-                )}
-              </div>
+              {/* Load More section removed as all services are loaded at once */}
             </>
           )}
         </div>
@@ -225,7 +159,7 @@ export default function ServicesPage() {
       <section className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
         <div className="container mx-auto px-4 md:px-6 py-16">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Don't See What You Need?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Don&apos;t See What You Need?</h2>
             <p className="text-xl text-white/90 mb-8">
               We create custom solutions tailored to your specific business requirements
             </p>

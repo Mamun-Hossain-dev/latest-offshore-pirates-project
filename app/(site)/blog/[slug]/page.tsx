@@ -26,7 +26,7 @@ export default async function BlogPostPage({
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-violet-100 dark:from-indigo-950 dark:to-violet-950">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-violet-600 text-white py-24 md:py-32">
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-cyan-900/40"></div>
         <div className="absolute inset-0">
           {post.hero?.fileName && (
             <Image
@@ -40,7 +40,7 @@ export default async function BlogPostPage({
         </div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
               {post.seo.title ?? post.title}
             </h1>
             <div className="flex flex-wrap items-center justify-center gap-6 text-indigo-100 text-lg">
@@ -128,7 +128,7 @@ export default async function BlogPostPage({
         {/* Related Articles */}
         {relatedPosts?.items?.length > 0 && (
           <div className="mt-20 pt-16 border-t border-indigo-200/50 dark:border-indigo-800/50">
-            <h2 className="text-4xl font-bold text-center mb-12 text-transparent bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 bg-clip-text">
+            <h2 className="text-4xl font-bold text-center mb-12 text-transparent bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-600 bg-clip-text">
               Related Articles
             </h2>
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -152,7 +152,7 @@ export default async function BlogPostPage({
                               className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                             />
                           )}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
                         <CardHeader className="pb-3">
                           <CardTitle className="flex items-start justify-between text-xl font-bold text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">

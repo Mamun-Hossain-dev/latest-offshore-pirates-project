@@ -19,10 +19,10 @@ export default function AboutPage() {
       <div className="absolute inset-0 bg-black/5"></div>
       <div className="container mx-auto relative z-10">
         <section className="container px-4 md:px-6 py-12 md:py-16">
-          <h1 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
+          <h1 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-600 bg-clip-text text-transparent">
             {"The Global Crew You’ve Been Searching For"}
           </h1>
-          <p className="mt-3 max-w-2xl text-muted-foreground">
+          <p className="mt-3 max-w-2xl text-cyan-700">
             We build resilient teams across time zones—aligned to your KPIs,
             embedded in your culture.
           </p>

@@ -28,8 +28,8 @@ export default function BlogListPage() {
 
   return (
     <div className="min-h-screen">
-      <section className="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 text-white py-20 md:py-28">
-        <div className="absolute inset-0 bg-black/20" />
+      <section className="relative bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-600 text-white py-20 md:py-28">
+        <div className="absolute inset-0 bg-cyan-900/20" />
         <div className="absolute inset-0">
           <Image
             src="/abstract-world-map.png"
@@ -41,10 +41,10 @@ export default function BlogListPage() {
         </div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-white via-indigo-100 to-violet-100 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-white via-cyan-100 to-blue-100 bg-clip-text text-transparent">
               Insights & Expertise
             </h1>
-            <p className="text-xl md:text-2xl text-indigo-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-cyan-100 mb-8 max-w-2xl mx-auto">
               Discover cutting-edge insights from our global team of experts
             </p>
             <div className="flex items-center justify-center gap-8 text-white/80">
@@ -96,7 +96,7 @@ export default function BlogListPage() {
                   height={600} // Using thumbnail size
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-cyan-900/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <CardHeader className="pb-3">
                 {/* Category badge removed as categories are not directly available in blogs.json list items */}
@@ -110,7 +110,7 @@ export default function BlogListPage() {
                 </p>
                 <Button
                   asChild
-                  className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group/btn"
+                  className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group/btn"
                 >
                   <Link
                     href={`/blog/${post.slug}`}
@@ -130,18 +130,18 @@ export default function BlogListPage() {
             variant="outline"
             disabled={page === 1 || isFetching}
             onClick={() => setPage((p) => p - 1)}
-            className="px-8 py-3 border-indigo-200 text-indigo-700 hover:bg-indigo-50 hover:border-indigo-300 disabled:opacity-50 font-semibold rounded-xl"
+            className="px-8 py-3 border-cyan-200 text-cyan-700 hover:bg-cyan-50 hover:border-cyan-300 disabled:opacity-50 font-semibold rounded-xl"
           >
             Previous
           </Button>
-          <div className="flex items-center px-4 py-3 bg-gradient-to-r from-indigo-100 to-violet-100 dark:from-indigo-900 dark:to-purple-900 rounded-xl font-semibold text-indigo-700 dark:text-indigo-300">
+          <div className="flex items-center px-4 py-3 bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900 dark:to-blue-900 rounded-xl font-semibold text-cyan-700 dark:text-cyan-300">
             Page {page}
           </div>
           <Button
             variant="outline"
             disabled={!canNext || isFetching}
             onClick={() => setPage((p) => p + 1)}
-            className="px-8 py-3 border-indigo-200 text-indigo-700 hover:bg-indigo-50 hover:border-indigo-300 disabled:opacity-50 font-semibold rounded-xl"
+            className="px-8 py-3 border-cyan-200 text-cyan-700 hover:bg-cyan-50 hover:border-cyan-300 disabled:opacity-50 font-semibold rounded-xl"
           >
             Next
           </Button>

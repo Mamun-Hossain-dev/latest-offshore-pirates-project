@@ -1,18 +1,9 @@
-Error:   × Unexpected token `footer`. Expected jsx identifier
+TypeError: e[o] is not a function
 
-./app/_components/footer.tsx
+Call Stack
+12
 
-Error:   × Unexpected token `footer`. Expected jsx identifier
-    ╭─[C:\Users\USER\Desktop\Saraf-project\latest-offshore-pirates-project\app\_components\footer.tsx:16:1]
- 13 │ 
- 14 │ export function Footer() {
- 15 │   return (
- 16 │     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-indigo-900 text-white">
-    ·      ──────
- 17 │       {/* Main Footer Content */}
- 18 │       <div className="container mx-auto px-4 md:px-6 py-16">
- 19 │         <div className="grid gap-12 lg:grid-cols-4 md:grid-cols-2">
-    ╰────
-
-Caused by:
-    Syntax Error
+Show 10 ignore-listed frame(s)
+Object.t [as require]
+.next\server\webpack-runtime.js (1:127)
+JSON.parse

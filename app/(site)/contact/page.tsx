@@ -50,10 +50,10 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
         <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 relative">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-600 bg-clip-text text-transparent mb-6">
               Let&apos;s Build Something Amazing Together
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+            <p className="text-xl md:text-2xl text-cyan-700 leading-relaxed">
               Ready to transform your business operations? Our offshore experts
               are here to align your goals with flawless execution.
             </p>

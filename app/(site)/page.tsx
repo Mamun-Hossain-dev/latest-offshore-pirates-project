@@ -10,14 +10,17 @@ import {
   Shield,
   Globe2,
   Sparkles,
-  ChevronRight,
   MessageSquare,
   Phone,
   Mail,
   MapPin,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import useEmblaCarousel from "embla-carousel-react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function HomePage() {
   const top3 = [
@@ -135,7 +138,87 @@ export default function HomePage() {
       testimonial:
         "As a financial services firm, accuracy and compliance are non-negotiable. The accounting team at Offshore Pirates has been phenomenal. Our accounts receivable days outstanding dropped by 18% because of their diligent follow-up and clean, timely reconciliations. They provide the financial clarity we need to make strategic decisions with confidence.",
     },
+    {
+      name: "Alex Chen",
+      role: "Head of Operations",
+      company: "Global Logistics Co.",
+      testimonial:
+        "Offshore Pirates provided exceptional data management services, significantly improving our operational efficiency and reducing manual errors. Their team is highly skilled and responsive.",
+      rating: 4,
+    },
+    {
+      name: "Samantha Green",
+      role: "Marketing Director",
+      company: "E-commerce Solutions",
+      testimonial:
+        "Their customer support team seamlessly integrated with our existing systems, providing excellent service and improving our customer satisfaction scores. Highly recommended!",
+      rating: 5,
+    },
+    {
+      name: "David Kim",
+      role: "CTO",
+      company: "Tech Innovators",
+      testimonial:
+        "We needed specialized technical support, and Offshore Pirates delivered. Their expertise helped us resolve complex issues quickly, enhancing our product's reliability.",
+      rating: 5,
+    },
+    {
+      name: "Emily White",
+      role: "HR Manager",
+      company: "Staffing Solutions",
+      testimonial:
+        "The back-office support from Offshore Pirates has been invaluable. They handle our administrative tasks with precision, allowing our internal team to focus on core HR functions.",
+      rating: 4,
+    },
+    {
+      name: "Chris Brown",
+      role: "Sales Manager",
+      company: "SalesForce Pro",
+      testimonial:
+        "Their sales development team generated high-quality leads and significantly boosted our conversion rates. A truly professional and results-driven partnership.",
+      rating: 5,
+    },
+    {
+      name: "Jessica Lee",
+      role: "Product Manager",
+      company: "App Development Co.",
+      testimonial:
+        "Offshore Pirates' QA services were thorough and efficient, catching critical bugs before launch. Their attention to detail is commendable.",
+      rating: 4,
+    },
+    {
+      name: "Michael Davis",
+      role: "CEO",
+      company: "Startup Hub",
+      testimonial:
+        "As a startup, cost-efficiency is key. Offshore Pirates provided top-notch services at a fraction of the cost, enabling us to scale rapidly without compromising quality.",
+      rating: 5,
+    },
   ];
+
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
+  const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
+  const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  const onSelect = useCallback((emblaApi: any) => {
+    setPrevBtnEnabled(emblaApi.canScrollPrev());
+    setNextBtnEnabled(emblaApi.canScrollNext());
+  }, []);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect(emblaApi);
+    emblaApi.on("reInit", onSelect);
+    emblaApi.on("select", onSelect);
+  }, [emblaApi, onSelect]);
 
   const blogData = {
     items: [
@@ -449,35 +532,61 @@ export default function HomePage() {
               What Clients Say
             </h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {testimonialsData.map((testimonial, i) => (
-              <div key={i}>
-                <Card className="h-full">
-                  <CardContent className="p-6">
-                    <div className="flex mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Sparkles
-                          key={i}
-                          className="w-4 h-4 text-yellow-400 fill-current"
-                        />
-                      ))}
-                    </div>
-                    <p className="text-muted-foreground mb-4 italic">
-                      "{testimonial.testimonial}"
-                    </p>
-                    <div>
-                      <div className="font-semibold">{testimonial.name}</div>
-                      <div className="text-sm text-muted-foreground">
-                        {testimonial.role}
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        {testimonial.company}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+          <div className="relative">
+            <div className="overflow-hidden" ref={emblaRef}>
+              <div className="flex">
+                {testimonialsData.map((testimonial, index) => (
+                  <div key={index} className="flex-none w-full md:w-1/2 lg:w-1/3 px-4">
+                    <Card className="h-full">
+                      <CardContent className="p-6">
+                        <div className="flex mb-4">
+                          {Array.from({ length: testimonial.rating }, (_, i) => (
+                            <Sparkles
+                              key={i}
+                              className="w-4 h-4 text-yellow-400 fill-current"
+                            />
+                          ))}
+                        </div>
+                        <p className="text-muted-foreground mb-4 italic">
+                          &ldquo;{testimonial.testimonial}&rdquo;
+                        </p>
+                        <div className="flex items-center mt-4">
+                          <Image
+                            src="/user.jpg"
+                            alt={testimonial.name}
+                            width={48}
+                            height={48}
+                            className="rounded-full mr-4 object-cover"
+                          />
+                          <div>
+                            <p className="font-semibold text-base">
+                              {testimonial.name}
+                            </p>
+                            <p className="text-sm text-muted-foreground">
+                              {testimonial.role}, {testimonial.company}
+                            </p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+            <Button
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
+              onClick={scrollPrev}
+              disabled={!prevBtnEnabled}
+            >
+              <ChevronLeft className="size-6" />
+            </Button>
+            <Button
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
+              onClick={scrollNext}
+              disabled={!nextBtnEnabled}
+            >
+              <ChevronRight className="size-6" />
+            </Button>
           </div>
         </div>
       </section>

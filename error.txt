@@ -1,9 +1,21 @@
-TypeError: e[o] is not a function
+Unhandled Runtime Error
 
+
+Error: ChevronLeft is not defined
+
+app\(site)\page.tsx (580:16) @ HomePage
+
+
+  578 |               disabled={!prevBtnEnabled}
+  579 |             >
+> 580 |               <ChevronLeft className="size-6" />
+      |                ^
+  581 |             </Button>
+  582 |             <Button
+  583 |               className="absolute right-0 top-1/2 -translate-y-1/2 bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
 Call Stack
-12
+2
 
-Show 10 ignore-listed frame(s)
-Object.t [as require]
-.next\server\webpack-runtime.js (1:127)
-JSON.parse
+Show 1 ignore-listed frame(s)
+HomePage
+app\(site)\page.tsx (580:16)

@@ -28,15 +28,13 @@ export default async function BlogPostPage({
       <section className="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-violet-600 text-white py-24 md:py-32">
         <div className="absolute inset-0 bg-cyan-900/40"></div>
         <div className="absolute inset-0">
-          {post.hero?.fileName && (
             <Image
-              src={`/images/${post.hero.fileName}`}
-              alt={post.hero.alt || post.seo.title || "Blog post hero image"}
+              src="/blog-banner.webp"
+              alt="Blog banner"
               fill
               className="object-cover opacity-20"
               priority
             />
-          )}
         </div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">

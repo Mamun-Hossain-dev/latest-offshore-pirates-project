@@ -1,7 +1,19 @@
+import Image from "next/image";
+
 export default function Loading() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-violet-100 dark:from-indigo-950 dark:to-violet-950">
       <section className="relative bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-600 py-20 md:py-28">
+        <div className="absolute inset-0 bg-cyan-900/20" />
+        <div className="absolute inset-0">
+          <Image
+            src="/blog-banner.webp"
+            alt="Blog background"
+            width={1920}
+            height={600}
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <div className="h-8 w-48 bg-white/20 rounded-full animate-pulse mb-6 mx-auto"></div>

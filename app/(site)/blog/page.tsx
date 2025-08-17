@@ -32,7 +32,7 @@ export default function BlogListPage() {
         <div className="absolute inset-0 bg-cyan-900/20" />
         <div className="absolute inset-0">
           <Image
-            src="/abstract-world-map.png"
+            src="/blog-banner.webp"
             alt="Blog background"
             width={1920}
             height={600}

@@ -21,23 +21,24 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
+import { ServiceCard } from "@/app/_components/service-card";
 
 export default function HomePage() {
   const top3 = [
     {
-      slug: "customer-support",
-      name: "24/7 Customer Support",
-      desc: "Round-the-clock multilingual customer service that scales with your business needs and maintains your brand voice across all channels.",
+      slug: "customer-support-services",
+      name: "Customer Support Services",
+      desc: "Deliver exceptional customer experiences 24/7 across all channels. Our expert teams ensure seamless, multilingual support that boosts satisfaction and retention.",
     },
     {
-      slug: "back-office",
-      name: "Back Office Operations",
-      desc: "Streamlined administrative processes including data entry, document processing, and workflow automation to boost operational efficiency.",
+      slug: "back-office-support",
+      name: "Back Office Support",
+      desc: "Streamline your operations with efficient, accurate back-office solutions. We handle data entry, processing, and administrative tasks, freeing your core team for strategic initiatives.",
     },
     {
-      slug: "technical-support",
-      name: "Technical Support",
-      desc: "Expert technical assistance and troubleshooting services delivered by skilled professionals who understand your products inside and out.",
+      slug: "call-center-support",
+      name: "Call Center Support",
+      desc: "Transform customer interactions into loyalty and sales with our high-performance call center solutions. Experience scalable, quality-driven voice support tailored to your brand.",
     },
   ];
 
@@ -398,45 +399,7 @@ export default function HomePage() {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {top3.map((svc, index) => (
               <div key={svc.slug}>
-                <Card className="relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 hover:scale-105">
-                  <div className="relative h-48 overflow-hidden">
-                    <Image
-                      src={`/abstract-geometric-shapes.png?key=09snh&height=200&width=400&query=${encodeURIComponent(
-                        svc.name + " service"
-                      )}`}
-                      alt={svc.name}
-                      width={400}
-                      height={200}
-                      className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                  </div>
-
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-xl font-bold">
-                      {svc.name}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="pt-0">
-                    <p className="text-muted-foreground mb-6 leading-relaxed line-clamp-3">
-                      {svc.desc}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <Button
-                        asChild
-                        className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
-                      >
-                        <Link href={`/services/${svc.slug}`}>
-                          View Details
-                          <ArrowRight className="ml-2 size-4" />
-                        </Link>
-                      </Button>
-                      <div className="text-sm text-muted-foreground">
-                        Learn more →
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                <ServiceCard service={svc} />
               </div>
             ))}
           </div>

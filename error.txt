@@ -1,21 +1,13 @@
-Unhandled Runtime Error
+Module parse failed: Cannot parse JSON: Unterminated string in JSON at position 11587 (line 95 column 6039) while parsing '{
 
+./app/_lib/blogs.json
 
-Error: ChevronLeft is not defined
-
-app\(site)\page.tsx (580:16) @ HomePage
-
-
-  578 |               disabled={!prevBtnEnabled}
-  579 |             >
-> 580 |               <ChevronLeft className="size-6" />
-      |                ^
-  581 |             </Button>
-  582 |             <Button
-  583 |               className="absolute right-0 top-1/2 -translate-y-1/2 bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
-Call Stack
-2
-
-Show 1 ignore-listed frame(s)
-HomePage
-app\(site)\page.tsx (580:16)
+Module parse failed: Cannot parse JSON: Unterminated string in JSON at position 11587 (line 95 column 6039) while parsing '{
+  "blogsList": {
+    "list": [
+      {'
+You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
+Error: Cannot parse JSON: Unterminated string in JSON at position 11587 (line 95 column 6039) while parsing '{
+  "blogsList": {
+    "list": [
+      {'

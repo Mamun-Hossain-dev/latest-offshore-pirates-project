@@ -3,7 +3,7 @@ import { fetchBlogBySlug, fetchBlogs } from "@/app/_lib/blogs";
 import Image from "next/image";
 import Link from "next/link";
 import { Clock, User, ArrowUpRight, BookOpen } from "lucide-react";
-import { TableOfContents } from "@/app/_components/table-of-contents";
+// import { TableOfContents } from "@/app/_components/table-of-contents";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default async function BlogPostPage({
@@ -29,9 +29,10 @@ export default async function BlogPostPage({
         <div className="absolute inset-0 bg-cyan-900/40"></div>
         <div className="absolute inset-0">
             <Image
-              src="/blog-banner.webp"
-              alt="Blog banner"
-              fill
+              src={`/${post.slug}.webp`}
+              alt={post.seo.title || "Blog post hero image"}
+              width={1920}
+              height={600}
               className="object-cover opacity-20"
               priority
             />
@@ -74,53 +75,15 @@ export default async function BlogPostPage({
           <article className="lg:col-span-3">
             <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-xl border border-indigo-200/50 dark:border-indigo-800/50">
               <div className="prose prose-lg dark:prose-invert max-w-none">
-                {post.seo.description && (
-                  <p className="text-lg leading-relaxed mb-6">
-                    {post.seo.description}
-                  </p>
-                )}
-
-                {/* Render image suggestions if available */}
-                {Array.isArray(post.imageSuggestions) &&
-                  post.imageSuggestions.map((img, i) => {
-                    const [width, height] = img.recommendedSize
-                      ? img.recommendedSize.split("x").map(Number)
-                      : [1200, 800];
-
-                    return (
-                      <div key={i} className="my-12">
-                        <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-                          <Image
-                            src={`/images/${post.slug}-${img.slot}.jpg`}
-                            alt={img.prompt || post.seo.title}
-                            width={width}
-                            height={height}
-                            className="w-full h-auto"
-                          />
-                        </div>
-                        {img.prompt && (
-                          <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4 italic">
-                            {img.prompt}
-                          </p>
-                        )}
-                      </div>
-                    );
-                  })}
+                <p className="text-lg leading-relaxed mb-6">
+                  {post.body}
+                </p>
               </div>
             </div>
           </article>
 
           {/* Sidebar TOC */}
-          {headings.length > 0 && (
-            <aside className="lg:col-span-1 lg:sticky top-24 h-fit">
-              <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-indigo-200/50 dark:border-indigo-800/50">
-                <h3 className="text-lg font-bold text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text mb-4">
-                  Table of Contents
-                </h3>
-                <TableOfContents headings={headings} />
-              </div>
-            </aside>
-          )}
+          
         </div>
 
         {/* Related Articles */}

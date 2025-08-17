@@ -20,7 +20,7 @@ export function ThemeToggle() {
   const isDark = theme === "dark"
 
   return (
-    <Button variant="outline" size="icon" aria-label="Toggle theme" onClick={() => setTheme(isDark ? "light" : "dark")}>
+    <Button size="icon" aria-label="Toggle theme" onClick={() => setTheme(isDark ? "light" : "dark")} className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors">
       {isDark ? <Sun className="size-4" /> : <Moon className="size-4" />}
     </Button>
   )

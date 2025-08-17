@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -25,8 +27,14 @@ export function Navbar() {
   return (
     <div className="container mx-auto px-4 md:px-6 h-14 flex items-center">
       <Link href="/" className="flex items-center gap-2">
-        <div className="p-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center">
-          <span className="text-white font-bold text-sm">OP</span>
+        <div className=" rounded-full bg-gradient-to-r from-cyan-400 to-blue-500">
+          <Image
+            src="/offshor_logo.png"
+            width={120}
+            height={120}
+            alt="Offshore Pirates Logo"
+            className="w-10 h-10 rounded-full ring-3 ring-cyan-600"
+          />
         </div>
         <span className="font-extrabold text-lg">Offshore Pirates</span>
       </Link>
@@ -50,7 +58,7 @@ export function Navbar() {
         <ThemeToggle />
         <Button
           asChild
-          className="hidden sm:inline-flex bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700"
+          className="hidden sm:inline-flex bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
         >
           <Link href="/contact">Get Consultation</Link>
         </Button>
@@ -58,7 +66,11 @@ export function Navbar() {
         {/* Mobile Menu */}
         <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild className="md:hidden">
-            <Button variant="ghost" size="icon" aria-label="Open menu">
+            <Button
+              size="icon"
+              aria-label="Open menu"
+              className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
+            >
               <Menu className="size-6" />
             </Button>
           </SheetTrigger>

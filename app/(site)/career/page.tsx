@@ -114,7 +114,7 @@ export default function CareerPage() {
               <AccordionContent>
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                   <p className="text-muted-foreground">{job.desc}</p>
-                  <Button>Apply Now</Button>
+                  <Button className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors">Apply Now</Button>
                 </div>
               </AccordionContent>
             </AccordionItem>
@@ -165,7 +165,7 @@ export default function CareerPage() {
               </p>
             )}
           </div>
-          <Button type="submit" className="bg-indigo-600 hover:bg-indigo-700">
+          <Button type="submit" className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors">
             Submit Application
           </Button>
         </form>

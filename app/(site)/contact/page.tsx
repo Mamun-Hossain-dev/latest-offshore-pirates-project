@@ -274,7 +274,7 @@ export default function ContactPage() {
 
                 <Button
                   type="submit"
-                  className="w-full h-14 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold text-lg transition-all duration-200 hover:shadow-lg hover:scale-[1.02]"
+                  className="w-full bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
                 >
                   <Send className="mr-2 h-5 w-5" />
                   Send Message

@@ -110,7 +110,7 @@ export default function BlogListPage() {
                 </p>
                 <Button
                   asChild
-                  className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group/btn"
+                  className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors w-full"
                 >
                   <Link
                     href={`/blog/${post.slug}`}
@@ -127,10 +127,9 @@ export default function BlogListPage() {
 
         <div className="flex justify-center gap-4 mt-16">
           <Button
-            variant="outline"
             disabled={page === 1 || isFetching}
             onClick={() => setPage((p) => p - 1)}
-            className="px-8 py-3 border-cyan-200 text-cyan-700 hover:bg-cyan-50 hover:border-cyan-300 disabled:opacity-50 font-semibold rounded-xl"
+            className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
           >
             Previous
           </Button>
@@ -138,10 +137,9 @@ export default function BlogListPage() {
             Page {page}
           </div>
           <Button
-            variant="outline"
             disabled={!canNext || isFetching}
             onClick={() => setPage((p) => p + 1)}
-            className="px-8 py-3 border-cyan-200 text-cyan-700 hover:bg-cyan-50 hover:border-cyan-300 disabled:opacity-50 font-semibold rounded-xl"
+            className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
           >
             Next
           </Button>

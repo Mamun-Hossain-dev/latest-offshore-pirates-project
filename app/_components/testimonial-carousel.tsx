@@ -99,17 +99,15 @@ export function TestimonialCarousel({ testimonials }: TestimonialCarouselProps) 
 
       {/* Navigation Buttons */}
       <Button
-        variant="ghost"
         size="icon"
-        className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 rounded-full shadow-md hover:bg-white dark:hover:bg-gray-800"
+        className="absolute left-0 top-1/2 -translate-y-1/2 bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
         onClick={goToPrevious}
       >
         <ChevronLeft className="size-6" />
       </Button>
       <Button
-        variant="ghost"
         size="icon"
-        className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 rounded-full shadow-md hover:bg-white dark:hover:bg-gray-800"
+        className="absolute right-0 top-1/2 -translate-y-1/2 bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
         onClick={goToNext}
       >
         <ChevronRight className="size-6" />

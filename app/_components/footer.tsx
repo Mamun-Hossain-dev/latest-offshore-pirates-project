@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import Image from "next/image"; // ✅ correct
 
 export function Footer() {
   return (
@@ -20,17 +21,23 @@ export function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="size-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">OP</span>
+              <div className="rounded-full bg-gradient-to-r from-cyan-400 to-blue-500">
+                <Image
+                  src="/offshor_logo.png"
+                  width={120}
+                  height={120}
+                  alt="Offshore Pirates Logo"
+                  className="w-9 h-9 rounded-full ring-cyan-600 ring-2"
+                />
               </div>
               <span className="font-bold text-xl">Offshore Pirates</span>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              The global crew you&apos;ve been searching for. We deliver fearless
-              voices and relentless results across customer support, finance,
-              and operations.
+              The global crew you&apos;ve been searching for. We deliver
+              fearless voices and relentless results across customer support,
+              finance, and operations.
             </p>
-            
+
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-gray-300">
                 <Mail className="size-4 text-indigo-400" />
@@ -113,7 +120,7 @@ export function Footer() {
                   placeholder="Enter your email"
                   className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-indigo-400"
                 />
-                <Button className="bg-indigo-600 hover:bg-indigo-700 px-4">
+                <Button className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors">
                   <ArrowRight className="size-4" />
                 </Button>
               </div>

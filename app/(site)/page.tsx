@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
   Headphones,
@@ -15,9 +15,9 @@ import {
   Phone,
   Mail,
   MapPin,
-} from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function HomePage() {
   const top3 = [
@@ -36,46 +36,46 @@ export default function HomePage() {
       name: "Technical Support",
       desc: "Expert technical assistance and troubleshooting services delivered by skilled professionals who understand your products inside and out.",
     },
-  ]
+  ];
 
   const whyChooseUsItems = [
     {
       title: "Omnichannel Expertise",
       desc: "We deliver a seamless and unified brand experience across every channel, from voice and chat to email and social media. Our integrated approach ensures your customers receive consistent, high-quality support at every touchpoint.",
       icon: <Headphones className="size-6" />,
-      gradient: "from-primary to-secondary",
+      gradient: "from-cyan-500 to-blue-500",
     },
     {
       title: "Operational Rigor",
       desc: "Our delivery is relentlessly KPI-driven and backed by stringent SLAs to guarantee measurable outcomes. We are obsessed with performance, providing the data-backed results your business needs to thrive.",
       icon: <Shield className="size-6" />,
-      gradient: "from-secondary to-accent",
+      gradient: "from-cyan-500 to-blue-500",
     },
     {
       title: "Process Design",
       desc: "We engineer lean, automated workflows designed for maximum efficiency and scalability. Our meticulously documented processes ensure transparent, repeatable success that grows with your business.",
       icon: <Layers className="size-6" />,
-      gradient: "from-primary to-accent",
+      gradient: "from-cyan-500 to-blue-500",
     },
     {
       title: "Financial Clarity",
       desc: "Gain unparalleled insight with real-time dashboards and transparent reporting, all while lowering your total cost of ownership. We provide the financial visibility you need to make informed, strategic decisions.",
       icon: <Calculator className="size-6" />,
-      gradient: "from-secondary to-primary",
+      gradient: "from-cyan-500 to-blue-500",
     },
     {
       title: "Global Reach",
       desc: "With our follow-the-sun coverage and multilingual support teams, we are always on, wherever your customers are. Our global footprint ensures true 24/7 availability and localized expertise.",
       icon: <Globe2 className="size-6" />,
-      gradient: "from-accent to-primary",
+      gradient: "from-cyan-500 to-blue-500",
     },
     {
       title: "Innovation First",
       desc: "We embed AI-powered micro-automations and cutting-edge solutions into our services to drive efficiency and unlock new value. Partner with us to stay ahead of the curve and turn innovation into a competitive advantage.",
       icon: <Sparkles className="size-6" />,
-      gradient: "from-accent to-secondary",
+      gradient: "from-cyan-500 to-blue-500",
     },
-  ]
+  ];
 
   const industries = [
     {
@@ -108,7 +108,7 @@ export default function HomePage() {
       desc: "We deliver multilingual customer service and booking support for the travel and hospitality industry, ensuring your customers receive world-class service, wherever their journey takes them.",
       color: "from-indigo-500 to-purple-500",
     },
-  ]
+  ];
 
   const testimonialsData = [
     {
@@ -135,7 +135,7 @@ export default function HomePage() {
       testimonial:
         "As a financial services firm, accuracy and compliance are non-negotiable. The accounting team at Offshore Pirates has been phenomenal. Our accounts receivable days outstanding dropped by 18% because of their diligent follow-up and clean, timely reconciliations. They provide the financial clarity we need to make strategic decisions with confidence.",
     },
-  ]
+  ];
 
   const blogData = {
     items: [
@@ -161,7 +161,7 @@ export default function HomePage() {
         category: "Strategy",
       },
     ],
-  }
+  };
 
   return (
     <div>
@@ -171,9 +171,7 @@ export default function HomePage() {
 
           <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-cyan-900/40 to-transparent" />
 
-          <div
-            className="absolute inset-0 opacity-30"
-          />
+          <div className="absolute inset-0 opacity-30" />
 
           <div className="absolute inset-0">
             {/* Floating elements removed */}
@@ -197,10 +195,28 @@ export default function HomePage() {
                 style={{ animationDelay: "1s" }}
               />
               <defs>
-                <linearGradient id="worldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="rgb(6, 182, 212)" stopOpacity="0.8" />
-                  <stop offset="50%" stopColor="rgb(59, 130, 246)" stopOpacity="1" />
-                  <stop offset="100%" stopColor="rgb(14, 165, 233)" stopOpacity="0.8" />
+                <linearGradient
+                  id="worldGradient"
+                  x1="0%"
+                  y1="0%"
+                  x2="100%"
+                  y2="0%"
+                >
+                  <stop
+                    offset="0%"
+                    stopColor="rgb(6, 182, 212)"
+                    stopOpacity="0.8"
+                  />
+                  <stop
+                    offset="50%"
+                    stopColor="rgb(59, 130, 246)"
+                    stopOpacity="1"
+                  />
+                  <stop
+                    offset="100%"
+                    stopColor="rgb(14, 165, 233)"
+                    stopOpacity="0.8"
+                  />
                 </linearGradient>
               </defs>
             </svg>
@@ -209,9 +225,7 @@ export default function HomePage() {
 
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <div className="relative">
-            <div
-              className="relative z-10 p-8 rounded-full bg-gradient-to-br from-cyan-400/25 to-blue-600/25 backdrop-blur-md border border-cyan-300/40 shadow-2xl shadow-cyan-500/25"
-            >
+            <div className="relative z-10 p-8 rounded-full bg-gradient-to-br from-cyan-400/25 to-blue-600/25 backdrop-blur-md border border-cyan-300/40 shadow-2xl shadow-cyan-500/25">
               <Headphones className="w-16 h-16 text-cyan-200" />
             </div>
 
@@ -220,12 +234,8 @@ export default function HomePage() {
         </div>
 
         <div className="container mx-auto px-4 md:px-6 text-center relative z-30">
-          <div
-            className="max-w-4xl mx-auto"
-          >
-            <div
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500/25 to-blue-500/25 backdrop-blur-md border border-cyan-300/40 text-cyan-100 text-sm mb-8 shadow-lg shadow-cyan-500/30"
-            >
+          <div className="max-w-4xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500/25 to-blue-500/25 backdrop-blur-md border border-cyan-300/40 text-cyan-100 text-sm mb-8 shadow-lg shadow-cyan-500/30">
               <Sparkles className="size-4" />
               Trusted by 500+ Global Brands
             </div>
@@ -238,17 +248,15 @@ export default function HomePage() {
             </h1>
 
             <p className="text-xl md:text-2xl text-cyan-100/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Scale your operations with offshore talent that delivers on-demand performance across support, finance,
-              and ops.
+              Scale your operations with offshore talent that delivers on-demand
+              performance across support, finance, and ops.
             </p>
 
-            <div
-              className="flex flex-col sm:flex-row justify-center gap-4 mb-12"
-            >
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
               <Button
                 asChild
                 size="lg"
-                className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white border-0 shadow-xl shadow-cyan-500/30 px-8 py-6 text-lg backdrop-blur-sm"
+                className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
               >
                 <Link href="/services">
                   <Sparkles className="mr-2 size-5" />
@@ -259,8 +267,7 @@ export default function HomePage() {
               <Button
                 asChild
                 size="lg"
-                variant="outline"
-                className="backdrop-blur-md border-cyan-300/40 text-cyan-100 hover:bg-cyan-500/15 bg-cyan-500/10 px-8 py-6 text-lg shadow-lg"
+                className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
               >
                 <Link href="/contact">
                   <MessageSquare className="mr-2 size-5" />
@@ -269,16 +276,16 @@ export default function HomePage() {
               </Button>
             </div>
 
-            <div
-              className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto"
-            >
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto">
               {[
                 { number: "500+", label: "Global Clients" },
                 { number: "24/7", label: "Support Coverage" },
                 { number: "70%", label: "Cost Reduction" },
               ].map((stat, i) => (
                 <div key={i} className="text-center">
-                  <div className="text-3xl font-bold text-cyan-300 mb-1 drop-shadow-lg">{stat.number}</div>
+                  <div className="text-3xl font-bold text-cyan-300 mb-1 drop-shadow-lg">
+                    {stat.number}
+                  </div>
                   <div className="text-cyan-100/70 text-sm">{stat.label}</div>
                 </div>
               ))}
@@ -286,9 +293,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
-        >
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
           <div className="w-6 h-10 border-2 border-cyan-300/60 rounded-full flex justify-center backdrop-blur-sm">
             <div className="w-1 h-3 bg-cyan-300/80 rounded-full mt-2 shadow-lg shadow-cyan-300/60" />
           </div>
@@ -297,24 +302,25 @@ export default function HomePage() {
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Core Services</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Our Core Services
+            </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Comprehensive solutions designed to scale your operations and drive measurable results
+              Comprehensive solutions designed to scale your operations and
+              drive measurable results
             </p>
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {top3.map((svc, index) => (
-              <div
-                key={svc.slug}
-              >
+              <div key={svc.slug}>
                 <Card className="relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 hover:scale-105">
                   <div className="relative h-48 overflow-hidden">
                     <Image
-                      src={`/abstract-geometric-shapes.png?key=09snh&height=200&width=400&query=${encodeURIComponent(svc.name + " service")}`}
+                      src={`/abstract-geometric-shapes.png?key=09snh&height=200&width=400&query=${encodeURIComponent(
+                        svc.name + " service"
+                      )}`}
                       alt={svc.name}
                       width={400}
                       height={200}
@@ -324,18 +330,27 @@ export default function HomePage() {
                   </div>
 
                   <CardHeader className="pb-3">
-                    <CardTitle className="text-xl font-bold">{svc.name}</CardTitle>
+                    <CardTitle className="text-xl font-bold">
+                      {svc.name}
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-0">
-                    <p className="text-muted-foreground mb-6 leading-relaxed line-clamp-3">{svc.desc}</p>
+                    <p className="text-muted-foreground mb-6 leading-relaxed line-clamp-3">
+                      {svc.desc}
+                    </p>
                     <div className="flex items-center justify-between">
-                      <Button asChild className="bg-primary hover:bg-primary/90">
+                      <Button
+                        asChild
+                        className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
+                      >
                         <Link href={`/services/${svc.slug}`}>
                           View Details
                           <ArrowRight className="ml-2 size-4" />
                         </Link>
                       </Button>
-                      <div className="text-sm text-muted-foreground">Learn more →</div>
+                      <div className="text-sm text-muted-foreground">
+                        Learn more →
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -347,22 +362,20 @@ export default function HomePage() {
 
       <section className="bg-gradient-to-br from-primary/5 via-background to-secondary/5 dark:from-primary/10 dark:via-background dark:to-secondary/10 border-y">
         <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
-          <div
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Offshore Pirates</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Why Choose Offshore Pirates
+            </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              We combine global talent with local expertise to deliver exceptional results
+              We combine global talent with local expertise to deliver
+              exceptional results
             </p>
           </div>
 
           <div className="group relative w-full overflow-hidden">
             <div className="flex animate-scroll group-hover:pause">
               {[...whyChooseUsItems, ...whyChooseUsItems].map((item, i) => (
-                <div
-                  key={i}
-                  className="w-[350px] flex-shrink-0 px-4"
-                >
+                <div key={i} className="w-[350px] flex-shrink-0 px-4">
                   <Card className="h-full border-0 shadow-xl hover:shadow-2xl transition-all duration-300 bg-card dark:bg-card">
                     <CardHeader className="pb-4">
                       <div
@@ -370,10 +383,14 @@ export default function HomePage() {
                       >
                         {item.icon}
                       </div>
-                      <CardTitle className="text-xl font-bold">{item.title}</CardTitle>
+                      <CardTitle className="text-xl font-bold text-cyan-500">
+                        {item.title}
+                      </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {item.desc}
+                      </p>
                     </CardContent>
                   </Card>
                 </div>
@@ -385,10 +402,10 @@ export default function HomePage() {
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Industries We Serve</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Industries We Serve
+            </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               Trusted by leading companies across diverse sectors worldwide
             </p>
@@ -396,10 +413,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {industries.map((industry, i) => (
-              <div
-                key={industry.name}
-                className="group cursor-pointer"
-              >
+              <div key={industry.name} className="group cursor-pointer">
                 <div className="relative overflow-hidden rounded-xl border bg-card dark:bg-card p-6 text-center shadow-xl transition-all duration-300 h-full">
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${industry.color} opacity-10 transition-opacity duration-300`}
@@ -408,14 +422,18 @@ export default function HomePage() {
                     <div
                       className={`inline-flex size-12 items-center justify-center rounded-lg bg-gradient-to-r ${industry.color} text-white mb-3 shadow-lg transition-all duration-300`}
                     >
-                      <span className="font-bold text-sm">{industry.name[0]}</span>
+                      <span className="font-bold text-sm">
+                        {industry.name[0]}
+                      </span>
                     </div>
                     <h3
                       className={`font-semibold text-lg mb-2 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:${industry.color} group-hover:bg-clip-text group-hover:text-transparent`}
                     >
                       {industry.name}
                     </h3>
-                    <p className="text-sm text-muted-foreground px-4">{industry.desc}</p>
+                    <p className="text-sm text-muted-foreground px-4">
+                      {industry.desc}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -426,28 +444,35 @@ export default function HomePage() {
 
       <section className="bg-muted/40 border-y">
         <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
-          <div
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">What Clients Say</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              What Clients Say
+            </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {testimonialsData.map((testimonial, i) => (
-              <div
-                key={i}
-              >
+              <div key={i}>
                 <Card className="h-full">
                   <CardContent className="p-6">
                     <div className="flex mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <Sparkles key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                        <Sparkles
+                          key={i}
+                          className="w-4 h-4 text-yellow-400 fill-current"
+                        />
                       ))}
                     </div>
-                    <p className="text-muted-foreground mb-4 italic">"{testimonial.testimonial}"</p>
+                    <p className="text-muted-foreground mb-4 italic">
+                      "{testimonial.testimonial}"
+                    </p>
                     <div>
                       <div className="font-semibold">{testimonial.name}</div>
-                      <div className="text-sm text-muted-foreground">{testimonial.role}</div>
-                      <div className="text-sm text-muted-foreground">{testimonial.company}</div>
+                      <div className="text-sm text-muted-foreground">
+                        {testimonial.role}
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        {testimonial.company}
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
@@ -461,7 +486,10 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl md:text-3xl font-bold">Latest Blogs</h2>
-            <Button asChild variant="ghost" className="gap-1">
+            <Button
+              asChild
+              className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors gap-1"
+            >
               <Link href="/blog">
                 Read more
                 <ChevronRight className="size-4" />
@@ -473,7 +501,7 @@ export default function HomePage() {
               <Card key={post.slug} className="overflow-hidden">
                 <Image
                   src={`/abstract-geometric-shapes.png?key=1s6es&height=200&width=600&query=${encodeURIComponent(
-                    "blog cover " + post.category,
+                    "blog cover " + post.category
                   )}`}
                   alt={post.title}
                   width={600}
@@ -481,12 +509,20 @@ export default function HomePage() {
                   className="w-full h-40 object-cover"
                 />
                 <CardHeader>
-                  <div className="text-xs uppercase tracking-wide text-primary">{post.category}</div>
+                  <div className="text-xs uppercase tracking-wide text-primary">
+                    {post.category}
+                  </div>
                   <CardTitle className="line-clamp-2">{post.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground line-clamp-3">{post.excerpt}</p>
-                  <Button asChild size="sm" className="mt-4 bg-primary hover:bg-primary/90">
+                  <p className="text-sm text-muted-foreground line-clamp-3">
+                    {post.excerpt}
+                  </p>
+                  <Button
+                    asChild
+                    size="sm"
+                    className="mt-4 bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
+                  >
                     <Link href={`/blog/${post.slug}`}>Read More</Link>
                   </Button>
                 </CardContent>
@@ -503,19 +539,29 @@ export default function HomePage() {
               <div className="text-center">
                 <Globe2 className="w-16 h-16 text-primary mx-auto mb-4" />
                 <h4 className="text-lg font-semibold mb-2">Global Presence</h4>
-                <p className="text-muted-foreground text-sm">Serving clients across 50+ countries</p>
+                <p className="text-muted-foreground text-sm">
+                  Serving clients across 50+ countries
+                </p>
               </div>
             </div>
             <div>
-              <h3 className="text-2xl md:text-3xl font-bold">Operate Globally, Deliver Locally</h3>
+              <h3 className="text-2xl md:text-3xl font-bold">
+                Operate Globally, Deliver Locally
+              </h3>
               <p className="text-muted-foreground mt-2">
                 Follow-the-sun coverage with multilingual teams across regions.
               </p>
               <div className="mt-6 flex gap-3">
-                <Button asChild className="bg-primary hover:bg-primary/90">
+                <Button
+                  asChild
+                  className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
+                >
                   <Link href="/contact">Book Consultation</Link>
                 </Button>
-                <Button asChild variant="outline">
+                <Button
+                  asChild
+                  className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
+                >
                   <Link href="/services">Explore Services</Link>
                 </Button>
               </div>
@@ -524,5 +570,5 @@ export default function HomePage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

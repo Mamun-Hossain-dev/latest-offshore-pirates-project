@@ -31,10 +31,10 @@ export function Testimonials() {
   return (
     <div>
       <div className="flex justify-end gap-2 mb-3">
-        <Button variant="outline" size="sm" onClick={() => scrollBy(-320)}>
+        <Button size="sm" onClick={() => scrollBy(-320)} className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors">
           Prev
         </Button>
-        <Button variant="outline" size="sm" onClick={() => scrollBy(320)}>
+        <Button size="sm" onClick={() => scrollBy(320)} className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors">
           Next
         </Button>
       </div>

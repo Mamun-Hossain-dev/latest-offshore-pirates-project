@@ -28,7 +28,7 @@ export function ServiceCard({
             <CardContent className="p-0">
               <p className="text-muted-foreground mb-6 leading-relaxed text-lg">{service.desc}</p>
               <div className="flex items-center justify-between">
-                <Button asChild className="bg-indigo-600 hover:bg-indigo-700">
+                <Button asChild className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors">
                   <Link href={`/services/${service.slug}`}> 
                     View Details
                     <ArrowRight className="ml-2 size-4" />
@@ -46,13 +46,13 @@ export function ServiceCard({
     <TiltCard asChild>
       <Card className="relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 group">
         <div className="relative h-48 overflow-hidden">
-          <Image
+          {/* <Image
             src="/placeholder.jpg"
             alt={service.name}
             width={400}
             height={200}
             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-          />
+          /> */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
         </div>
 
@@ -67,7 +67,7 @@ export function ServiceCard({
 
           <Button
             asChild
-            className="w-full bg-indigo-600 hover:bg-indigo-700 group-hover:bg-gradient-to-r group-hover:from-indigo-600 group-hover:to-purple-600"
+            className="w-full bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
           >
             <Link href={`/services/${service.slug}`}> 
               View Details

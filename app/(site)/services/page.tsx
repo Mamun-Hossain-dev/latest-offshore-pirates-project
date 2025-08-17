@@ -38,13 +38,13 @@ export default function ServicesPage() {
       <section className="relative bg-gradient-to-br from-indigo-900 via-purple-900 to-blue-900 text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0">
-          <Image
+          {/* <Image
             src="/services-hero-bg.jpg"
             alt="Services background"
             width={1920}
             height={600}
             className="w-full h-full object-cover opacity-20"
-          />
+          /> */}
         </div>
         <div className="container mx-auto px-4 md:px-6 py-20 md:py-28 relative z-10">
           <motion.div
@@ -92,17 +92,15 @@ export default function ServicesPage() {
             {/* View Toggle */}
             <div className="flex items-center gap-2">
               <Button
-                variant={viewMode === "grid" ? "default" : "outline"}
                 size="sm"
                 onClick={() => setViewMode("grid")}
-              >
+                className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors">
                 <Grid3X3 className="size-4" />
               </Button>
               <Button
-                variant={viewMode === "list" ? "default" : "outline"}
                 size="sm"
                 onClick={() => setViewMode("list")}
-              >
+                className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors">
                 <List className="size-4" />
               </Button>
             </div>
@@ -164,14 +162,13 @@ export default function ServicesPage() {
               We create custom solutions tailored to your specific business requirements
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="secondary">
+              <Button asChild size="lg" className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors">
                 <Link href="/contact">Discuss Custom Solution</Link>
               </Button>
               <Button
                 asChild
                 size="lg"
-                variant="outline"
-                className="border-white/30 text-white hover:bg-white/10 bg-transparent"
+                className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
               >
                 <Link href="/about">Learn About Us</Link>
               </Button>

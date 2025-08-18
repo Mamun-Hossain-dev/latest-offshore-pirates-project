@@ -1,92 +1,83 @@
 export default function Loading() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cyan-50 to-blue-100 dark:from-gray-900 dark:to-gray-800">
-      {/* Hero Loading Section */}
-      <div className="relative bg-gradient-to-br from-blue-800 via-cyan-900 to-blue-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="container mx-auto px-4 md:px-6 py-20 md:py-28 relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="h-12 md:h-16 bg-white/20 animate-pulse rounded-lg mb-6 mx-auto max-w-2xl" />
-            <div className="h-6 md:h-8 bg-white/15 animate-pulse rounded-lg mb-8 mx-auto max-w-3xl" />
-            <div className="flex flex-wrap justify-center gap-4">
-              {Array.from({ length: 4 }).map((_, i) => (
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-indigo-50 dark:from-cyan-950 dark:via-blue-950 dark:to-indigo-950">
+      {/* Hero Loading */}
+      <section className="relative py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/10 to-blue-600/10 backdrop-blur-3xl"></div>
+        <div className="container mx-auto relative z-10">
+          <div className="text-center max-w-4xl mx-auto animate-pulse">
+            <div className="h-12 bg-cyan-200 dark:bg-cyan-800 rounded-lg mb-6 mx-auto w-3/4"></div>
+            <div className="h-6 bg-cyan-100 dark:bg-cyan-900 rounded mb-4 mx-auto w-2/3"></div>
+            <div className="h-6 bg-cyan-100 dark:bg-cyan-900 rounded mb-8 mx-auto w-1/2"></div>
+            <div className="h-12 bg-cyan-100 dark:bg-cyan-900 rounded-xl mb-8 max-w-2xl mx-auto"></div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+              {Array.from({ length: 3 }).map((_, i) => (
                 <div
                   key={i}
-                  className="h-8 w-24 bg-white/10 animate-pulse rounded-full"
-                  style={{ animationDelay: `${i * 0.2}s` }}
-                />
+                  className="h-24 bg-white/60 dark:bg-gray-900/60 rounded-xl border border-cyan-200 dark:border-cyan-800"
+                ></div>
               ))}
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Search Bar Loading */}
-      <div className="sticky top-[56px] z-30 bg-background/95 backdrop-blur border-b shadow-sm">
-        <div className="container mx-auto px-4 md:px-6 py-4">
-          <div className="flex flex-col lg:flex-row gap-4 items-center">
-            <div className="relative flex-1 max-w-md">
-              <div className="h-10 bg-muted animate-pulse rounded-md" />
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="h-10 w-20 bg-muted animate-pulse rounded-full" />
-              <div className="h-10 w-20 bg-muted animate-pulse rounded-full" />
-            </div>
+      {/* Featured Article Loading */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto">
+          <div className="text-center mb-12 animate-pulse">
+            <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded mb-4 mx-auto w-48"></div>
+            <div className="w-24 h-1 bg-cyan-200 dark:bg-cyan-800 mx-auto rounded-full"></div>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="h-96 bg-white/60 dark:bg-gray-900/60 rounded-xl border border-cyan-200 dark:border-cyan-800 animate-pulse"></div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Services Grid Loading */}
-      <div className="py-12 md:py-16">
-        <div className="container mx-auto px-4 md:px-6">
-          {/* Header Loading */}
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <div className="h-8 w-48 bg-muted animate-pulse rounded-md mb-2" />
-              <div className="h-5 w-32 bg-muted animate-pulse rounded-md" />
-            </div>
-          </div>
-
-          {/* Cards Loading */}
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Categories Loading */}
+      <section className="py-8 px-4 bg-white/30 dark:bg-gray-900/30 backdrop-blur-sm">
+        <div className="container mx-auto">
+          <div className="flex flex-wrap items-center justify-center gap-3 animate-pulse">
             {Array.from({ length: 6 }).map((_, i) => (
               <div
                 key={i}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden"
-                style={{ animationDelay: `${i * 0.1}s` }}
-              >
-                {/* Image placeholder */}
-                <div className="h-48 bg-gradient-to-br from-cyan-200 to-blue-300 animate-pulse" />
-
-                {/* Content placeholder */}
-                <div className="p-6">
-                  <div className="h-6 bg-muted animate-pulse rounded-md mb-3" />
-                  <div className="space-y-2 mb-4">
-                    <div className="h-4 bg-muted animate-pulse rounded-md" />
-                    <div className="h-4 bg-muted animate-pulse rounded-md w-3/4" />
-                    <div className="h-4 bg-muted animate-pulse rounded-md w-1/2" />
-                  </div>
-                  <div className="h-10 bg-gradient-to-r from-cyan-300 to-blue-400 animate-pulse rounded-full" />
-                </div>
-              </div>
+                className="h-8 w-24 bg-cyan-200 dark:bg-cyan-800 rounded-full"
+              ></div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* CTA Section Loading */}
-      <div className="bg-gradient-to-r from-sky-300 to-blue-700">
-        <div className="container mx-auto px-4 md:px-6 py-16">
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="h-10 bg-white/20 animate-pulse rounded-lg mb-4 mx-auto max-w-lg" />
-            <div className="h-6 bg-white/15 animate-pulse rounded-lg mb-8 mx-auto max-w-2xl" />
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <div className="h-12 w-48 bg-white/20 animate-pulse rounded-full" />
-              <div className="h-12 w-40 bg-white/20 animate-pulse rounded-full" />
-            </div>
+      {/* Articles Grid Loading */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto">
+          <div className="text-center mb-12 animate-pulse">
+            <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded mb-4 mx-auto w-48"></div>
+            <div className="w-24 h-1 bg-cyan-200 dark:bg-cyan-800 mx-auto rounded-full"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {Array.from({ length: 3 }).map((_, i) => (
+              <div
+                key={i}
+                className="h-80 bg-white/60 dark:bg-gray-900/60 rounded-xl border border-cyan-200 dark:border-cyan-800 animate-pulse"
+              ></div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div
+                key={i}
+                className="h-48 bg-white/60 dark:bg-gray-900/60 rounded-xl border border-cyan-200 dark:border-cyan-800 animate-pulse"
+              ></div>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

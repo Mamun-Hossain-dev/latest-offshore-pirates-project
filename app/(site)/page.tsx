@@ -1,6 +1,4 @@
 "use client";
-
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -11,10 +9,6 @@ import {
   Globe2,
   Sparkles,
   MessageSquare,
-  Phone,
-  Mail,
-  MapPin,
-  ChevronLeft,
   ChevronRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -22,6 +16,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
 import { ServiceCard } from "@/app/_components/service-card";
+import { getAllBlogPosts } from "@/app/_lib/blog";
 
 export default function HomePage() {
   const top3 = [
@@ -114,89 +109,6 @@ export default function HomePage() {
     },
   ];
 
-  const testimonialsData = [
-    {
-      name: "Riley O'Sullivan",
-      role: "VP of Global Support",
-      company: "Innovate Inc.",
-      testimonial:
-        "Partnering with Offshore Pirates has been a game-changer. We were struggling to provide 24/7 support to our growing user base. Their team seamlessly integrated with ours, cutting response times by over 45% and boosting our customer satisfaction scores by a staggering 20% in the first quarter alone. Their dedication to quality is unmatched.",
-      rating: 5,
-    },
-    {
-      name: "Morgan Lee",
-      role: "Chief Operating Officer",
-      company: "RetailerX",
-      testimonial:
-        "Our back-office operations were a tangled mess of spreadsheets and manual processes. Offshore Pirates came in and engineered a streamlined, automated workflow that has made our SLAs finally predictable. The lift in accuracy and efficiency has been huge, allowing our team to focus on growth instead of getting bogged down in administrative tasks.",
-      rating: 5,
-    },
-    {
-      name: "Taylor Rodriguez",
-      role: "Chief Financial Officer",
-      company: "FinServ Solutions",
-      rating: 5,
-      testimonial:
-        "As a financial services firm, accuracy and compliance are non-negotiable. The accounting team at Offshore Pirates has been phenomenal. Our accounts receivable days outstanding dropped by 18% because of their diligent follow-up and clean, timely reconciliations. They provide the financial clarity we need to make strategic decisions with confidence.",
-    },
-    {
-      name: "Alex Chen",
-      role: "Head of Operations",
-      company: "Global Logistics Co.",
-      testimonial:
-        "Offshore Pirates provided exceptional data management services, significantly improving our operational efficiency and reducing manual errors. Their team is highly skilled and responsive.",
-      rating: 4,
-    },
-    {
-      name: "Samantha Green",
-      role: "Marketing Director",
-      company: "E-commerce Solutions",
-      testimonial:
-        "Their customer support team seamlessly integrated with our existing systems, providing excellent service and improving our customer satisfaction scores. Highly recommended!",
-      rating: 5,
-    },
-    {
-      name: "David Kim",
-      role: "CTO",
-      company: "Tech Innovators",
-      testimonial:
-        "We needed specialized technical support, and Offshore Pirates delivered. Their expertise helped us resolve complex issues quickly, enhancing our product's reliability.",
-      rating: 5,
-    },
-    {
-      name: "Emily White",
-      role: "HR Manager",
-      company: "Staffing Solutions",
-      testimonial:
-        "The back-office support from Offshore Pirates has been invaluable. They handle our administrative tasks with precision, allowing our internal team to focus on core HR functions.",
-      rating: 4,
-    },
-    {
-      name: "Chris Brown",
-      role: "Sales Manager",
-      company: "SalesForce Pro",
-      testimonial:
-        "Their sales development team generated high-quality leads and significantly boosted our conversion rates. A truly professional and results-driven partnership.",
-      rating: 5,
-    },
-    {
-      name: "Jessica Lee",
-      role: "Product Manager",
-      company: "App Development Co.",
-      testimonial:
-        "Offshore Pirates' QA services were thorough and efficient, catching critical bugs before launch. Their attention to detail is commendable.",
-      rating: 4,
-    },
-    {
-      name: "Michael Davis",
-      role: "CEO",
-      company: "Startup Hub",
-      testimonial:
-        "As a startup, cost-efficiency is key. Offshore Pirates provided top-notch services at a fraction of the cost, enabling us to scale rapidly without compromising quality.",
-      rating: 5,
-    },
-  ];
-
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
@@ -221,99 +133,40 @@ export default function HomePage() {
     emblaApi.on("select", onSelect);
   }, [emblaApi, onSelect]);
 
-  const blogData = {
-    items: [
-      {
-        slug: "ai-customer-service",
-        title: "The Future of AI in Customer Service",
-        excerpt:
-          "Discover how artificial intelligence is revolutionizing customer support and what it means for your business.",
-        category: "Technology",
-      },
-      {
-        slug: "offshore-outsourcing-trends",
-        title: "2024 Offshore Outsourcing Trends",
-        excerpt:
-          "Key trends shaping the offshore outsourcing industry and how to leverage them for competitive advantage.",
-        category: "Business",
-      },
-      {
-        slug: "cost-optimization-strategies",
-        title: "Cost Optimization Through Strategic Outsourcing",
-        excerpt:
-          "Learn proven strategies to reduce operational costs while maintaining service quality through smart outsourcing.",
-        category: "Strategy",
-      },
-    ],
-  };
+  const [latestBlogs, setLatestBlogs] = useState<any[]>([]);
+
+  useEffect(() => {
+    const blogs = getAllBlogPosts().slice(0, 3); // Get latest 3 blogs
+    setLatestBlogs(blogs);
+  }, []);
 
   return (
     <div>
-      <style jsx>{`
-        @keyframes typing {
-          from {
-            width: 0;
-          }
-          to {
-            width: 100%;
-          }
-        }
-
-        @keyframes blink-caret {
-          from,
-          to {
-            border-color: transparent;
-          }
-          50% {
-            border-color: white;
-          }
-        }
-
-        .typewriter-text-line1 {
-          overflow: hidden;
-          border-right: 0.15em solid white;
-          white-space: nowrap;
-          margin: 0 auto;
-          letter-spacing: 0.15em;
-          animation: typing 2s steps(20, end) 3s infinite,
-            blink-caret 0.75s step-end infinite;
-        }
-
-        .typewriter-text-line2 {
-          overflow: hidden;
-          border-right: 0.15em solid white;
-          white-space: nowrap;
-          margin: 0 auto;
-          letter-spacing: 0.15em;
-          animation: typing 2s steps(20, end) 5s infinite,
-            blink-caret 0.75s step-end infinite;
-        }
-      `}</style>
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-indigo-900" />
-
-          <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-cyan-900/40 to-transparent" />
-
-          <div className="absolute inset-0 opacity-30" />
-
-          <div className="absolute inset-0">
-            {/* Floating elements removed */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-cyan-950/40 to-blue-950" />
+          <div className="absolute inset-0 bg-gradient-to-t from-cyan-950/95 via-blue-950/70 to-slate-900/50" />
+          <div className="absolute inset-0 opacity-30">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-600/15 rounded-full blur-3xl animate-pulse" />
+            <div
+              className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl animate-pulse"
+              style={{ animationDelay: "0.1s" }}
+            />
           </div>
 
-          <div className="absolute inset-0 opacity-15">
+          <div className="absolute inset-0 opacity-20">
             <svg className="w-full h-full" viewBox="0 0 1000 500">
               <path
                 d="M150,200 Q200,180 250,200 T350,220 Q400,200 450,210 T550,200 Q600,190 650,200 T750,210"
                 stroke="url(#worldGradient)"
-                strokeWidth="2"
+                strokeWidth="3"
                 fill="none"
                 className="animate-pulse"
               />
               <path
                 d="M100,250 Q150,230 200,250 T300,270 Q350,250 400,260 T500,250 Q550,240 600,250 T700,260"
                 stroke="url(#worldGradient)"
-                strokeWidth="2"
+                strokeWidth="3"
                 fill="none"
                 className="animate-pulse"
                 style={{ animationDelay: "1s" }}
@@ -349,26 +202,35 @@ export default function HomePage() {
 
         <div className="container mx-auto px-4 md:px-6 text-center relative z-30">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-8">
-              <span className="block animate-typewriter-line1 overflow-hidden whitespace-nowrap  pr-2">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl font-extrabold tracking-tight text-white mb-8 drop-shadow-2xl">
+              <span className="block animate-typewriter overflow-hidden whitespace-nowrap border-r-4 border-cyan-400 animate-banner-title">
                 Fearless Voices.
               </span>
               <br />
-              <span className="block bg-gradient-to-r from-cyan-300 via-blue-300 to-cyan-400 bg-clip-text text-transparent animate-typewriter-line2 overflow-hidden whitespace-nowrap pr-2">
+              <span
+                className="block bg-gradient-to-r from-cyan-200 via-blue-200 to-cyan-300 bg-clip-text text-transparent animate-wave-text animate-banner-subtitle"
+                style={{ animationDelay: "2s" }}
+              >
                 Relentless Results.
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p
+              className="text-xl md:text-2xl text-white/95 mb-10 max-w-3xl mx-auto leading-relaxed animate-slide-up"
+              style={{ animationDelay: "3s" }}
+            >
               Scale your operations with offshore talent that delivers on-demand
               performance across support, finance, and ops.
             </p>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+            <div
+              className="flex flex-col sm:flex-row justify-center gap-6 mb-16 animate-fade-in-up"
+              style={{ animationDelay: "1.5s" }}
+            >
               <Button
                 asChild
                 size="lg"
-                className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
+                className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-4 rounded-full hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
               >
                 <Link href="/services">
                   <Sparkles className="mr-2 size-5" />
@@ -379,7 +241,7 @@ export default function HomePage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
+                className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-4 rounded-full hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
               >
                 <Link href="/contact">
                   <MessageSquare className="mr-2 size-5" />
@@ -388,45 +250,42 @@ export default function HomePage() {
               </Button>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto">
+            <div
+              className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto animate-fade-in-up"
+              style={{ animationDelay: "2s" }}
+            >
               {[
                 { number: "24/7", label: "Support Coverage" },
                 { number: "70%", label: "Cost Reduction" },
-                {
-                  number: "100%",
-                  label: "Quality Assurance",
-                },
+                { number: "100%", label: "Quality Assurance" },
               ].map((stat, i) => (
-                <div
-                  key={i}
-                  className={`text-center ${
-                    stat.label === "Global Clients" ? "hidden sm:block" : ""
-                  }`}
-                >
-                  <div className="text-3xl font-bold text-white mb-1 drop-shadow-lg">
+                <div key={i} className="text-center group">
+                  <div className="text-4xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent mb-2 drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
                     {stat.number}
                   </div>
-                  <div className="text-white/70 text-sm">{stat.label}</div>
+                  <div className="text-white/80 text-sm font-medium">
+                    {stat.label}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-          <div className="w-6 h-10 border-2 border-cyan-300/60 rounded-full flex justify-center backdrop-blur-sm">
-            <div className="w-1 h-3 bg-cyan-300/80 rounded-full mt-2 shadow-lg shadow-cyan-300/60" />
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+          <div className="w-6 h-10 border-2 border-cyan-300/60 rounded-full flex justify-center backdrop-blur-sm bg-white/5">
+            <div className="w-1 h-3 bg-gradient-to-b from-cyan-300 to-blue-300 rounded-full mt-2 shadow-lg shadow-cyan-300/60 animate-pulse" />
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="py-20 md:py-28 bg-gradient-to-br from-slate-50 via-cyan-50/30 to-blue-50/30 dark:from-slate-900 dark:via-cyan-950/30 dark:to-blue-950/30">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
               Our Core Services
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-xl max-w-3xl mx-auto leading-relaxed">
               Comprehensive solutions designed to scale your operations and
               drive measurable results
             </p>
@@ -434,7 +293,11 @@ export default function HomePage() {
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {top3.map((svc, index) => (
-              <div key={svc.slug}>
+              <div
+                key={svc.slug}
+                className="animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
                 <ServiceCard service={svc} />
               </div>
             ))}
@@ -445,17 +308,20 @@ export default function HomePage() {
       <section className="bg-gradient-to-br from-primary/5 via-background to-secondary/5 dark:from-primary/10 dark:via-background dark:to-secondary/10 border-y">
         <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-slide-up">
               Why Choose Offshore Pirates
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p
+              className="text-muted-foreground text-lg max-w-2xl mx-auto animate-fade-in-up"
+              style={{ animationDelay: "0.2s" }}
+            >
               We combine global talent with local expertise to deliver
               exceptional results
             </p>
           </div>
 
           <div className="group relative w-full overflow-hidden">
-            <div className="flex animate-scroll group-hover:pause">
+            <div className="flex animate-fast-scroll group-hover:pause">
               {[...whyChooseUsItems, ...whyChooseUsItems].map((item, i) => (
                 <div key={i} className="w-[350px] flex-shrink-0 px-4">
                   <Card className="h-full border-0 shadow-xl hover:shadow-2xl transition-all duration-300 bg-card dark:bg-card">
@@ -482,163 +348,81 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-cyan-50/50 via-white to-blue-50/50 dark:from-cyan-950/20 dark:via-slate-900 dark:to-blue-950/20">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Industries We Serve
-            </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Trusted by leading companies across diverse sectors worldwide
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {industries.map((industry, i) => (
-              <div key={industry.name} className="group cursor-pointer">
-                <div className="relative overflow-hidden rounded-xl border bg-card dark:bg-card p-6 text-center shadow-xl transition-all duration-300 h-full">
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${industry.color} opacity-10 transition-opacity duration-300`}
-                  />
-                  <div className="relative z-10 flex flex-col items-center justify-center h-full">
-                    <div
-                      className={`inline-flex size-12 items-center justify-center rounded-lg bg-gradient-to-r ${industry.color} text-white mb-3 shadow-lg transition-all duration-300`}
-                    >
-                      <span className="font-bold text-sm">
-                        {industry.name[0]}
-                      </span>
-                    </div>
-                    <h3
-                      className={`font-semibold text-lg mb-2 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:${industry.color} group-hover:bg-clip-text group-hover:text-transparent`}
-                    >
-                      {industry.name}
-                    </h3>
-                    <p className="text-sm text-muted-foreground px-4">
-                      {industry.desc}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* <section className="bg-muted/40 border-y">
-        <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              What Clients Say
-            </h2>
-          </div>
-          <div className="relative">
-            <div className="overflow-hidden" ref={emblaRef}>
-              <div className="flex">
-                {testimonialsData.map((testimonial, index) => (
-                  <div
-                    key={index}
-                    className="flex-none w-full md:w-1/2 lg:w-1/3 px-4"
-                  >
-                    <Card className="h-full">
-                      <CardContent className="p-6">
-                        <div className="flex mb-4">
-                          {Array.from(
-                            { length: testimonial.rating },
-                            (_, i) => (
-                              <Sparkles
-                                key={i}
-                                className="w-4 h-4 text-yellow-400 fill-current"
-                              />
-                            )
-                          )}
-                        </div>
-                        <p className="text-muted-foreground mb-4 italic">
-                          &ldquo;{testimonial.testimonial}&rdquo;
-                        </p>
-                        <div className="flex items-center mt-4">
-                          <Image
-                            src="/user.jpg"
-                            alt={testimonial.name}
-                            width={48}
-                            height={48}
-                            className="rounded-full mr-4 object-cover"
-                          />
-                          <div>
-                            <p className="font-semibold text-base">
-                              {testimonial.name}
-                            </p>
-                            <p className="text-sm text-muted-foreground">
-                              {testimonial.role}, {testimonial.company}
-                            </p>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                ))}
-              </div>
+          <div className="flex items-center justify-between mb-12">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-2">
+                Latest Insights
+              </h2>
+              <p className="text-muted-foreground text-lg">
+                Stay updated with industry trends and expert insights
+              </p>
             </div>
             <Button
-              className="absolute left-0 top-1/2 -translate-y-1/2 bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
-              onClick={scrollPrev}
-              disabled={!prevBtnEnabled}
-            >
-              <ChevronLeft className="size-6" />
-            </Button>
-            <Button
-              className="absolute right-0 top-1/2 -translate-y-1/2 bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
-              onClick={scrollNext}
-              disabled={!nextBtnEnabled}
-            >
-              <ChevronRight className="size-6" />
-            </Button>
-          </div>
-        </div>
-      </section> */}
-
-      <section className="py-12 md:py-16">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold">Latest Blogs</h2>
-            <Button
               asChild
-              className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors gap-1"
+              className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-6 py-3 rounded-full hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
               <Link href="/blog">
-                Read more
-                <ChevronRight className="size-4" />
+                View All Articles
+                <ChevronRight className="size-4 ml-2" />
               </Link>
             </Button>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {blogData.items.map((post) => (
-              <Card key={post.slug} className="overflow-hidden">
-                <Image
-                  src={`/abstract-geometric-shapes.png?key=1s6es&height=200&width=600&query=${encodeURIComponent(
-                    "blog cover " + post.category
-                  )}`}
-                  alt={post.title}
-                  width={600}
-                  height={200}
-                  className="w-full h-40 object-cover"
-                />
-                <CardHeader>
-                  <div className="text-xs uppercase tracking-wide text-primary">
-                    {post.category}
+
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {latestBlogs.map((post, index) => (
+              <Card
+                key={post.slug}
+                className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm hover:scale-105"
+              >
+                <div className="relative overflow-hidden">
+                  <div className="h-48 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center">
+                    <div className="text-center p-6">
+                      <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span className="text-white font-bold text-xl">
+                          {post.category[0]}
+                        </span>
+                      </div>
+                      <div className="text-xs uppercase tracking-wide text-cyan-600 dark:text-cyan-400 font-semibold">
+                        {post.category}
+                      </div>
+                    </div>
                   </div>
-                  <CardTitle className="line-clamp-2">{post.title}</CardTitle>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+
+                <CardHeader className="pb-4">
+                  <CardTitle className="line-clamp-2 group-hover:text-cyan-600 transition-colors duration-300 text-lg">
+                    {post.title}
+                  </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground line-clamp-3">
-                    {post.excerpt}
+
+                <CardContent className="pt-0">
+                  <p className="text-sm text-muted-foreground line-clamp-3 mb-4 leading-relaxed">
+                    {post.description}
                   </p>
-                  <Button
-                    asChild
-                    size="sm"
-                    className="mt-4 bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
-                  >
-                    <Link href={`/blog/${post.slug}`}>Read More</Link>
-                  </Button>
+
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                      <span>{post.readTime}</span>
+                      <span>•</span>
+                      <span>
+                        {new Date(post.publishedAt).toLocaleDateString()}
+                      </span>
+                    </div>
+
+                    <Button
+                      asChild
+                      size="sm"
+                      className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-4 py-2 rounded-full hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 shadow-md hover:shadow-lg"
+                    >
+                      <Link href={`/blog/${post.slug}`}>
+                        Read More
+                        <ArrowRight className="size-3 ml-1" />
+                      </Link>
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -665,7 +449,7 @@ export default function HomePage() {
               <p className="text-muted-foreground mt-2">
                 Follow-the-sun coverage with multilingual teams across regions.
               </p>
-              <div className="mt-6 flex gap-3">
+              <div className="mt-6 flex flex-col md:flex-row gap-3">
                 <Button
                   asChild
                   className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"

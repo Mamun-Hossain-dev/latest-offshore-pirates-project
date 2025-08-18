@@ -1,13 +1,10 @@
-Module parse failed: Cannot parse JSON: Unterminated string in JSON at position 11587 (line 95 column 6039) while parsing '{
+Module not found: Can't resolve '../_lib/blogs'
 
-./app/_lib/blogs.json
+./app/(site)/blog/page.tsx (1:1)
 
-Module parse failed: Cannot parse JSON: Unterminated string in JSON at position 11587 (line 95 column 6039) while parsing '{
-  "blogsList": {
-    "list": [
-      {'
-You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
-Error: Cannot parse JSON: Unterminated string in JSON at position 11587 (line 95 column 6039) while parsing '{
-  "blogsList": {
-    "list": [
-      {'
+Module not found: Can't resolve '../_lib/blogs'
+> 1 | import { getAllBlogPosts, getCategories } from "../_lib/blogs";
+    | ^
+  2 | import { BlogCard } from "../_components/blog-card";
+  3 | import { SearchIcon, TrendingUpIcon, UsersIcon, GlobeIcon } from "lucide-react";
+  4 | import { Button } from "@/components/ui/button";

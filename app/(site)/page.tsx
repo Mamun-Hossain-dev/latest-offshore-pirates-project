@@ -197,7 +197,7 @@ export default function HomePage() {
     },
   ];
 
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
 
@@ -249,9 +249,49 @@ export default function HomePage() {
 
   return (
     <div>
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <style jsx>{`
+        @keyframes typing {
+          from {
+            width: 0;
+          }
+          to {
+            width: 100%;
+          }
+        }
+
+        @keyframes blink-caret {
+          from,
+          to {
+            border-color: transparent;
+          }
+          50% {
+            border-color: white;
+          }
+        }
+
+        .typewriter-text-line1 {
+          overflow: hidden;
+          border-right: 0.15em solid white;
+          white-space: nowrap;
+          margin: 0 auto;
+          letter-spacing: 0.15em;
+          animation: typing 2s steps(20, end) 3s infinite,
+            blink-caret 0.75s step-end infinite;
+        }
+
+        .typewriter-text-line2 {
+          overflow: hidden;
+          border-right: 0.15em solid white;
+          white-space: nowrap;
+          margin: 0 auto;
+          letter-spacing: 0.15em;
+          animation: typing 2s steps(20, end) 5s infinite,
+            blink-caret 0.75s step-end infinite;
+        }
+      `}</style>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-cyan-800 to-blue-600" />
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-indigo-900" />
 
           <div className="absolute inset-0 bg-gradient-to-t from-blue-950/80 via-cyan-900/40 to-transparent" />
 
@@ -307,31 +347,19 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="absolute inset-0 flex items-center justify-center z-20">
-          <div className="relative">
-            <div className="relative z-10 p-8 rounded-full bg-gradient-to-br from-cyan-400/25 to-blue-600/25 backdrop-blur-md border border-cyan-300/40 shadow-2xl shadow-cyan-500/25">
-              <Headphones className="w-16 h-16 text-cyan-200" />
-            </div>
-
-            {/* Orbiting icons removed */}
-          </div>
-        </div>
-
         <div className="container mx-auto px-4 md:px-6 text-center relative z-30">
           <div className="max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500/25 to-blue-500/25 backdrop-blur-md border border-cyan-300/40 text-cyan-100 text-sm mb-8 shadow-lg shadow-cyan-500/30">
-              <Sparkles className="size-4" />
-              Trusted by 500+ Global Brands
-            </div>
-
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-6">
-              <span className="block">Fearless Voices.</span>
-              <span className="block bg-gradient-to-r from-cyan-300 via-blue-300 to-cyan-400 bg-clip-text text-transparent">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-8">
+              <span className="block animate-typewriter-line1 overflow-hidden whitespace-nowrap  pr-2">
+                Fearless Voices.
+              </span>
+              <br />
+              <span className="block bg-gradient-to-r from-cyan-300 via-blue-300 to-cyan-400 bg-clip-text text-transparent animate-typewriter-line2 overflow-hidden whitespace-nowrap pr-2">
                 Relentless Results.
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-cyan-100/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
               Scale your operations with offshore talent that delivers on-demand
               performance across support, finance, and ops.
             </p>
@@ -362,15 +390,23 @@ export default function HomePage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto">
               {[
-                { number: "500+", label: "Global Clients" },
                 { number: "24/7", label: "Support Coverage" },
                 { number: "70%", label: "Cost Reduction" },
+                {
+                  number: "100%",
+                  label: "Quality Assurance",
+                },
               ].map((stat, i) => (
-                <div key={i} className="text-center">
-                  <div className="text-3xl font-bold text-cyan-300 mb-1 drop-shadow-lg">
+                <div
+                  key={i}
+                  className={`text-center ${
+                    stat.label === "Global Clients" ? "hidden sm:block" : ""
+                  }`}
+                >
+                  <div className="text-3xl font-bold text-white mb-1 drop-shadow-lg">
                     {stat.number}
                   </div>
-                  <div className="text-cyan-100/70 text-sm">{stat.label}</div>
+                  <div className="text-white/70 text-sm">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -488,7 +524,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-muted/40 border-y">
+      {/* <section className="bg-muted/40 border-y">
         <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -499,16 +535,22 @@ export default function HomePage() {
             <div className="overflow-hidden" ref={emblaRef}>
               <div className="flex">
                 {testimonialsData.map((testimonial, index) => (
-                  <div key={index} className="flex-none w-full md:w-1/2 lg:w-1/3 px-4">
+                  <div
+                    key={index}
+                    className="flex-none w-full md:w-1/2 lg:w-1/3 px-4"
+                  >
                     <Card className="h-full">
                       <CardContent className="p-6">
                         <div className="flex mb-4">
-                          {Array.from({ length: testimonial.rating }, (_, i) => (
-                            <Sparkles
-                              key={i}
-                              className="w-4 h-4 text-yellow-400 fill-current"
-                            />
-                          ))}
+                          {Array.from(
+                            { length: testimonial.rating },
+                            (_, i) => (
+                              <Sparkles
+                                key={i}
+                                className="w-4 h-4 text-yellow-400 fill-current"
+                              />
+                            )
+                          )}
                         </div>
                         <p className="text-muted-foreground mb-4 italic">
                           &ldquo;{testimonial.testimonial}&rdquo;
@@ -552,7 +594,7 @@ export default function HomePage() {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6">

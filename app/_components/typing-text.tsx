@@ -1,55 +1,90 @@
 "use client";
 
-import { motion } from "framer-motion";
+import type React from "react";
 
-const TypingText = ({ text }: { text: string }) => {
-  const letters = Array.from(text);
+import { useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
-  const container = {
-    hidden: { opacity: 0 },
-    visible: (i = 1) => ({
-      opacity: 1,
-      transition: { staggerChildren: 0.05, delayChildren: 0.04 * i },
-    }),
+interface TiltCardProps {
+  children: React.ReactNode;
+  asChild?: boolean;
+  className?: string;
+}
+
+export function TiltCard({
+  children,
+  asChild = false,
+  className = "",
+}: TiltCardProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x);
+  const mouseYSpring = useSpring(y);
+
+  const rotateX = useTransform(
+    mouseYSpring,
+    [-0.5, 0.5],
+    ["17.5deg", "-17.5deg"]
+  );
+  const rotateY = useTransform(
+    mouseXSpring,
+    [-0.5, 0.5],
+    ["-17.5deg", "17.5deg"]
+  );
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!ref.current) return;
+
+    const rect = ref.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+
+    x.set(xPct);
+    y.set(yPct);
   };
 
-  const child = {
-    visible: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      transition: {
-        type: "tween",
-        damping: 12,
-        stiffness: 100,
-      },
-    },
-    hidden: {
-      opacity: 0,
-      x: -20,
-      y: 10,
-      transition: {
-        type: "tween",
-        damping: 12,
-        stiffness: 100,
-      },
-    },
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
   };
+
+  if (asChild) {
+    return (
+      <motion.div
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          rotateY: rotateY,
+          rotateX: rotateX,
+          transformStyle: "preserve-3d",
+        }}
+        className={className}
+      >
+        {children}
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div
-      style={{ display: "flex", overflow: "hidden" }}
-      variants={container}
-      initial="hidden"
-      animate="visible"
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateY: rotateY,
+        rotateX: rotateX,
+        transformStyle: "preserve-3d",
+      }}
+      className={className}
     >
-      {letters.map((letter, index) => (
-        <motion.span variants={child} key={index}>
-          {letter === " " ? "\u00A0" : letter}
-        </motion.span>
-      ))}
+      {children}
     </motion.div>
   );
-};
-
-export default TypingText;
+}

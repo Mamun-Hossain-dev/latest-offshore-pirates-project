@@ -33,7 +33,7 @@ export function Navbar() {
             width={120}
             height={120}
             alt="Offshore Pirates Logo"
-            className="w-10 h-10 rounded-full ring-3 ring-cyan-600"
+            className="w-12 h-12 rounded-full ring-4 ring-cyan-600"
           />
         </div>
         <span className="font-extrabold text-lg">Offshore Pirates</span>

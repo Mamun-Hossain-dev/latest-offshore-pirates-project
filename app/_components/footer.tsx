@@ -14,7 +14,7 @@ import Image from "next/image"; // ✅ correct
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-indigo-900 text-white">
+    <footer className="bg-gradient-to-br from-blue-950 via-cyan-950 to-blue-950 text-white">
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 md:px-6 py-16">
         <div className="grid gap-12 lg:grid-cols-4 md:grid-cols-2">
@@ -27,7 +27,7 @@ export function Footer() {
                   width={120}
                   height={120}
                   alt="Offshore Pirates Logo"
-                  className="w-9 h-9 rounded-full ring-cyan-600 ring-2"
+                  className="w-12 h-12 rounded-full ring-cyan-600 ring-4"
                 />
               </div>
               <span className="font-bold text-xl">Offshore Pirates</span>
@@ -69,7 +69,7 @@ export function Footer() {
                 <li key={service}>
                   <Link
                     href="/services"
-                    className="text-gray-300 hover:text-indigo-400 transition-colors text-sm flex items-center gap-2 group"
+                    className="text-gray-300 hover:text-gray-300 transition-colors text-sm flex items-center gap-2 group"
                   >
                     <ArrowRight className="size-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {service}
@@ -94,7 +94,7 @@ export function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-gray-300 hover:text-indigo-400 transition-colors text-sm flex items-center gap-2 group"
+                    className="text-gray-300 hover:text-gray-300 transition-colors text-sm flex items-center gap-2 group"
                   >
                     <ArrowRight className="size-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {item.label}
@@ -118,13 +118,13 @@ export function Footer() {
                 <Input
                   type="email"
                   placeholder="Enter your email"
-                  className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-indigo-400"
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white focus:border-indigo-400"
                 />
                 <Button className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors">
                   <ArrowRight className="size-4" />
                 </Button>
               </div>
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-white">
                 No spam. Unsubscribe anytime.
               </p>
             </div>
@@ -157,27 +157,18 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="container px-4 md:px-6 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-sm text-gray-400">
+            <div className="text-sm text-white">
               © {new Date().getFullYear()} Offshore Pirates. All rights
               reserved.
             </div>
-            <div className="flex items-center gap-6 text-sm text-gray-400">
-              <Link
-                href="#"
-                className="hover:text-indigo-400 transition-colors"
-              >
+            <div className="flex items-center gap-6 text-sm text-white">
+              <Link href="#" className="hover:text-gray-300 transition-colors">
                 Privacy Policy
               </Link>
-              <Link
-                href="#"
-                className="hover:text-indigo-400 transition-colors"
-              >
+              <Link href="#" className="hover:text-gray-300 transition-colors">
                 Terms of Service
               </Link>
-              <Link
-                href="#"
-                className="hover:text-indigo-400 transition-colors"
-              >
+              <Link href="#" className="hover:text-gray-300 transition-colors">
                 Cookie Policy
               </Link>
             </div>

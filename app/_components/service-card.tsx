@@ -1,13 +1,11 @@
 "use client";
-
-import type React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { TiltCard } from "./tilt-card";
-import { Service } from "@/app/_lib/services";
+import type { Service } from "@/app/_lib/services";
 
 export function ServiceCard({
   service,

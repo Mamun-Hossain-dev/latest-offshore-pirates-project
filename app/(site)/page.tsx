@@ -175,7 +175,7 @@ export default function HomePage() {
                   Relentless Results.
                 </span>
                 <span
-                  className="block bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-600 bg-clip-text text-transparent opacity-0 animate-fade-in-up font-extrabold mt-3"
+                  className="block bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-600 bg-clip-text text-transparent opacity-0 animate-fade-in-up font-extrabold"
                   style={{
                     animationDelay: "0.8s",
                     animationFillMode: "forwards",
@@ -250,10 +250,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-gradient-to-br from-gray-100 via-white to-gray-100">
+      <section className="py-20 md:py-28 bg-gradient-to-br from-gray-50 via-white to-gray-50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gray-900 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
               Our Core Services
             </h2>
             <p className="text-gray-600 text-xl max-w-3xl mx-auto leading-relaxed">
@@ -322,11 +322,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-gradient-to-br from-pink-50/30 via-white to-purple-50/20">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-cyan-50/30 via-white to-blue-50/20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex items-center justify-between mb-12">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent mb-2">
+              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-2">
                 Latest Insights
               </h2>
               <p className="text-muted-foreground text-lg">
@@ -335,7 +335,7 @@ export default function HomePage() {
             </div>
             <Button
               asChild
-              className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-3 rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 rounded-full hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
               <Link href="/blog">
                 View All Articles
@@ -351,14 +351,14 @@ export default function HomePage() {
                 className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm hover:scale-105"
               >
                 <div className="relative overflow-hidden">
-                  <div className="h-48 bg-gradient-to-br from-pink-500/20 to-purple-500/20 flex items-center justify-center">
+                  <div className="h-48 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center">
                     <div className="text-center p-6">
-                      <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span className="text-white font-bold text-xl">
                           {post.category[0]}
                         </span>
                       </div>
-                      <div className="text-xs uppercase tracking-wide text-pink-600 dark:text-pink-400 font-semibold">
+                      <div className="text-xs uppercase tracking-wide text-cyan-600 dark:text-cyan-400 font-semibold">
                         {post.category}
                       </div>
                     </div>
@@ -367,7 +367,7 @@ export default function HomePage() {
                 </div>
 
                 <CardHeader className="pb-4">
-                  <CardTitle className="line-clamp-2 group-hover:text-pink-600 transition-colors duration-300 text-lg">
+                  <CardTitle className="line-clamp-2 group-hover:text-cyan-600 transition-colors duration-300 text-lg">
                     {post.title}
                   </CardTitle>
                 </CardHeader>
@@ -389,7 +389,7 @@ export default function HomePage() {
                     <Button
                       asChild
                       size="sm"
-                      className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 shadow-md hover:shadow-lg"
+                      className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-full hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg"
                     >
                       <Link href={`/blog/${post.slug}`}>
                         Read More

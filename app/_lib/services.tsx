@@ -64,6 +64,8 @@ const ALL_SERVICES: Service[] = [
   },
 ];
 
+export { ALL_SERVICES };
+
 export async function fetchServices({
   page = 1,
   limit = 6,

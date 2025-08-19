@@ -1,3 +1,4 @@
+import { ALL_SERVICES } from "../_lib/services";
 import Image from "next/image";
 import Link from "next/link";
 import { Facebook, Twitter, Linkedin, Mail, Phone, MapPin } from "lucide-react";
@@ -32,19 +33,19 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <Link
-                href="#"
+                href="https://www.facebook.com/offshorepirates"
                 className="text-white hover:text-cyan-300 transition-colors"
               >
                 <Facebook className="size-5" />
               </Link>
               <Link
-                href="#"
+                href="https://twitter.com/offshorepirates"
                 className="text-white hover:text-cyan-300 transition-colors"
               >
                 <Twitter className="size-5" />
               </Link>
               <Link
-                href="#"
+                href="https://www.linkedin.com/company/offshorepirates"
                 className="text-white hover:text-cyan-300 transition-colors"
               >
                 <Linkedin className="size-5" />
@@ -96,6 +97,30 @@ export function Footer() {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/privacy-policy"
+                  className="text-white hover:text-cyan-300 transition-colors text-sm"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/terms-of-service"
+                  className="text-white hover:text-cyan-300 transition-colors text-sm"
+                >
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/cookie-policy"
+                  className="text-white hover:text-cyan-300 transition-colors text-sm"
+                >
+                  Cookie Policy
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -103,38 +128,16 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-white">Services</h4>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/services/customer-support-services"
-                  className="text-white hover:text-cyan-300 transition-colors text-sm"
-                >
-                  Customer Support
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/back-office-support"
-                  className="text-white hover:text-cyan-300 transition-colors text-sm"
-                >
-                  Back Office Support
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/call-center-support"
-                  className="text-white hover:text-cyan-300 transition-colors text-sm"
-                >
-                  Call Center
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/accounting-bookkeeping"
-                  className="text-white hover:text-cyan-300 transition-colors text-sm"
-                >
-                  Accounting
-                </Link>
-              </li>
+              {ALL_SERVICES.map((service) => (
+                <li key={service.slug}>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="text-white hover:text-cyan-300 transition-colors text-sm"
+                  >
+                    {service.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

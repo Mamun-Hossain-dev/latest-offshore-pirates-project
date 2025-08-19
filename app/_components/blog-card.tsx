@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { BlogPost } from "../_lib/blog";
+import type { BlogPost } from "../_lib/blogs";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CalendarIcon, ClockIcon } from "lucide-react";

@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { CalendarIcon, ClockIcon, ShareIcon, BookmarkIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { BlogCard } from "../../../_components/blog-card";
 
 interface BlogPostPageProps {
@@ -40,7 +39,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             <Badge className="bg-white/20 text-white mb-6 text-sm px-4 py-2">
               {post.category}
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-white">
               {post.title}
             </h1>
             <p className="text-xl text-cyan-100 mb-8 leading-relaxed">
@@ -48,37 +47,14 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-cyan-100">
-              <div className="flex items-center gap-3">
-                <Avatar className="h-12 w-12 border-2 border-white/30">
-                  <AvatarImage
-                    src={post.author.avatar || "/placeholder.svg"}
-                    alt={post.author.name}
-                  />
-                  <AvatarFallback className="bg-white/20 text-white">
-                    {post.author.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </AvatarFallback>
-                </Avatar>
-                <div className="text-left">
-                  <div className="font-semibold text-white">
-                    {post.author.name}
-                  </div>
-                  <div className="text-sm text-cyan-200">
-                    {post.author.role}
-                  </div>
-                </div>
-              </div>
-
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <CalendarIcon className="h-4 w-4" />
-                  {formattedDate}
+                  <span className="text-white">{formattedDate}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <ClockIcon className="h-4 w-4" />
-                  {post.readTime} min read
+                  <span className="text-white">{post.readTime} min read</span>
                 </div>
               </div>
             </div>
@@ -120,10 +96,10 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
 
             {/* Article Body */}
-            <article className="prose prose-lg max-w-none bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded-xl p-8 border border-cyan-200 dark:border-cyan-800">
+            <article className="bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded-xl p-8 border border-cyan-200 dark:border-cyan-800">
               <div
                 dangerouslySetInnerHTML={{ __html: post.content }}
-                className="prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-strong:text-gray-900 dark:prose-strong:text-white prose-a:text-cyan-600 dark:prose-a:text-cyan-400"
+                className="prose prose-lg max-w-none prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-strong:text-gray-900 dark:prose-strong:text-white prose-a:text-cyan-600 dark:prose-a:text-cyan-400 prose-headings:leading-tight prose-p:leading-relaxed"
               />
             </article>
           </div>

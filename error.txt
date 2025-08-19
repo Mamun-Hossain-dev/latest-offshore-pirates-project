@@ -1,10 +1,12 @@
-Module not found: Can't resolve '../_lib/blogs'
+Error: Cannot read properties of undefined (reading 'map')
 
-./app/(site)/blog/page.tsx (1:1)
+app\_components\footer.tsx (107:16) @ Footer
 
-Module not found: Can't resolve '../_lib/blogs'
-> 1 | import { getAllBlogPosts, getCategories } from "../_lib/blogs";
-    | ^
-  2 | import { BlogCard } from "../_components/blog-card";
-  3 | import { SearchIcon, TrendingUpIcon, UsersIcon, GlobeIcon } from "lucide-react";
-  4 | import { Button } from "@/components/ui/button";
+
+  105 |             <h4 className="text-lg font-semibold text-white">Services</h4>
+  106 |             <ul className="space-y-2">
+> 107 |               {ALL_SERVICES.map((service) => (
+      |                ^
+  108 |                 <li key={service.slug}>
+  109 |                   <Link
+  110 |                     href={`/services/${service.slug}`}

@@ -142,150 +142,121 @@ export default function HomePage() {
 
   return (
     <div>
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-cyan-950/40 to-blue-950" />
-          <div className="absolute inset-0 bg-gradient-to-t from-cyan-950/95 via-blue-950/70 to-slate-900/50" />
-          <div className="absolute inset-0 opacity-30">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-600/15 rounded-full blur-3xl animate-pulse" />
-            <div
-              className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl animate-pulse"
-              style={{ animationDelay: "0.1s" }}
-            />
-          </div>
+          <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-cyan-100 to-blue-100 rounded-full blur-3xl opacity-30 animate-pulse" />
+          <div
+            className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-blue-100 to-cyan-100 rounded-full blur-3xl opacity-20 animate-pulse"
+            style={{ animationDelay: "2s" }}
+          />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-cyan-50 to-blue-50 rounded-full blur-3xl opacity-10" />
+        </div>
 
-          <div className="absolute inset-0 opacity-20">
-            <svg className="w-full h-full" viewBox="0 0 1000 500">
-              <path
-                d="M150,200 Q200,180 250,200 T350,220 Q400,200 450,210 T550,200 Q600,190 650,200 T750,210"
-                stroke="url(#worldGradient)"
-                strokeWidth="3"
-                fill="none"
-                className="animate-pulse"
-              />
-              <path
-                d="M100,250 Q150,230 200,250 T300,270 Q350,250 400,260 T500,250 Q550,240 600,250 T700,260"
-                stroke="url(#worldGradient)"
-                strokeWidth="3"
-                fill="none"
-                className="animate-pulse"
-                style={{ animationDelay: "1s" }}
-              />
-              <defs>
-                <linearGradient
-                  id="worldGradient"
-                  x1="0%"
-                  y1="0%"
-                  x2="100%"
-                  y2="0%"
+        <div className="container mx-auto px-4 md:px-6 text-center relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="mb-12">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-900 mb-8">
+                <span
+                  className="block opacity-0 animate-fade-in-up"
+                  style={{
+                    animationDelay: "0.2s",
+                    animationFillMode: "forwards",
+                  }}
                 >
-                  <stop
-                    offset="0%"
-                    stopColor="rgb(6, 182, 212)"
-                    stopOpacity="0.8"
-                  />
-                  <stop
-                    offset="50%"
-                    stopColor="rgb(59, 130, 246)"
-                    stopOpacity="1"
-                  />
-                  <stop
-                    offset="100%"
-                    stopColor="rgb(14, 165, 233)"
-                    stopOpacity="0.8"
-                  />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-        </div>
+                  Fearless Voices.
+                </span>
+                <span
+                  className="block opacity-0 animate-fade-in-up"
+                  style={{
+                    animationDelay: "0.5s",
+                    animationFillMode: "forwards",
+                  }}
+                >
+                  Relentless Results.
+                </span>
+                <span
+                  className="block bg-gradient-to-r from-cyan-500 via-blue-500 to-cyan-600 bg-clip-text text-transparent opacity-0 animate-fade-in-up font-extrabold mt-3"
+                  style={{
+                    animationDelay: "0.8s",
+                    animationFillMode: "forwards",
+                  }}
+                >
+                  Extraordinary Outsourcing
+                </span>
+              </h1>
 
-        <div className="container mx-auto px-4 md:px-6 text-center relative z-30">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-6xl md:text-8xl font-extrabold tracking-tight text-white mb-8 drop-shadow-2xl">
-              <span className="block animate-typewriter overflow-hidden whitespace-nowrap border-r-4 border-cyan-400 animate-banner-title">
-                Fearless Voices.
-              </span>
-              <br />
-              <span
-                className="block bg-gradient-to-r from-cyan-200 via-blue-200 to-cyan-300 bg-clip-text text-transparent animate-wave-text animate-banner-subtitle"
-                style={{ animationDelay: "2s" }}
+              <p
+                className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed opacity-0 animate-letter-fill"
+                style={{
+                  animationDelay: "1.4s",
+                  animationFillMode: "forwards",
+                }}
               >
-                Relentless Results.
-              </span>
-            </h1>
+                Scale your operations with offshore talent that delivers
+                on-demand performance across support, finance, and operations.
+              </p>
 
-            <p
-              className="text-xl md:text-2xl text-white/95 mb-10 max-w-3xl mx-auto leading-relaxed animate-slide-up"
-              style={{ animationDelay: "3s" }}
-            >
-              Scale your operations with offshore talent that delivers on-demand
-              performance across support, finance, and ops.
-            </p>
-
-            <div
-              className="flex flex-col sm:flex-row justify-center gap-6 mb-16 animate-fade-in-up"
-              style={{ animationDelay: "1.5s" }}
-            >
-              <Button
-                asChild
-                size="lg"
-                className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-4 rounded-full hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
+              <div
+                className="flex flex-col sm:flex-row justify-center gap-6 mb-16 opacity-0 animate-fade-in-up"
+                style={{ animationDelay: "2s", animationFillMode: "forwards" }}
               >
-                <Link href="/services">
-                  <Sparkles className="mr-2 size-5" />
-                  Explore Services
-                  <ArrowRight className="ml-2 size-5" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-4 rounded-full hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
-              >
-                <Link href="/contact">
-                  <MessageSquare className="mr-2 size-5" />
-                  Get Consultation
-                </Link>
-              </Button>
-            </div>
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-full hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 group"
+                >
+                  <Link href="/services">
+                    Get started
+                    <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full hover:border-cyan-500 hover:text-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 bg-transparent"
+                >
+                  <Link href="/contact">
+                    <MessageSquare className="mr-2 size-5" />
+                    Learn more
+                  </Link>
+                </Button>
+              </div>
 
-            <div
-              className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto animate-fade-in-up"
-              style={{ animationDelay: "2s" }}
-            >
-              {[
-                { number: "24/7", label: "Support Coverage" },
-                { number: "70%", label: "Cost Reduction" },
-                { number: "100%", label: "Quality Assurance" },
-              ].map((stat, i) => (
-                <div key={i} className="text-center group">
-                  <div className="text-4xl font-bold bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent mb-2 drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    {stat.number}
+              <div
+                className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto opacity-0 animate-fade-in-up"
+                style={{
+                  animationDelay: "2.6s",
+                  animationFillMode: "forwards",
+                }}
+              >
+                {[
+                  { number: "24/7", label: "Support Coverage" },
+                  { number: "70%", label: "Cost Reduction" },
+                  { number: "100%", label: "Quality Assurance" },
+                ].map((stat, i) => (
+                  <div key={i} className="text-center group">
+                    <div className="text-4xl font-bold bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">
+                      {stat.number}
+                    </div>
+                    <div className="text-gray-600 text-sm font-medium">
+                      {stat.label}
+                    </div>
                   </div>
-                  <div className="text-white/80 text-sm font-medium">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
-          <div className="w-6 h-10 border-2 border-cyan-300/60 rounded-full flex justify-center backdrop-blur-sm bg-white/5">
-            <div className="w-1 h-3 bg-gradient-to-b from-cyan-300 to-blue-300 rounded-full mt-2 shadow-lg shadow-cyan-300/60 animate-pulse" />
           </div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-gradient-to-br from-slate-50 via-cyan-50/30 to-blue-50/30 dark:from-slate-900 dark:via-cyan-950/30 dark:to-blue-950/30">
+      <section className="py-20 md:py-28 bg-gradient-to-br from-gray-100 via-white to-gray-100">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gray-900 bg-clip-text text-transparent">
               Our Core Services
             </h2>
-            <p className="text-muted-foreground text-xl max-w-3xl mx-auto leading-relaxed">
+            <p className="text-gray-600 text-xl max-w-3xl mx-auto leading-relaxed">
               Comprehensive solutions designed to scale your operations and
               drive measurable results
             </p>
@@ -295,8 +266,11 @@ export default function HomePage() {
             {top3.map((svc, index) => (
               <div
                 key={svc.slug}
-                className="animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.2}s` }}
+                className="opacity-0 animate-fade-in-up"
+                style={{
+                  animationDelay: `${index * 0.2}s`,
+                  animationFillMode: "forwards",
+                }}
               >
                 <ServiceCard service={svc} />
               </div>
@@ -313,7 +287,7 @@ export default function HomePage() {
             </h2>
             <p
               className="text-muted-foreground text-lg max-w-2xl mx-auto animate-fade-in-up"
-              style={{ animationDelay: "0.2s" }}
+              style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
             >
               We combine global talent with local expertise to deliver
               exceptional results
@@ -348,11 +322,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-gradient-to-br from-cyan-50/50 via-white to-blue-50/50 dark:from-cyan-950/20 dark:via-slate-900 dark:to-blue-950/20">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-pink-50/30 via-white to-purple-50/20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex items-center justify-between mb-12">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-2">
+              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent mb-2">
                 Latest Insights
               </h2>
               <p className="text-muted-foreground text-lg">
@@ -361,7 +335,7 @@ export default function HomePage() {
             </div>
             <Button
               asChild
-              className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-6 py-3 rounded-full hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+              className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-3 rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
             >
               <Link href="/blog">
                 View All Articles
@@ -377,14 +351,14 @@ export default function HomePage() {
                 className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm hover:scale-105"
               >
                 <div className="relative overflow-hidden">
-                  <div className="h-48 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center">
+                  <div className="h-48 bg-gradient-to-br from-pink-500/20 to-purple-500/20 flex items-center justify-center">
                     <div className="text-center p-6">
-                      <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                         <span className="text-white font-bold text-xl">
                           {post.category[0]}
                         </span>
                       </div>
-                      <div className="text-xs uppercase tracking-wide text-cyan-600 dark:text-cyan-400 font-semibold">
+                      <div className="text-xs uppercase tracking-wide text-pink-600 dark:text-pink-400 font-semibold">
                         {post.category}
                       </div>
                     </div>
@@ -393,7 +367,7 @@ export default function HomePage() {
                 </div>
 
                 <CardHeader className="pb-4">
-                  <CardTitle className="line-clamp-2 group-hover:text-cyan-600 transition-colors duration-300 text-lg">
+                  <CardTitle className="line-clamp-2 group-hover:text-pink-600 transition-colors duration-300 text-lg">
                     {post.title}
                   </CardTitle>
                 </CardHeader>
@@ -415,7 +389,7 @@ export default function HomePage() {
                     <Button
                       asChild
                       size="sm"
-                      className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-4 py-2 rounded-full hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 shadow-md hover:shadow-lg"
+                      className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 shadow-md hover:shadow-lg"
                     >
                       <Link href={`/blog/${post.slug}`}>
                         Read More
@@ -430,7 +404,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-t">
+      <section className="border-t bg-white">
         <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
           <div className="grid gap-8 lg:grid-cols-2 items-center">
             <div className="relative h-64 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg flex items-center justify-center">
@@ -452,13 +426,13 @@ export default function HomePage() {
               <div className="mt-6 flex flex-col md:flex-row gap-3">
                 <Button
                   asChild
-                  className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
+                  className="bg-pink-500 text-white px-6 py-3 rounded-full hover:bg-pink-600 transition-colors"
                 >
                   <Link href="/contact">Book Consultation</Link>
                 </Button>
                 <Button
                   asChild
-                  className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
+                  className="bg-pink-500 text-white px-6 py-3 rounded-full hover:bg-pink-600 transition-colors"
                 >
                   <Link href="/services">Explore Services</Link>
                 </Button>
@@ -469,4 +443,66 @@ export default function HomePage() {
       </section>
     </div>
   );
+}
+
+const styles = `
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes letter-fill {
+  0% {
+    opacity: 0;
+    background-size: 0% 100%;
+  }
+  50% {
+    opacity: 1;
+    background-size: 100% 100%;
+  }
+  100% {
+    opacity: 1;
+    background-size: 100% 100%;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+.animate-letter-fill {
+  background: linear-gradient(90deg, #0891b2 0%, #3b82f6 100%);
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: letter-fill 2s ease-out forwards;
+}
+`;
+
+// Inject styles
+if (typeof document !== "undefined") {
+  const styleSheet = document.createElement("style");
+  styleSheet.textContent = styles;
+  document.head.appendChild(styleSheet);
 }

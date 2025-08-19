@@ -122,7 +122,7 @@
   }
 }
 
-/* Add custom animations for enhanced home page */
+/* Added smooth animation keyframes for text effects */
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -134,110 +134,19 @@
   }
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out forwards;
-  opacity: 0;
-}
-
-/* Adding new text animations for banner */
-@keyframes typewriter {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes wave-text {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  25% {
-    transform: translateY(-10px);
-  }
-  75% {
-    transform: translateY(5px);
-  }
-}
-
-@keyframes slide-up {
+@keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(50px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
-/* Adding 10-second banner title animations */
-@keyframes banner-title-glow {
-  0%,
-  100% {
-    text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
-    transform: scale(1);
-  }
-  50% {
-    text-shadow: 0 0 30px rgba(6, 182, 212, 0.8),
-      0 0 40px rgba(59, 130, 246, 0.6);
-    transform: scale(1.02);
-  }
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out;
 }
 
-@keyframes banner-subtitle-pulse {
-  0%,
-  100% {
-    opacity: 0.9;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-5px);
-  }
-}
-
-/* Adding faster scrolling animation for Why Choose section */
-@keyframes fast-scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-typewriter {
-  animation: typewriter 3s steps(40, end) forwards;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 4px solid #06b6d4;
-}
-
-.animate-wave-text {
-  animation: wave-text 2s ease-in-out infinite;
-}
-
-.animate-slide-up {
-  animation: slide-up 1s ease-out forwards;
-  opacity: 0;
-}
-
-/* Adding new animation classes for banner and scrolling */
-.animate-banner-title {
-  animation: banner-title-glow 10s ease-in-out infinite;
-}
-
-.animate-banner-subtitle {
-  animation: banner-subtitle-pulse 10s ease-in-out infinite;
-}
-
-.animate-fast-scroll {
-  animation: fast-scroll 15s linear infinite;
-}
-
-.animate-fast-scroll:hover {
-  animation-play-state: paused;
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
 }

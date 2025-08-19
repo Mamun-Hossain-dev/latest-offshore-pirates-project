@@ -294,29 +294,49 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="group relative w-full overflow-hidden">
-            <div className="flex animate-fast-scroll group-hover:pause">
-              {[...whyChooseUsItems, ...whyChooseUsItems].map((item, i) => (
-                <div key={i} className="w-[350px] flex-shrink-0 px-4">
-                  <Card className="h-full border-0 shadow-xl hover:shadow-2xl transition-all duration-300 bg-card dark:bg-card">
-                    <CardHeader className="pb-4">
-                      <div
-                        className={`inline-flex size-14 items-center justify-center rounded-xl bg-gradient-to-r ${item.gradient} text-white mb-4 shadow-lg`}
-                      >
-                        {item.icon}
-                      </div>
-                      <CardTitle className="text-xl font-bold text-cyan-500">
-                        {item.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
+          <div className="relative">
+            {/* Navigation buttons */}
+            <button
+              onClick={scrollPrev}
+              disabled={!prevBtnEnabled}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <ChevronRight className="size-5 rotate-180 text-cyan-600" />
+            </button>
+
+            <button
+              onClick={scrollNext}
+              disabled={!nextBtnEnabled}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-3 transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <ChevronRight className="size-5 text-cyan-600" />
+            </button>
+
+            {/* Slider container */}
+            <div className="overflow-hidden" ref={emblaRef}>
+              <div className="flex animate-auto-scroll hover:pause">
+                {[...whyChooseUsItems, ...whyChooseUsItems].map((item, i) => (
+                  <div key={i} className="flex-[0_0_350px] px-4">
+                    <Card className="h-full border-0 shadow-xl hover:shadow-2xl transition-all duration-300 bg-card dark:bg-card hover:scale-105">
+                      <CardHeader className="pb-4">
+                        <div
+                          className={`inline-flex size-14 items-center justify-center rounded-xl bg-gradient-to-r ${item.gradient} text-white mb-4 shadow-lg`}
+                        >
+                          {item.icon}
+                        </div>
+                        <CardTitle className="text-xl font-bold text-cyan-500">
+                          {item.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -481,6 +501,16 @@ const styles = `
   }
 }
 
+/* Added auto-scrolling animation for the slider */
+@keyframes auto-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .animate-fade-in-up {
   animation: fade-in-up 0.8s ease-out;
 }
@@ -497,6 +527,16 @@ const styles = `
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: letter-fill 2s ease-out forwards;
+}
+
+/* Added smooth auto-scroll animation with pause on hover */
+.animate-auto-scroll {
+  animation: auto-scroll 30s linear infinite;
+}
+
+.animate-auto-scroll:hover,
+.pause {
+  animation-play-state: paused;
 }
 `;
 

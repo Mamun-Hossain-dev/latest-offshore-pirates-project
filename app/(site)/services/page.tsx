@@ -26,7 +26,7 @@ export default function ServicesPage() {
   });
 
   const { submitForm, isSubmitting } = useWeb3Forms({
-    accessKey: "e18e94ea-2ad7-4120-8b40-9a3f61a419a6",
+    accessKey: "8e333cc5-8897-4b9e-a186-699c00afab3c",
   });
 
   const items = data?.items ?? [];
@@ -197,7 +197,7 @@ export default function ServicesPage() {
                   <input
                     type="hidden"
                     name="access_key"
-                    value="e18e94ea-2ad7-4120-8b40-9a3f61a419a6"
+                    value="8e333cc5-8897-4b9e-a186-699c00afab3c"
                   />
                   <input type="hidden" name="form_name" value="quote" />
                   <input

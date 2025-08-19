@@ -110,64 +110,24 @@ export default function CareerPage() {
 
   return (
     <div className="min-h-screen">
-      <style jsx>{`
-        @keyframes typing {
-          from {
-            width: 0;
-          }
-          to {
-            width: 100%;
-          }
-        }
-
-        @keyframes blink-caret {
-          from,
-          to {
-            border-color: transparent;
-          }
-          50% {
-            border-color: white;
-          }
-        }
-
-        .typewriter-text-line1 {
-          overflow: hidden;
-          border-right: 0.15em solid white;
-          white-space: nowrap;
-          margin: 0 auto;
-          letter-spacing: 0.15em;
-          animation: typing 2s steps(20, end) 3s infinite,
-            blink-caret 0.75s step-end infinite;
-        }
-
-        .typewriter-text-line2 {
-          overflow: hidden;
-          border-right: 0.15em solid white;
-          white-space: nowrap;
-          margin: 0 auto;
-          letter-spacing: 0.15em;
-          animation: typing 2s steps(20, end) 5s infinite,
-            blink-caret 0.75s step-end infinite;
-        }
-      `}</style>
-      <section className="relative min-h-[60vh] bg-gradient-to-br from-cyan-50 via-blue-50 to-cyan-100 dark:from-cyan-950 dark:via-blue-950 dark:to-cyan-900 overflow-hidden ">
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10"></div>
+      <section className="relative min-h-[60vh] bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-700 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-black/10"></div>
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-32 h-32 bg-cyan-400/20 rounded-full blur-xl"></div>
           <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-400/20 rounded-full blur-xl"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-gradient-to-r from-cyan-300/10 to-blue-300/10 rounded-full blur-2xl"></div>
         </div>
 
-        <div className="container mx-auto relative z-10 px-4 md:px-6 py-20 md:py-32">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-6 typewriter-text-line1">
+        <div className="container mx-auto relative z-10 px-4 md:px-6 py-20 md:py-32 ">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Work With Us
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-cyan-100 mb-8 leading-relaxed">
               Grow with a global team. Learn fast, ship value, and lead with
               ownership.
             </p>
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-500 dark:text-gray-400">
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-white">
               <div className="flex items-center gap-2">
                 <Globe className="w-4 h-4" />
                 <span>Remote-First</span>
@@ -185,8 +145,8 @@ export default function CareerPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-white dark:bg-gray-900 container mx-auto">
-        <div className="container px-4 md:px-6">
+      <section className="py-16 bg-white dark:bg-gray-900">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Why Join Offshore Pirates?
@@ -201,13 +161,15 @@ export default function CareerPage() {
             {benefits.map((benefit, index) => (
               <Card
                 key={index}
-                className="text-center border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-950/50 dark:to-blue-950/50"
+                className="text-center border-0 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-950/50 dark:to-blue-950/50 hover:from-cyan-100 hover:to-blue-100 dark:hover:from-cyan-900/50 dark:hover:to-blue-900/50 cursor-pointer group"
               >
                 <CardHeader>
-                  <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <benefit.icon className="w-6 h-6 text-white" />
                   </div>
-                  <CardTitle className="text-lg">{benefit.title}</CardTitle>
+                  <CardTitle className="text-lg group-hover:text-cyan-600 transition-colors duration-300">
+                    {benefit.title}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600 dark:text-gray-300">
@@ -220,8 +182,8 @@ export default function CareerPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-cyan-50 dark:from-gray-900 dark:to-cyan-950/30 container mx-auto">
-        <div className="container px-4 md:px-6">
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-cyan-50 dark:from-gray-900 dark:to-cyan-950/30">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Your Growth Journey
@@ -254,14 +216,16 @@ export default function CareerPage() {
             ].map((s, i) => (
               <Card
                 key={s.title}
-                className="relative overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="relative overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 cursor-pointer group"
               >
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-500 group-hover:h-2 transition-all duration-300"></div>
                 <CardHeader className="text-center pb-4">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl group-hover:scale-110 transition-transform duration-300">
                     {s.step}
                   </div>
-                  <CardTitle className="text-xl">{s.title}</CardTitle>
+                  <CardTitle className="text-xl group-hover:text-cyan-600 transition-colors duration-300">
+                    {s.title}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
                   <p className="text-gray-600 dark:text-gray-300">{s.desc}</p>
@@ -272,8 +236,8 @@ export default function CareerPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-white dark:bg-gray-900 container mx-auto">
-        <div className="container px-4 md:px-6">
+      <section className="py-16 bg-white dark:bg-gray-900">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Open Positions
@@ -289,12 +253,14 @@ export default function CareerPage() {
                 <AccordionItem
                   key={job.id}
                   value={job.id}
-                  className="border rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                  className="border rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] hover:border-cyan-300 dark:hover:border-cyan-600"
                 >
-                  <AccordionTrigger className="px-6 py-4 hover:no-underline">
+                  <AccordionTrigger className="px-6 py-4 hover:no-underline group">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full text-left">
                       <div>
-                        <h3 className="text-lg font-semibold">{job.title}</h3>
+                        <h3 className="text-lg font-semibold group-hover:text-cyan-600 transition-colors duration-300">
+                          {job.title}
+                        </h3>
                         <div className="flex items-center gap-4 mt-1 text-sm text-gray-500">
                           <span className="flex items-center gap-1">
                             <MapPin className="w-3 h-3" />
@@ -334,8 +300,8 @@ export default function CareerPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-950/30 dark:to-blue-950/30 container mx-auto">
-        <div className="container px-4 md:px-6">
+      <section className="py-16 bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-950/30 dark:to-blue-950/30">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -347,7 +313,7 @@ export default function CareerPage() {
               </p>
             </div>
 
-            <Card className="border-0 shadow-xl">
+            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-[1.02]">
               <CardContent className="p-8">
                 <form
                   onSubmit={form.handleSubmit(onSubmit)}

@@ -34,71 +34,20 @@ export default function ServicesPage() {
 
   return (
     <div>
-      <style jsx>{`
-        @keyframes typewriter {
-          0% {
-            width: 0;
-          }
-          40% {
-            width: 100%;
-          }
-          60% {
-            width: 100%;
-          }
-          100% {
-            width: 0;
-          }
-        }
-
-        @keyframes typewriter {
-          0% {
-            width: 0;
-          }
-          100% {
-            width: 100%;
-          }
-        }
-
-        .animate-typewriter-line1 {
-          display: inline-block;
-          overflow: hidden;
-          white-space: nowrap;
-          width: 0;
-          animation: typewriter 3s steps(30, end) forwards;
-          animation-delay: 0s;
-        }
-
-        .animate-typewriter-line2 {
-          display: inline-block;
-          overflow: hidden;
-          white-space: nowrap;
-          width: 0;
-          animation: typewriter 3s steps(30, end) forwards;
-          animation-delay: 3s; /* break before starting this line */
-        }
-      `}</style>
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-800 via-cyan-900 to-blue-900 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute inset-0">
-          {/* <Image
-            src="/services-hero-bg.jpg"
-            alt="Services background"
-            width={1920}
-            height={600}
-            className="w-full h-full object-cover opacity-20"
-          /> */}
-        </div>
+      <section className="relative z-10 bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-700 text-white">
+        <div className="absolute inset-0 bg-black/10"></div>
+
         <div className="container mx-auto px-4 md:px-6 py-20 md:py-28 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-6">
-              <span className="block animate-typewriter-line1 overflow-hidden whitespace-nowrap  pr-2">Comprehensive</span>
-              <br />
-              <span className="block bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent animate-typewriter-line2 overflow-hidden whitespace-nowrap pr-2">
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-[120%]">
+              <span className="block">Comprehensive</span>
+
+              <span className="block bg-gradient-to-r from-cyan-300 to-purple-100 bg-clip-text text-transparent">
                 BPO Services
               </span>
             </h1>
@@ -148,14 +97,14 @@ export default function ServicesPage() {
               <Button
                 size="sm"
                 onClick={() => setViewMode("grid")}
-                className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
+                className="bg-white text-cyan-700 px-6 py-3 rounded-full hover:bg-cyan-50 transition-colors"
               >
                 <Grid3X3 className="size-4" />
               </Button>
               <Button
                 size="sm"
                 onClick={() => setViewMode("list")}
-                className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
+                className="bg-white text-cyan-700 px-6 py-3 rounded-full hover:bg-cyan-50 transition-colors"
               >
                 <List className="size-4" />
               </Button>
@@ -217,7 +166,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-sky-300 to-blue-700  text-white">
+      <section className="bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-700 text-white">
         <div className="container mx-auto px-4 md:px-6 py-16">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -231,14 +180,14 @@ export default function ServicesPage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
+                className="bg-cyan-700 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
               >
                 <Link href="/contact">Discuss Custom Solution</Link>
               </Button>
               <Button
                 asChild
                 size="lg"
-                className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
+                className="bg-cyan-400 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors"
               >
                 <Link href="/about">Learn About Us</Link>
               </Button>

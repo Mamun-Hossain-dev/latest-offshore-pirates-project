@@ -149,7 +149,7 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-center gap-3 p-4 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-lg border border-cyan-200 dark:border-cyan-800"
+                  className="flex items-center gap-3 p-4 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-lg border border-cyan-200 dark:border-cyan-800 hover:scale-105 hover:shadow-lg hover:border-cyan-400 dark:hover:border-cyan-600 hover:bg-white/90 dark:hover:bg-gray-900/90 transition-all duration-300 cursor-pointer"
                 >
                   <CheckCircle className="h-5 w-5 text-cyan-600 flex-shrink-0" />
                   <span className="text-gray-700 dark:text-gray-300">
@@ -176,7 +176,7 @@ export default function AboutPage() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 }}
                 >
-                  <Card className="h-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-cyan-200 dark:border-cyan-800 hover:shadow-lg transition-all duration-300">
+                  <Card className="h-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-cyan-200 dark:border-cyan-800 hover:shadow-xl hover:scale-105 hover:-translate-y-2 hover:border-cyan-400 dark:hover:border-cyan-600 transition-all duration-300 cursor-pointer">
                     <CardHeader className="text-center">
                       <div className="mx-auto mb-4 p-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full w-fit">
                         <item.icon className="h-6 w-6 text-white" />
@@ -200,7 +200,7 @@ export default function AboutPage() {
         {/* SEO Benefits Section */}
         <section className="px-4 md:px-6 pb-12">
           <div className="max-w-4xl mx-auto">
-            <Card className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border-cyan-200 dark:border-cyan-800">
+            <Card className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border-cyan-200 dark:border-cyan-800 hover:shadow-lg hover:scale-[1.02] hover:border-cyan-400 dark:hover:border-cyan-600 hover:from-cyan-500/20 hover:to-blue-500/20 transition-all duration-300 cursor-pointer">
               <CardHeader className="text-center">
                 <CardTitle className="text-2xl bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent flex items-center justify-center gap-2">
                   <TrendingUp className="h-6 w-6 text-cyan-600" />
@@ -236,7 +236,7 @@ export default function AboutPage() {
             </h3>
             <Accordion
               type="multiple"
-              className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm rounded-lg border border-cyan-200 dark:border-cyan-800"
+              className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm rounded-lg border border-cyan-200 dark:border-cyan-800 hover:shadow-lg hover:border-cyan-400 dark:hover:border-cyan-600 hover:bg-white/95 dark:hover:bg-gray-900/95 transition-all duration-300 px-4"
             >
               <AccordionItem value="fearless">
                 <AccordionTrigger className="text-cyan-700 dark:text-cyan-300">
@@ -270,7 +270,7 @@ export default function AboutPage() {
         </section>
 
         {/* Global Reach Section */}
-        <section className="border-y border-cyan-200/50 dark:border-cyan-800/50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm">
+        <section className="border-y border-cyan-200/50 dark:border-cyan-800/50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm hover:bg-white/95 dark:hover:bg-gray-900/95 hover:border-cyan-300/70 dark:hover:border-cyan-700/70 transition-all duration-300">
           <div className="px-4 md:px-6 py-12 md:py-16">
             <div className="max-w-4xl mx-auto text-center">
               <Globe className="h-16 w-16 text-cyan-600 mx-auto mb-6" />
@@ -303,7 +303,7 @@ export default function AboutPage() {
                   transition={{ delay: idx * 0.1 }}
                   className="mb-8 last:mb-0"
                 >
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-4 p-4 rounded-lg hover:bg-white/50 dark:hover:bg-gray-900/50 hover:shadow-md hover:scale-[1.02] transition-all duration-300 cursor-pointer">
                     <div className="mt-1 h-4 w-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 border-4 border-white dark:border-gray-900 shadow-lg" />
                     <div>
                       <div className="font-bold text-lg text-cyan-700 dark:text-cyan-300">
@@ -323,7 +323,7 @@ export default function AboutPage() {
         {/* CTA Section */}
         <section className="px-4 md:px-6 pb-16">
           <div className="max-w-4xl mx-auto text-center">
-            <Card className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white border-0">
+            <Card className="bg-gradient-to-r from-cyan-600 to-blue-600 text-white border-0 hover:shadow-2xl hover:scale-[1.02] hover:from-cyan-700 hover:to-blue-700 transition-all duration-300 cursor-pointer">
               <CardContent className="p-8">
                 <h3 className="text-2xl md:text-3xl font-bold mb-4">
                   Join the Crew That Never Misses

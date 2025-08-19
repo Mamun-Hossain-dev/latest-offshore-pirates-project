@@ -1,178 +1,171 @@
+import Image from "next/image";
 import Link from "next/link";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Linkedin,
-  Twitter,
-  Facebook,
-  ArrowRight,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import Image from "next/image"; // ✅ correct
+import { Facebook, Twitter, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-blue-950 via-cyan-950 to-blue-950 text-white">
-      {/* Main Footer Content */}
-      <div className="container mx-auto px-4 md:px-6 py-16">
-        <div className="grid gap-12 lg:grid-cols-4 md:grid-cols-2">
+    <footer className="bg-gradient-to-br from-cyan-900 via-blue-900 to-cyan-950 text-white">
+      <div className="container mx-auto px-4 md:px-6 py-12">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="rounded-full bg-gradient-to-r from-cyan-400 to-blue-500">
-                <Image
-                  src="/offshor_logo.png"
-                  width={120}
-                  height={120}
-                  alt="Offshore Pirates Logo"
-                  className="w-12 h-12 rounded-full ring-cyan-600 ring-4"
-                />
+          <div className="space-y-4">
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="relative">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-600 animate-pulse opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 p-1">
+                  <Image
+                    src="/offshor_logo.png"
+                    width={120}
+                    height={120}
+                    alt="Offshore Pirates Logo"
+                    className="w-10 h-10 rounded-full ring-2 ring-white/50 group-hover:ring-white/80 transition-all duration-300"
+                  />
+                </div>
               </div>
-              <span className="font-bold text-xl">Offshore Pirates</span>
-            </div>
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              The global crew you&apos;ve been searching for. We deliver
-              fearless voices and relentless results across customer support,
-              finance, and operations.
+              <span className="font-bold text-xl bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent group-hover:from-cyan-200 group-hover:to-blue-200 transition-all duration-300">
+                Offshore Pirates
+              </span>
+            </Link>
+            <p className="text-white text-sm leading-relaxed">
+              Your trusted partner for comprehensive BPO services. We deliver
+              exceptional results with global talent and local expertise.
             </p>
-
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 text-gray-300">
-                <Mail className="size-4 text-indigo-400" />
-                <span className="text-sm">hello@offshorepirates.co</span>
-              </div>
-              <div className="flex items-center gap-3 text-gray-300">
-                <Phone className="size-4 text-indigo-400" />
-                <span className="text-sm">+1 (555) 123-4567</span>
-              </div>
-              <div className="flex items-center gap-3 text-gray-300">
-                <MapPin className="size-4 text-indigo-400" />
-                <span className="text-sm">Global Operations</span>
-              </div>
+            <div className="flex space-x-4">
+              <Link
+                href="#"
+                className="text-white hover:text-cyan-300 transition-colors"
+              >
+                <Facebook className="size-5" />
+              </Link>
+              <Link
+                href="#"
+                className="text-white hover:text-cyan-300 transition-colors"
+              >
+                <Twitter className="size-5" />
+              </Link>
+              <Link
+                href="#"
+                className="text-white hover:text-cyan-300 transition-colors"
+              >
+                <Linkedin className="size-5" />
+              </Link>
             </div>
+          </div>
+
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-white">Quick Links</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/services"
+                  className="text-white hover:text-cyan-300 transition-colors text-sm"
+                >
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="text-white hover:text-cyan-300 transition-colors text-sm"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog"
+                  className="text-white hover:text-cyan-300 transition-colors text-sm"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/careers"
+                  className="text-white hover:text-cyan-300 transition-colors text-sm"
+                >
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-white hover:text-cyan-300 transition-colors text-sm"
+                >
+                  Contact
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Services */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4 text-white">Services</h3>
-            <ul className="space-y-3">
-              {[
-                "Customer Support",
-                "Back Office Operations",
-                "Accounting & Finance",
-                "Technical Support",
-                "Sales Development",
-                "Content Moderation",
-              ].map((service) => (
-                <li key={service}>
-                  <Link
-                    href="/services"
-                    className="text-gray-300 hover:text-gray-300 transition-colors text-sm flex items-center gap-2 group"
-                  >
-                    <ArrowRight className="size-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    {service}
-                  </Link>
-                </li>
-              ))}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-white">Services</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/services/customer-support-services"
+                  className="text-white hover:text-cyan-300 transition-colors text-sm"
+                >
+                  Customer Support
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/back-office-support"
+                  className="text-white hover:text-cyan-300 transition-colors text-sm"
+                >
+                  Back Office Support
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/call-center-support"
+                  className="text-white hover:text-cyan-300 transition-colors text-sm"
+                >
+                  Call Center
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/services/accounting-bookkeeping"
+                  className="text-white hover:text-cyan-300 transition-colors text-sm"
+                >
+                  Accounting
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Company */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4 text-white">Company</h3>
-            <ul className="space-y-3">
-              {[
-                { label: "About Us", href: "/about" },
-                { label: "Careers", href: "/career" },
-                { label: "Blog", href: "/blog" },
-                { label: "Contact", href: "/contact" },
-                { label: "Privacy Policy", href: "#" },
-                { label: "Terms of Service", href: "#" },
-              ].map((item) => (
-                <li key={item.label}>
-                  <Link
-                    href={item.href}
-                    className="text-gray-300 hover:text-gray-300 transition-colors text-sm flex items-center gap-2 group"
-                  >
-                    <ArrowRight className="size-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4 text-white">
-              Stay Updated
-            </h3>
-            <p className="text-gray-300 text-sm mb-4">
-              Get the latest insights on scaling operations and industry best
-              practices.
-            </p>
+          {/* Contact Info */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-white">Contact Info</h4>
             <div className="space-y-3">
-              <div className="flex gap-2">
-                <Input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="bg-white/10 border-white/20 text-white placeholder:text-white focus:border-indigo-400"
-                />
-                <Button className="bg-cyan-500 text-white px-6 py-3 rounded-full hover:bg-cyan-600 transition-colors">
-                  <ArrowRight className="size-4" />
-                </Button>
+              <div className="flex items-center space-x-3">
+                <MapPin className="size-4 text-cyan-300" />
+                <span className="text-white text-sm">
+                  House-05, Road-03, Block-D, Banasree, Rampura, Dhaka-1219
+                </span>
               </div>
-              <p className="text-xs text-white">
-                No spam. Unsubscribe anytime.
-              </p>
-            </div>
-
-            {/* Social Links */}
-            <div className="mt-6">
-              <h4 className="font-medium mb-3 text-white">Follow Us</h4>
-              <div className="flex gap-3">
-                {[
-                  { icon: Linkedin, href: "#", label: "LinkedIn" },
-                  { icon: Twitter, href: "#", label: "Twitter" },
-                  { icon: Facebook, href: "#", label: "Facebook" },
-                ].map((social) => (
-                  <Link
-                    key={social.label}
-                    href={social.href}
-                    aria-label={social.label}
-                    className="size-10 bg-white/10 hover:bg-indigo-600 rounded-lg flex items-center justify-center transition-colors group"
-                  >
-                    <social.icon className="size-4 text-gray-300 group-hover:text-white" />
-                  </Link>
-                ))}
+              <div className="flex items-center space-x-3">
+                <Phone className="size-4 text-cyan-300" />
+                <span className="text-white text-sm">+880 1640571091</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Mail className="size-4 text-cyan-300" />
+                <span className="text-white text-sm">
+                  info@offshorepirates.com
+                </span>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-white/10">
-        <div className="container px-4 md:px-6 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-sm text-white">
-              © {new Date().getFullYear()} Offshore Pirates. All rights
-              reserved.
-            </div>
-            <div className="flex items-center gap-6 text-sm text-white">
-              <Link href="#" className="hover:text-gray-300 transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="hover:text-gray-300 transition-colors">
-                Terms of Service
-              </Link>
-              <Link href="#" className="hover:text-gray-300 transition-colors">
-                Cookie Policy
-              </Link>
-            </div>
-          </div>
+        <div className="border-t border-gray-700 mt-8 pt-8 text-center">
+          <p className="text-white text-sm">
+            © 2024 Offshore Pirates. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

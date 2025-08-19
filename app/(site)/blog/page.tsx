@@ -50,14 +50,14 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-blue-50 to-indigo-50 dark:from-cyan-950 dark:via-blue-950 dark:to-indigo-950">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/10 to-blue-600/10 backdrop-blur-3xl"></div>
+      <section className="relative z-10 bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-700 text-white py-16 md:py-24">
+        <div className="absolute inset-0 bg-black/10"></div>
         <div className="container mx-auto relative z-10">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
               BPO Insights & Expertise
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+            <p className="text-xl text-white mb-8 leading-relaxed">
               Discover industry-leading strategies, insights, and best practices
               from the world's most innovative BPO solutions provider.
             </p>
@@ -69,7 +69,7 @@ export default function BlogPage() {
                 placeholder="Search articles, topics, or keywords..."
                 value={searchTerm}
                 onChange={(e) => handleSearch(e.target.value)}
-                className="pl-12 pr-4 py-4 text-lg border-2 border-cyan-200 dark:border-cyan-800 focus:border-cyan-500 rounded-xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm"
+                className="pl-12 pr-4 py-4 text-lg border-2 border-cyan-200 dark:border-cyan-800 focus:border-cyan-500 rounded-xl bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm text-cyan-700"
               />
             </div>
           </div>

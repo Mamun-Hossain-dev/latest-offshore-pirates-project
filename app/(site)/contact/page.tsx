@@ -14,18 +14,24 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useToast } from "@/hooks/use-toast";
+import { useWeb3Forms } from "../../hooks/use-web3forms";
 import { Mail, Phone, MapPin, Send, Users, Target, Clock } from "lucide-react";
 
 const schema = z.object({
-  name: z.string().min(2),
-  email: z.string().email(),
-  service: z.string().min(2),
-  message: z.string().min(10),
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  service: z.string().min(2, "Please select a service"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
 export default function ContactPage() {
-  const { toast } = useToast();
+  const { submitForm, isSubmitting } = useWeb3Forms({
+    accessKey: "e18e94ea-2ad7-4120-8b40-9a3f61a419a6",
+    onSuccess: () => {
+      form.reset();
+    },
+  });
+
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -36,10 +42,11 @@ export default function ContactPage() {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof schema>) => {
-    console.log(values);
-    toast({ title: "Thanks!", description: "We'll reach out soon." });
-    form.reset();
+  const onSubmit = async (values: z.infer<typeof schema>) => {
+    await submitForm({
+      ...values,
+      form_name: "contact", // Form identifier for success message
+    });
   };
 
   return (
@@ -288,10 +295,11 @@ export default function ContactPage() {
 
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl h-12"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl h-12 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Send className="mr-2 h-5 w-5" />
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
 

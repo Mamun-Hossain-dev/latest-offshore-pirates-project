@@ -4,7 +4,7 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { WhatsAppButton } from "@/components/whatsapp-button";
-import { ClientLayoutWrapper } from "@/components/ClientLayoutWrapper";
+
 
 export const metadata: Metadata = {
   title: "Offshore Pirates",
@@ -40,7 +40,7 @@ html {
       </head>
       <body className={GeistSans.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
+          {children}
         </ThemeProvider>
         <WhatsAppButton />
       </body>

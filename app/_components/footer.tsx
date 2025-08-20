@@ -167,7 +167,7 @@ export function Footer() {
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-white text-sm">
-            © 2024 Offshore Pirates. All rights reserved.
+            © 2025 Offshore Pirates. All rights reserved.
           </p>
         </div>
       </div>

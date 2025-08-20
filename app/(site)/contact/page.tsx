@@ -155,8 +155,8 @@ export default function ContactPage() {
                 <div className="flex justify-center mb-2">
                   <Users className="h-6 w-6 text-cyan-500" />
                 </div>
-                <div className="text-2xl font-bold text-gray-900">500+</div>
-                <div className="text-sm text-gray-600">Happy Clients</div>
+                <div className="text-2xl font-bold text-gray-900">100%</div>
+                <div className="text-sm text-gray-600">Quality Ensure</div>
               </div>
               <div className="text-center p-4 rounded-xl bg-gradient-to-br from-cyan-50/80 to-blue-50/80 backdrop-blur-sm border border-cyan-200/30">
                 <div className="flex justify-center mb-2">

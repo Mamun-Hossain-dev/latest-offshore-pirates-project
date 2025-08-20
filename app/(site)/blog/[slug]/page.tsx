@@ -69,24 +69,7 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="max-w-4xl mx-auto">
             {/* Action Buttons */}
             <div className="flex items-center justify-between mb-8 p-4 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded-xl border border-cyan-200 dark:border-cyan-800">
-              <div className="flex items-center gap-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="hover:bg-cyan-50 dark:hover:bg-cyan-950 bg-transparent"
-                >
-                  <BookmarkIcon className="h-4 w-4 mr-2" />
-                  Save
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="hover:bg-cyan-50 dark:hover:bg-cyan-950 bg-transparent"
-                >
-                  <ShareIcon className="h-4 w-4 mr-2" />
-                  Share
-                </Button>
-              </div>
+              {/* <div className="flex items-center gap-2"></div> */}
               <div className="flex flex-wrap gap-2">
                 {post.keywords.slice(0, 3).map((keyword) => (
                   <Badge key={keyword} variant="secondary" className="text-xs">

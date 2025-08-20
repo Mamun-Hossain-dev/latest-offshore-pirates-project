@@ -189,7 +189,7 @@ export default function BlogPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-cyan-600 to-blue-600 text-white">
+      {/* <section className="py-20 px-4 bg-gradient-to-r from-cyan-600 to-blue-600 text-white">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">
             Ready to Transform Your Business?
@@ -208,7 +208,7 @@ export default function BlogPage() {
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

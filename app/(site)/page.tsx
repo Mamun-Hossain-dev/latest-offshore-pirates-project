@@ -427,23 +427,14 @@ export default function HomePage() {
       <section className="border-t bg-white">
         <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
           <div className="grid gap-8 lg:grid-cols-2 items-center">
-            <div className="relative h-64 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg flex items-center justify-center">
-              <div className="text-center">
-                <Globe2 className="w-16 h-16 text-primary mx-auto mb-4" />
-                <h4 className="text-lg font-semibold mb-2">Global Presence</h4>
-                <p className="text-muted-foreground text-sm">
-                  Serving clients across 50+ countries
-                </p>
-              </div>
-            </div>
-            <div>
+            <div className="text-center">
               <h3 className="text-2xl md:text-3xl font-bold">
                 Operate Globally, Deliver Locally
               </h3>
               <p className="text-muted-foreground mt-2">
                 Follow-the-sun coverage with multilingual teams across regions.
               </p>
-              <div className="mt-6 flex flex-col md:flex-row gap-3">
+              <div className="mt-6 flex flex-col md:flex-row justify-center gap-3">
                 <Button
                   asChild
                   className="bg-pink-500 text-white px-6 py-3 rounded-full hover:bg-pink-600 transition-colors"

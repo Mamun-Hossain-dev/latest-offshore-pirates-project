@@ -107,7 +107,7 @@ export default function ContactPage() {
                       href="tel:+8801810119575"
                       className="text-cyan-600 hover:text-cyan-700 hover:underline font-medium transition-colors"
                     >
-                      +880 123 456 7890
+                      +8801810119575
                     </a>
                   </div>
                 </div>

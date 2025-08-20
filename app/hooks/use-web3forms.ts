@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 
 interface FormSubmissionData {
   [key: string]: string | File;
@@ -20,41 +20,43 @@ export function useWeb3Forms({
   onError,
 }: UseWeb3FormsOptions) {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
 
   const getSuccessMessage = (
     formName: string
   ): { title: string; description: string } => {
     const messages = {
       contact: {
-        title: "The Contact Form was submitted successfully ✅",
-        description: "We'll get back to you within 24 hours!",
+        title: "🎉 Contact Form Submitted Successfully!",
+        description:
+          "Thank you for reaching out! We'll get back to you within 24 hours with a personalized response.",
       },
       booking: {
-        title: "The Booking Form was submitted successfully ✅",
+        title: "🎉 Booking Form Submitted Successfully!",
         description:
-          "Your booking request has been received. We'll confirm shortly!",
+          "Your booking request has been received! We'll confirm your appointment shortly.",
       },
       newsletter: {
-        title: "The Newsletter Form was submitted successfully ✅",
-        description: "Welcome! You're now subscribed to our newsletter.",
+        title: "🎉 Newsletter Subscription Successful!",
+        description:
+          "Welcome to our community! You'll receive the latest updates and insights directly in your inbox.",
       },
       career: {
-        title: "The Career Form was submitted successfully ✅",
+        title: "🎉 Career Application Submitted Successfully!",
         description:
-          "Your application has been received. We'll review and get back to you soon!",
+          "Your application has been received! Our HR team will review it and get back to you soon.",
       },
       quote: {
-        title: "The Quote Form was submitted successfully ✅",
+        title: "🎉 Quote Request Submitted Successfully!",
         description:
-          "Your quote request has been received. We'll send you a detailed proposal within 24 hours!",
+          "We've received your quote request! Our team will prepare a detailed proposal and send it within 24 hours.",
       },
     };
 
     return (
       messages[formName as keyof typeof messages] || {
-        title: "Form submitted successfully ✅",
-        description: "Thank you for your submission!",
+        title: "🎉 Form Submitted Successfully!",
+        description:
+          "Thank you for your submission! We'll process it and get back to you soon.",
       }
     );
   };
@@ -86,10 +88,9 @@ export function useWeb3Forms({
 
       if (result.success) {
         const { title, description } = getSuccessMessage(data.form_name);
-        toast({
-          title,
+        toast.success(title, {
           description,
-          duration: 5000,
+          duration: 6000,
         });
 
         onSuccess?.(data.form_name);
@@ -101,11 +102,9 @@ export function useWeb3Forms({
       const errorMessage =
         error instanceof Error ? error.message : "An unexpected error occurred";
 
-      toast({
-        title: "Submission Failed ❌",
-        description: errorMessage,
-        variant: "destructive",
-        duration: 5000,
+      toast.error("❌ Submission Failed", {
+        description: `${errorMessage}. Please check your connection and try again, or contact us directly.`,
+        duration: 7000,
       });
 
       onError?.(errorMessage);

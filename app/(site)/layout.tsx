@@ -1,37 +1,40 @@
-"use client"
+import type React from "react";
+import type { Metadata } from "next";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import { Footer } from "@/app/_components/footer";
+import { Toaster } from "sonner";
+import { Navbar } from "../_components/navbar";
+// import "./globals.css";
 
-import type React from "react"
-import { usePathname } from "next/navigation"
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
-import { Navbar } from "@/app/_components/navbar"
-import { Footer } from "@/app/_components/footer"
+export const metadata: Metadata = {
+  title: "v0 App",
+  description: "Created with v0",
+  generator: "v0.app",
+};
 
-export default function SiteLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname()
-  const [queryClient] = useState(() => new QueryClient())
-
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className="min-h-dvh flex flex-col bg-background">
-        <header className="sticky top-0 z-50 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
-          <Navbar />
-        </header>
-        <AnimatePresence mode="wait">
-          <motion.main
-            key={pathname}
-            className="flex-1"
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-          >
-            {children}
-          </motion.main>
-        </AnimatePresence>
+    <html lang="en" className="light" style={{ colorScheme: "light" }}>
+      <head>
+        <style>{`
+html {
+  font-family: ${GeistSans.style.fontFamily};
+  --font-sans: ${GeistSans.variable};
+  --font-mono: ${GeistMono.variable};
+}
+        `}</style>
+      </head>
+      <body>
+        <Navbar />
+        {children}
         <Footer />
-      </div>
-    </QueryClientProvider>
-  )
+        <Toaster />
+      </body>
+    </html>
+  );
 }

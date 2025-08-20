@@ -122,6 +122,25 @@
   }
 }
 
+/* app/globals.css */
+html {
+  font-family: "Geist Sans", sans-serif;
+  --font-sans: "Geist Sans";
+  --font-mono: "Geist Mono";
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /* Added smooth animation keyframes for text effects */
 @keyframes fade-in-up {
   from {

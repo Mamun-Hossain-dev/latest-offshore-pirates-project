@@ -1,12 +1,45 @@
-Error: Cannot read properties of undefined (reading 'map')
+Console Error
 
-app\_components\footer.tsx (107:16) @ Footer
+Hydration failed because the server rendered HTML didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+See more info here: https://nextjs.org/docs/messages/react-hydration-error
 
 
-  105 |             <h4 className="text-lg font-semibold text-white">Services</h4>
-  106 |             <ul className="space-y-2">
-> 107 |               {ALL_SERVICES.map((service) => (
-      |                ^
-  108 |                 <li key={service.slug}>
-  109 |                   <Link
-  110 |                     href={`/services/${service.slug}`}
+  ...
+    <HotReload assetPrefix="" globalError={[...]}>
+      <AppDevOverlay state={{nextId:1, ...}} globalError={[...]}>
+        <AppDevOverlayErrorBoundary globalError={[...]} onError={function bound dispatchSetState}>
+          <ReplaySsrOnlyErrors>
+          <DevRootHTTPAccessFallbackBoundary>
+            <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+              <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+                <RedirectBoundary>
+                  <RedirectErrorBoundary router={{...}}>
+                    <Head>
+                    <link>
+                    <RootLayout>
+                      <html lang="en" suppressHydrationWarning={true}>
+                        <head>
+                        <body
+-                         className="antialiased"
+                        >
+                    ...
+        ...
+app\layout.tsx (41:7) @ RootLayout
+
+
+  39 |         `}</style>
+  40 |       </head>
+> 41 |       <body>
+     |       ^
+  42 |         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+  43 |           <Providers>{children}</Providers>
+  44 |         </ThemeProvider>

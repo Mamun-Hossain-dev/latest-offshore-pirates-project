@@ -25,7 +25,7 @@ import { useWeb3Forms } from "../../hooks/use-web3forms";
 
 export default function CareersPage() {
   const { submitForm, isSubmitting } = useWeb3Forms({
-    accessKey: "8e333cc5-8897-4b9e-a186-699c00afab3c",
+    accessKey: "e18e94ea-2ad7-4120-8b40-9a3f61a419a6",
     onSuccess: () => {
       // Reset form after successful submission
       const form = document.getElementById("career-form") as HTMLFormElement;
@@ -221,7 +221,7 @@ export default function CareersPage() {
                   <input
                     type="hidden"
                     name="access_key"
-                    value="8e333cc5-8897-4b9e-a186-699c00afab3c"
+                    value="e18e94ea-2ad7-4120-8b40-9a3f61a419a6"
                   />
                   <input type="hidden" name="form_name" value="career" />
                   <input

@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
-import { ThemeProvider } from "next-themes"; // Added import
+import { ThemeProvider } from "@/components/theme-provider";
 import { WhatsAppButton } from "@/components/whatsapp-button";
+import { Providers } from "@/components/ClientProver";
 
 export const metadata: Metadata = {
   title: "Offshore Pirates",
@@ -37,11 +38,9 @@ html {
 }
         `}</style>
       </head>
-      <body>
-        <ThemeProvider attribute="class" enableSystem>
-          {" "}
-          {/* Added ThemeProvider */}
-          {children}
+      <body className={GeistSans.className}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Providers>{children}</Providers>
         </ThemeProvider>
         <WhatsAppButton />
       </body>

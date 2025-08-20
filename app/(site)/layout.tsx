@@ -1,39 +1,46 @@
-import type React from "react";
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import { Footer } from "@/app/_components/footer";
-import { Toaster } from "sonner";
-import { Navbar } from "../_components/navbar";
-// import "./globals.css";
+import { ThemeProvider } from "next-themes";
+import { ClientLayoutWrapper } from "@/components/ClientLayoutWrapper";
+import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.app",
+  title: "Offshore Pirates",
+  description:
+    "Scale your operations with offshore talent that delivers on-demand performance",
+  generator: "offshorePirates.com",
+  openGraph: {
+    title: "Offshore Pirates",
+    description:
+      "Scale your operations with offshore talent that delivers on-demand performance",
+    url: "https://offshorePirates.com",
+    siteName: "Offshore Pirates",
+    images: ["/og-image.png"],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className="light" style={{ colorScheme: "light" }}>
-      <head>
-        <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-}
-        `}</style>
-      </head>
-      <body>
-        <Navbar />
-        {children}
-        <Footer />
-        <Toaster />
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${GeistSans.variable} ${GeistMono.variable}`}
+    >
+      <body className="antialiased">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
+        </ThemeProvider>
       </body>
     </html>
   );

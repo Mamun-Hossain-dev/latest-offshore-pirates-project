@@ -30,16 +30,6 @@ export function useWeb3Forms({
         description:
           "Thank you for reaching out! We'll get back to you within 24 hours with a personalized response.",
       },
-      booking: {
-        title: "🎉 Booking Form Submitted Successfully!",
-        description:
-          "Your booking request has been received! We'll confirm your appointment shortly.",
-      },
-      newsletter: {
-        title: "🎉 Newsletter Subscription Successful!",
-        description:
-          "Welcome to our community! You'll receive the latest updates and insights directly in your inbox.",
-      },
       career: {
         title: "🎉 Career Application Submitted Successfully!",
         description:

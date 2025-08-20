@@ -87,7 +87,7 @@ export default function ContactPage() {
                       href="mailto:hello@offshorepirates.co"
                       className="text-cyan-600 hover:text-cyan-700 hover:underline font-medium transition-colors"
                     >
-                      hello@offshorepirates.co
+                      info@offshorepirates.com
                     </a>
                   </div>
                 </div>
@@ -104,7 +104,7 @@ export default function ContactPage() {
                     </h3>
                     <p className="text-gray-600 mb-2">Mon-Fri 9AM-6PM BST</p>
                     <a
-                      href="tel:+8801234567890"
+                      href="tel:+8801810119575"
                       className="text-cyan-600 hover:text-cyan-700 hover:underline font-medium transition-colors"
                     >
                       +880 123 456 7890

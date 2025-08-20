@@ -17,6 +17,7 @@ import {
   Shield,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function AboutPage() {
   const expertise = [
@@ -99,13 +100,15 @@ export default function AboutPage() {
               businesses worldwide achieve operational excellence and
               sustainable growth.
             </p>
-            <Button
-              size="lg"
-              variant="secondary"
-              className="bg-white text-cyan-700 hover:bg-cyan-50"
-            >
-              Partner With Us
-            </Button>
+            <Link href="/contact">
+              <Button
+                size="lg"
+                variant="secondary"
+                className="bg-white text-cyan-700 hover:bg-cyan-50 cursor-pointer"
+              >
+                Partner With Us
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </section>
@@ -334,13 +337,15 @@ export default function AboutPage() {
                   together world-class talent, innovative solutions, and a
                   client-first mindset.
                 </p>
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  className="bg-white text-cyan-700 hover:bg-cyan-50"
-                >
-                  Start Your Journey
-                </Button>
+                <Link href={"/contact"}>
+                  <Button
+                    size="lg"
+                    variant="secondary"
+                    className="bg-white text-cyan-700 hover:bg-cyan-50 cursor-pointer"
+                  >
+                    Start Your Journey
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           </div>

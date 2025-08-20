@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { CalendarIcon, ClockIcon, ShareIcon, BookmarkIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BlogCard } from "../../../_components/blog-card";
+import Link from "next/link";
 
 interface BlogPostPageProps {
   params: {
@@ -127,16 +128,18 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
       )}
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-gradient-to-r from-cyan-600 to-blue-600 text-white">
+      <section className="py-20 px-4 bg-gradient-to-r from-cyan-200 to-blue-400 text-cyan-700">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Get Started?</h2>
           <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
             Transform your business operations with our proven BPO solutions.
             Let's discuss how we can help you achieve your goals.
           </p>
-          <Button className="bg-white text-cyan-600 hover:bg-gray-100 font-semibold px-8 py-3 text-lg">
-            Contact Us Today
-          </Button>
+          <Link href={"/contact"}>
+            <Button className="bg-white font-semibold px-8 py-3 text-lg cursor-pointer">
+              Contact Us Today
+            </Button>
+          </Link>
         </div>
       </section>
     </div>

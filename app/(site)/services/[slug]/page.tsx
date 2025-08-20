@@ -287,23 +287,6 @@ export default async function ServicePage({
                 </p>
               </div>
             )}
-
-            <div className="flex flex-wrap gap-6">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-10 py-5 rounded-full text-xl font-bold shadow-2xl transform hover:scale-105 transition-all duration-300"
-              >
-                Get Started Today
-                <ArrowRight className="ml-3 size-6" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-white/40 text-white hover:bg-white/15 px-10 py-5 rounded-full text-xl font-bold bg-transparent backdrop-blur-sm"
-              >
-                Schedule Consultation
-              </Button>
-            </div>
           </div>
         </div>
       </section>
@@ -431,12 +414,6 @@ export default async function ServicePage({
                 operations with our {service.name.toLowerCase()}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  size="lg"
-                  className="bg-white text-cyan-600 hover:bg-gray-100 px-8 py-4 rounded-full text-lg font-semibold"
-                >
-                  Start Your Free Consultation
-                </Button>
                 <Button
                   size="lg"
                   variant="outline"

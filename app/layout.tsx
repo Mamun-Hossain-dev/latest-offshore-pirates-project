@@ -6,9 +6,19 @@ import { ThemeProvider } from "next-themes"; // Added import
 import { WhatsAppButton } from "@/components/whatsapp-button";
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.app",
+  title: "Offshore Pirates",
+  description:
+    "Scale your operations with offshore talent that delivers on-demand performance across support, finance, and operations",
+  generator: "offshorePirates.com",
+  openGraph: {
+    title: "Offshore Pirates",
+    description:
+      "Scale your operations with offshore talent that delivers on-demand performance across support, finance, and operations",
+    url: "https://offshorePirates.com",
+    siteName: "Offshore Pirates",
+    images: ["/og-image.png"], // put this in /public
+    type: "website",
+  },
 };
 
 export default function RootLayout({

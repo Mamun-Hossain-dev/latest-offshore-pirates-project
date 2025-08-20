@@ -109,12 +109,6 @@ export default function CareersPage() {
               careers. We are a world-class BPO and outsourcing company serving
               businesses across industries.
             </p>
-            <Button
-              size="lg"
-              className="bg-white text-cyan-600 hover:bg-gray-100 font-semibold px-8 py-4 text-lg"
-            >
-              View Open Positions
-            </Button>
           </div>
         </div>
       </section>

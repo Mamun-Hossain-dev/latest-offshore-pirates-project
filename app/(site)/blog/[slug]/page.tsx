@@ -12,6 +12,34 @@ interface BlogPostPageProps {
   };
 }
 
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  const post = getBlogPostBySlug(params.slug);
+  if (!post) {
+    return {};
+  }
+
+  return {
+    title: `${post.title} | Offshore Pirates Blog`,
+    description: post.description,
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url: `/blog/${post.slug}`,
+      type: 'article',
+      publishedTime: new Date(post.publishedAt).toISOString(),
+      authors: ['Offshore Pirates'],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+    },
+  };
+}
+
 export default function BlogPostPage({ params }: BlogPostPageProps) {
   const post = getBlogPostBySlug(params.slug);
 

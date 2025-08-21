@@ -1,7 +1,7 @@
 import { ALL_SERVICES } from "../_lib/services";
 import Image from "next/image";
 import Link from "next/link";
-import { Facebook, Twitter, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -32,24 +32,22 @@ export function Footer() {
               exceptional results with global talent and local expertise.
             </p>
             <div className="flex space-x-4">
-              <Link
-                href="https://www.facebook.com/offshorepirates"
+              <a
+                href="https://www.facebook.com/profile.php?id=61579338635996"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white hover:text-cyan-300 transition-colors"
               >
                 <Facebook className="size-5" />
-              </Link>
-              <Link
-                href="https://twitter.com/offshorepirates"
-                className="text-white hover:text-cyan-300 transition-colors"
-              >
-                <Twitter className="size-5" />
-              </Link>
-              <Link
-                href="https://www.linkedin.com/company/offshorepirates"
+              </a>
+              <a
+                href="https://www.linkedin.com/company/offshore-pirates/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white hover:text-cyan-300 transition-colors"
               >
                 <Linkedin className="size-5" />
-              </Link>
+              </a>
             </div>
           </div>
 

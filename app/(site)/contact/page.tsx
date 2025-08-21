@@ -15,7 +15,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useWeb3Forms } from "../../hooks/use-web3forms";
-import { Mail, Phone, MapPin, Send, Users, Target, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Users, Target, Clock, Facebook, Linkedin, Share2 } from "lucide-react";
 
 const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -130,6 +130,38 @@ export default function ContactPage() {
                       <br />
                       Dhaka-1219, Bangladesh
                     </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group p-6 rounded-2xl border border-cyan-200/50 bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-300 hover:border-cyan-300/60">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-100 to-blue-100 text-cyan-600 group-hover:from-cyan-500 group-hover:to-blue-500 group-hover:text-white transition-all duration-300">
+                    <Share2 className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-1 text-gray-900">
+                      Follow Us
+                    </h3>
+                    <p className="text-gray-600 mb-2">Stay connected with us on social media</p>
+                    <div className="flex space-x-4">
+                      <a
+                        href="https://www.facebook.com/profile.php?id=61579338635996"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-cyan-600 hover:text-cyan-700 hover:underline font-medium transition-colors"
+                      >
+                        <Facebook className="h-6 w-6" />
+                      </a>
+                      <a
+                        href="https://www.linkedin.com/company/offshore-pirates/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-cyan-600 hover:text-cyan-700 hover:underline font-medium transition-colors"
+                      >
+                        <Linkedin className="h-6 w-6" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>

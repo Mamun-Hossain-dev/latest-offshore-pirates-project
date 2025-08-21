@@ -7,6 +7,7 @@ import { WhatsAppButton } from "@/components/whatsapp-button";
 
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://offshorepirates.com"),
   title: "Offshore Pirates",
   description:
     "Scale your operations with offshore talent that delivers on-demand performance across support, finance, and operations",
@@ -15,10 +16,17 @@ export const metadata: Metadata = {
     title: "Offshore Pirates",
     description:
       "Scale your operations with offshore talent that delivers on-demand performance across support, finance, and operations",
-    url: "https://offshorePirates.com",
+    url: "https://offshorepirates.com",
     siteName: "Offshore Pirates",
     images: ["/og-image.png"], // put this in /public
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Offshore Pirates",
+    description:
+      "Scale your operations with offshore talent that delivers on-demand performance across support, finance, and operations",
+    images: ["/og-image.png"],
   },
 };
 

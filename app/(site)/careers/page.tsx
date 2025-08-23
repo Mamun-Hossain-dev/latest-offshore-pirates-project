@@ -218,7 +218,6 @@ export default function CareersPage() {
                   onSubmit={handleSubmit}
                   className="space-y-6"
                 >
-                  
                   <input type="hidden" name="form_name" value="career" />
                   <input
                     type="hidden"

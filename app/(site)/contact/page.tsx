@@ -15,7 +15,18 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useWeb3Forms } from "../../hooks/use-web3forms";
-import { Mail, Phone, MapPin, Send, Users, Target, Clock, Facebook, Linkedin, Share2 } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Users,
+  Target,
+  Clock,
+  Facebook,
+  Linkedin,
+  Share2,
+} from "lucide-react";
 
 const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -143,7 +154,9 @@ export default function ContactPage() {
                     <h3 className="font-semibold text-lg mb-1 text-gray-900">
                       Follow Us
                     </h3>
-                    <p className="text-gray-600 mb-2">Stay connected with us on social media</p>
+                    <p className="text-gray-600 mb-2">
+                      Stay connected with us on social media
+                    </p>
                     <div className="flex space-x-4">
                       <a
                         href="https://www.facebook.com/profile.php?id=61579338635996"

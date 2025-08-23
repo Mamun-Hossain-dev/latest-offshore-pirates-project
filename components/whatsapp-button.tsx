@@ -4,7 +4,8 @@ import { MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function WhatsAppButton() {
-  const phoneNumber = "8801810119575";
+  // ✅ Remove +, brackets, spaces
+  const phoneNumber = "17027603001";
   const message =
     "Hello! I'm interested in learning more about your BPO services. Could you please provide me with more information about how you can help streamline my business operations?";
 

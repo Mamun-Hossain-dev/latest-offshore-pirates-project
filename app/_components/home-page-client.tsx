@@ -19,7 +19,12 @@ import { useCallback, useEffect, useState } from "react";
 import { ServiceCard } from "@/app/_components/service-card";
 import { getAllBlogPosts } from "@/app/_lib/blog";
 
-export default function HomePageClient({ top3, whyChooseUsItems, industries, latestBlogs }) {
+export default function HomePageClient({
+  top3,
+  whyChooseUsItems,
+  industries,
+  latestBlogs,
+}) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
   const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
   const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
@@ -89,7 +94,7 @@ export default function HomePageClient({ top3, whyChooseUsItems, industries, lat
                 </span>
               </h1>
 
-              <p
+              {/* <p
                 className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed opacity-0 animate-letter-fill"
                 style={{
                   animationDelay: "1.4s",
@@ -98,7 +103,7 @@ export default function HomePageClient({ top3, whyChooseUsItems, industries, lat
               >
                 Scale your operations with offshore talent that delivers
                 on-demand performance across support, finance, and operations.
-              </p>
+              </p> */}
 
               <div
                 className="flex flex-col sm:flex-row justify-center gap-6 mb-16 opacity-0 animate-fade-in-up"
@@ -199,8 +204,6 @@ export default function HomePageClient({ top3, whyChooseUsItems, industries, lat
           </div>
 
           <div className="relative">
-            
-
             {/* Slider container */}
             <div className="overflow-hidden" ref={emblaRef}>
               <div className="flex animate-auto-scroll hover:pause">

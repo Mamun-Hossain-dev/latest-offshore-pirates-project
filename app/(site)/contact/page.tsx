@@ -26,7 +26,7 @@ const schema = z.object({
 
 export default function ContactPage() {
   const { submitForm, isSubmitting } = useWeb3Forms({
-    accessKey: "e18e94ea-2ad7-4120-8b40-9a3f61a419a6",
+    accessKey: "017da9d2-34a6-420c-9f70-2a4deab0b770",
     onSuccess: () => {
       form.reset();
     },

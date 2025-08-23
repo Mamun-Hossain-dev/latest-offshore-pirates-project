@@ -115,10 +115,10 @@ export default function ContactPage() {
                     </h3>
                     <p className="text-gray-600 mb-2">Mon-Fri 9AM-6PM BST</p>
                     <a
-                      href="tel:+8801810119575"
+                      href="tel:+1(702)760-3001"
                       className="text-cyan-600 hover:text-cyan-700 hover:underline font-medium transition-colors"
                     >
-                      +8801810119575
+                      +1(702)760-3001
                     </a>
                   </div>
                 </div>
